@@ -25,5 +25,14 @@ public class Game
     {
         Raylib.DrawTextEx(Program.monospaceFont, "testing", new Vector2(5, 5), 16, 0, Color.Black);
         Text.Draw("Hello", new(200, 200));
+
+        Draw.FillColor = Color.LightGray;
+        Draw.Circle(new(440, 300), 130);
+
+        Draw.FillColor = Color.Blue;
+        Draw.Ellipse(new(400, 300), new(30, 100));
+        Draw.Ellipse(new(440, 300), new(30, 100));
+        Draw.Ellipse(new(480, 300), new(30, 100));
+
     }
 }
