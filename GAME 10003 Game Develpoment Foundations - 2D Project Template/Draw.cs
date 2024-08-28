@@ -372,7 +372,15 @@ public static class Draw
 
 
     // DRAW ELLIPSE
-    //TODO: use default state
+    
+    /// <summary>
+    ///     Draw a filled ellipse at <paramref name="position"/> expanding outward to
+    ///     <paramref name="size"/> using <see cref="FillColor"/>.
+    /// </summary>
+    /// <param name="position">The ellipse's position, defines the centre point.</param>
+    /// <param name="size">The size of the ellipse.</param>
+    public static void Ellipse(Vector2 position, Vector2 size)
+        => Ellipse(position, size, FillColor);
 
     /// <summary>
     ///     Draw a filled ellipse at <paramref name="position"/> expanding outward to
@@ -485,7 +493,15 @@ public static class Draw
 
 
     // DRAW CIRCLE
-    // TODO: use default state
+
+    /// <summary>
+    ///     Draw a filled circle at <paramref name="position"/> expanding outward to
+    ///     <paramref name="radius"/> using <see cref="FillColor"/>.
+    /// </summary>
+    /// <param name="position">The ellipse's position, defines the centre point.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    public static void Circle(Vector2 position, float radius)
+        => Circle(position, radius, FillColor);
 
     /// <summary>
     ///     Draw a filled circle at <paramref name="position"/> expanding outward to
