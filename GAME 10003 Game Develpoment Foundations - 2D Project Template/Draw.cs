@@ -33,6 +33,7 @@ public static class Draw
     public static Color LineColor { get; set; } = Color.Blank;
     public static float LineSize { get; set; } = 1f;
 
+    private const float degreesToRadians = 57.2957795131f;
 
     // DRAW LINE
 
@@ -64,6 +65,23 @@ public static class Draw
         Vector2 point0 = new Vector2(x0, y0);
         Vector2 point1 = new Vector2(x1, y1);
         Raylib.DrawLineEx(point0, point1, lineSize, lineColor);
+    }
+
+    /// <summary>
+    ///     Draw lines between all <paramref name="points"/> using <see cref="Draw.LineSize"/>
+    ///     and <see cref="Draw.LineColor"/>
+    /// </summary>
+    /// <param name="points"></param>
+    private static void PolyLine(Vector2[] points)
+        => PolyLine(points, LineSize, LineColor);
+    private static void PolyLine(Vector2[] points, float lineSize, Color lineColor)
+    {
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            Vector2 start = points[i + 0];
+            Vector2 end = points[i + 1];
+            LineRounded(start, end, lineSize, lineColor);
+        }
     }
 
     /// <summary>
@@ -247,7 +265,7 @@ public static class Draw
 
 
     // DRAW ELLIPSE
-    
+
     /// <summary>
     ///     Draw a filled ellipse at <paramref name="position"/> expanding outward to
     ///     <paramref name="size"/> using <see cref="Draw.FillColor"/>.
@@ -454,4 +472,48 @@ public static class Draw
         CircleBordered(position, radius, fillColor, lineSize, lineColor);
     }
 
+    // TRIANGLE
+    public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
+        => Triangle(position, sideLength, angleDegrees, FillColor);
+    public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
+        => Triangle(x, y, sideLength, angleDegrees, FillColor);
+    public static void Triangle(float x, float y, float sideLength, float angleDegrees, Color fillColor)
+        => Triangle(new(x, y), sideLength, angleDegrees, fillColor);
+    public static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
+    {
+        float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
+        Vector2 v0 = position;
+        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
+        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
+        Raylib.DrawTriangle(v0, v1, v2, fillColor);
+    }
+
+    public static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees = 0)
+    => TriangleOutline(position, sideLength, angleDegrees, LineSize, LineColor);
+    public static void TriangleOutline(float x, float y, float sideLength, float angleDegrees = 0)
+        => TriangleOutline(x, y, sideLength, angleDegrees, LineSize, LineColor);
+    public static void TriangleOutline(float x, float y, float sideLength, float angleDegrees, float lineSize, Color lineColor)
+        => TriangleOutline(new(x, y), sideLength, angleDegrees, lineSize, lineColor);
+    public static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
+    {
+        float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
+        Vector2 v0 = position;
+        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
+        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
+        PolyLine([ v0, v1, v2, v0 ], lineSize, lineColor);
+    }
+
+    public static void TriangleBordered(Vector2 position, float sideLength, float angleDegrees = 0)
+        => TriangleBordered(position, sideLength, angleDegrees, LineColor, LineSize, LineColor);
+    public static void TriangleBordered(float x, float y, float sideLength, float angleDegrees = 0)
+        => TriangleBordered(x, y, sideLength, angleDegrees, LineColor, LineSize, LineColor);
+    public static void TriangleBordered(float x, float y, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
+        => TriangleBordered(new(x, y), sideLength, angleDegrees, lineColor, lineSize, lineColor);
+    public static void TriangleBordered(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
+    {
+        Triangle(position, sideLength, angleDegrees, fillColor);
+        TriangleOutline(position, sideLength, angleDegrees, lineSize, lineColor);
+    }
 }

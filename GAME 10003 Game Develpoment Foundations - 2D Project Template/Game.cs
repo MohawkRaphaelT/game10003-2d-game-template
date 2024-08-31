@@ -33,5 +33,9 @@ public class Game
         Draw.Ellipse(new(440, 300), new(30, 100));
         Draw.Ellipse(new(480, 300), new(30, 100));
 
+        // Triangles test
+        Draw.Triangle(new(100, 100), 100, Time.Elapsed * 36, Color.Red);
+        Draw.TriangleOutline(new(250, 100), 100, Time.Elapsed * 36, 5, Color.Black);
+        Draw.TriangleBordered(new(400, 100), 100, Time.Elapsed * 36, Color.Red, 5, Color.Black);
     }
 }
