@@ -10,13 +10,14 @@
  */
 
 using Raylib_cs;
-using System;
-using System.IO;
 using System.Numerics;
 
 /// <summary>
-///     TBD
+///     Access text drawing functions.
 /// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's text API.
+/// </remarks>
 public static class Text
 {
     // State

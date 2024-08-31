@@ -1,5 +1,8 @@
 ﻿using System;
 
+/// <summary>
+///     Represents an RGBA color (32-bit).
+/// </summary>
 public struct Color
 {
     private byte r;

@@ -1,5 +1,9 @@
-﻿// Copy of Raylib's GamepadButton
-
+﻿/// <summary>
+///     Defines the various controller buttons (gitial inputs) on a generic way.
+/// </summary>
+/// <remarks>
+///     Raylib's GamepadButton
+/// </remarks>
 public enum ControllerButton
 {
     /// <summary>

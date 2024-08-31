@@ -2,6 +2,12 @@
 using System;
 using System.Numerics;
 
+/// <summary>
+///     Access player input functions.
+/// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's gamepad API.
+/// </remarks>
 public static class Input
 {
     private delegate CBool RaylibKeyboardKeyFunc(KeyboardKey key);

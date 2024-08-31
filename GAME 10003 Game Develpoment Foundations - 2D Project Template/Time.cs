@@ -15,6 +15,9 @@ using System.Diagnostics;
 /// <summary>
 ///     Access time-related information.
 /// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's draw API.
+/// </remarks>
 public class Time
 {
     // STATIC STATE

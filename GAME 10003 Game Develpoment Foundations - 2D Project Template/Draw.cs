@@ -9,18 +9,19 @@
  *      2023/01/04: Initial draft
  *      2023/10/10: First complete pass
  *      2024/05/30: Bring over to new template project
- *      2024/08/31: Hide state-less functions, add comments to all functions, add missing functions
+ *      2024/08/31: Delete state-less functions, add comments to all functions, add missing functions
  */
 
 
 using Raylib_cs;
-using System;
 using System.Numerics;
-using System.Threading;
 
 /// <summary>
-///     A static wrapper to standardize raylib's draw API.
+///     Access drawing functions.
 /// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's draw API.
+/// </remarks>
 public static class Draw
 {
     // Development notes
