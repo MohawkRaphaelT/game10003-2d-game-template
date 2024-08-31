@@ -12,6 +12,9 @@
 using Raylib_cs;
 using System.Diagnostics;
 
+/// <summary>
+///     Access time-related information.
+/// </summary>
 public class Time
 {
     // STATIC STATE
