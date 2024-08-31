@@ -26,16 +26,14 @@ public class Game
         Text.Draw("Hello", new(200, 200));
 
         Draw.FillColor = Color.LightGray;
-        Draw.CircleFill(new(440, 300), 130);
+        Draw.Circle(new(440, 300), 130);
 
         Draw.FillColor = Color.Blue;
-        Draw.EllipseFill(new(400, 300), new(30, 100));
-        Draw.EllipseFill(new(440, 300), new(30, 100));
-        Draw.EllipseFill(new(480, 300), new(30, 100));
+        Draw.Ellipse(new(400, 300), new(30, 100));
+        Draw.Ellipse(new(440, 300), new(30, 100));
+        Draw.Ellipse(new(480, 300), new(30, 100));
 
-        // Triangles test
-        Draw.TriangleFill(new(100, 100), 100, Time.Elapsed * 36, Color.Red);
-        Draw.TriangleOutline(new(250, 100), 100, Time.Elapsed * 36, 5, Color.Black);
-        Draw.Triangle(new(400, 100), 100, Time.Elapsed * 36, Color.Red, 5, Color.Black);
+        // Triangle test
+        Draw.Triangle(new(100, 100), 100, Time.Elapsed * 36);
     }
 }
