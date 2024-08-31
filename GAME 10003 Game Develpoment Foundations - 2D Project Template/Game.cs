@@ -8,7 +8,6 @@ public class Game
     public string title = "Game Title";
     public int screenWidth = 800;
     public int screenHeight = 600;
-    public int targetFps = 60;
     public Color backgroundColor = new Color(240);
 
     // Place your variables here

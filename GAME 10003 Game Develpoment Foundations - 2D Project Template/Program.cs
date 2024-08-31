@@ -25,7 +25,7 @@ public class Program
 
         Raylib.InitWindow(game.screenWidth, game.screenHeight, game.title);
         Raylib.InitAudioDevice();
-        Raylib.SetTargetFPS(game.targetFps);
+        Raylib.SetTargetFPS(Time.TargetFPS);
         Text.Initialize();
 
         game.Setup();
@@ -36,6 +36,7 @@ public class Program
             Raylib.ClearBackground(game.backgroundColor);
             game.Update();
             Raylib.EndDrawing();
+            Time.ElapsedFrames++;
         }
 
         Raylib.CloseAudioDevice();
