@@ -10,37 +10,39 @@ using System.Numerics;
 /// </remarks>
 public static class Input
 {
-    private delegate CBool RaylibKeyboardKeyFunc(KeyboardKey key);
-    private delegate CBool RaylibGamepadButtonFunc(int controllerIndex, GamepadButton controllerButton);
-
     // Keyboard
-    private static bool IsKeyX(KeyboardKey key, RaylibKeyboardKeyFunc keyboardFunc)
-    {
-        bool state = keyboardFunc(key);
-        return state;
-    }
-    public static bool IsKeyPressed(KeyboardKey key) => IsKeyX(key, Raylib.IsKeyPressed);
-    public static bool IsKeyReleased(KeyboardKey key) => IsKeyX(key, Raylib.IsKeyReleased);
-    public static bool IsKeyUp(KeyboardKey key) => IsKeyX(key, Raylib.IsKeyUp);
-    public static bool IsKeyDown(KeyboardKey key) => IsKeyX(key, Raylib.IsKeyDown);
+    public static bool IsKeyboardKeyPressed(KeyboardKey key) => Raylib.IsKeyPressed(key);
+    public static bool IsKeyboardKeyReleased(KeyboardKey key) =>  Raylib.IsKeyReleased(key);
+    public static bool IsKeyboardKeyUp(KeyboardKey key) =>  Raylib.IsKeyUp(key);
+    public static bool IsKeyboardKeyDown(KeyboardKey key) => Raylib.IsKeyDown(key);
 
-    // Button
-    private static bool IsControllerButton(int gamepadIndex, ControllerButton controllerButton, RaylibGamepadButtonFunc controllerFunc)
-    {
-        GamepadButton button = (GamepadButton)controllerButton;
-        bool state = controllerFunc(gamepadIndex, button);
-        return state;
-    }
+    // Mouse
+    public static bool IsMouseButtonPressed(MouseButton button) => Raylib.IsMouseButtonPressed(button);
+    public static bool IsMouseButtonReleased(MouseButton button) => Raylib.IsMouseButtonReleased(button);
+    public static bool IsMouseButtonUp(MouseButton button) => Raylib.IsMouseButtonUp(button);
+    public static bool IsMouseButtonDown(MouseButton button) => Raylib.IsMouseButtonDown(button);
+    public static Vector2 MouseDeltaPosition => Raylib.GetMouseDelta();
+    public static Vector2 MousePosition => Raylib.GetMousePosition();
+    public static float MouseX => Raylib.GetMouseX();
+    public static float MouseY => Raylib.GetMouseY();
+    public static Vector2 MouseWheel => Raylib.GetMouseWheelMoveV();
+    public static float MouseWheelX => Raylib.GetMouseWheelMoveV().X;
+    public static float MouseWheelY => Raylib.GetMouseWheelMoveV().Y;
+
+
+    // Controller Button
     public static bool IsControllerButtonPressed(int controllerIndex, ControllerButton controllerButton)
-        => IsControllerButton(controllerIndex, controllerButton, Raylib.IsGamepadButtonPressed);
+        => Raylib.IsGamepadButtonPressed(controllerIndex, (GamepadButton)controllerButton);
     public static bool IsControllerButtonReleased(int controllerIndex, ControllerButton controllerButton)
-        => IsControllerButton(controllerIndex, controllerButton, Raylib.IsGamepadButtonReleased);
+        => Raylib.IsGamepadButtonReleased(controllerIndex, (GamepadButton)controllerButton);
     public static bool IsControllerButtonUp(int controllerIndex, ControllerButton controllerButton)
-        => IsControllerButton(controllerIndex, controllerButton, Raylib.IsGamepadButtonUp);
+        => Raylib.IsGamepadButtonUp(controllerIndex, (GamepadButton)controllerButton);
     public static bool IsControllerButtonDown(int controllerIndex, ControllerButton controllerButton)
-        => IsControllerButton(controllerIndex, controllerButton, Raylib.IsGamepadButtonDown);
+        => Raylib.IsGamepadButtonDown(controllerIndex, (GamepadButton)controllerButton);
 
-    private static bool IsAnyControllerButton(ControllerButton controllerButton, RaylibGamepadButtonFunc gamepadFunc)
+
+    private delegate CBool RaylibGamepadButtonFunc(int controllerIndex, GamepadButton controllerButton);
+    private static bool IsAnyControllerButtonXXX(ControllerButton controllerButton, RaylibGamepadButtonFunc gamepadFunc)
     {
         int controllerCount = ConnectedControllerCount();
         for (int i = 0; i < controllerCount; i++)
@@ -53,23 +55,22 @@ public static class Input
         return false;
     }
     public static bool IsAnyControllerButtonPressed(ControllerButton controllerButton)
-        => IsAnyControllerButton(controllerButton, Raylib.IsGamepadButtonPressed);
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonPressed);
     public static bool IsAnyControllerButtonReleased(ControllerButton controllerButton)
-        => IsAnyControllerButton(controllerButton, Raylib.IsGamepadButtonReleased);
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonReleased);
     public static bool IsAnyControllerButtonUp(ControllerButton controllerButton)
-        => IsAnyControllerButton(controllerButton, Raylib.IsGamepadButtonUp);
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonUp);
     public static bool IsAnyControllerButtonDown(ControllerButton controllerButton)
-        => IsAnyControllerButton(controllerButton, Raylib.IsGamepadButtonDown);
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonDown);
 
 
-    // Axis
+    // Controller Axis
     public static float GetControllerAxis(int controllerIndex, ControllerAxis controllerAxis)
     {
         GamepadAxis axis = (GamepadAxis)controllerAxis;
         float value = Raylib.GetGamepadAxisMovement(controllerIndex, axis);
         return value;
     }
-
     public static float GetAnyControllerAxis(ControllerAxis controllerAxis, float deadzone = 0.05f)
     {
         GamepadAxis axis = (GamepadAxis)controllerAxis;
@@ -91,14 +92,11 @@ public static class Input
         finalValue /= controllerCount;
         return finalValue;
     }
-
-
     public static bool IsControllerAvailable(int controllerIndex)
     {
         bool isAvailable = Raylib.IsGamepadAvailable(controllerIndex);
         return isAvailable;
     }
-
     public static int ConnectedControllerCount()
     {
         int controllerCount = 0;
