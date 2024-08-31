@@ -36,7 +36,6 @@ public static class Draw
     private const float degreesToRadians = 57.2957795131f;
 
     // DRAW LINE
-
     /// <summary>
     ///     Draw a line from <paramref name="start"/> to <paramref name="end"/> 
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
@@ -55,25 +54,23 @@ public static class Draw
     /// <param name="x1">Line end position X.</param>
     /// <param name="y1">Line end position Y.</param>
     public static void Line(float x0, float y0, float x1, float y1)
-        => Line(x0, y0, x1, y1, LineSize, LineColor);
+        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    //
     private static void Line(Vector2 start, Vector2 end, float lineSize, Color lineColor)
     {
         Raylib.DrawLineEx(start, end, lineSize, lineColor);
     }
-    private static void Line(float x0, float y0, float x1, float y1, float lineSize, Color lineColor)
-    {
-        Vector2 point0 = new Vector2(x0, y0);
-        Vector2 point1 = new Vector2(x1, y1);
-        Raylib.DrawLineEx(point0, point1, lineSize, lineColor);
-    }
 
+
+    // DRAW POLY-LINES
     /// <summary>
     ///     Draw lines between all <paramref name="points"/> using <see cref="Draw.LineSize"/>
     ///     and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <param name="points"></param>
-    private static void PolyLine(Vector2[] points)
+    public static void PolyLine(Vector2[] points)
         => PolyLine(points, LineSize, LineColor);
+    //
     private static void PolyLine(Vector2[] points, float lineSize, Color lineColor)
     {
         for (int i = 0; i < points.Length - 1; i++)
@@ -84,6 +81,8 @@ public static class Draw
         }
     }
 
+
+    // DRAW LINE ROUNDED
     /// <summary>
     ///     Draw a line with rounded ends from <paramref name="start"/> to <paramref name="end"/> 
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
@@ -102,7 +101,8 @@ public static class Draw
     /// <param name="x1">Line end position X.</param>
     /// <param name="y1">Line end position Y.</param>
     public static void LineRounded(float x0, float y0, float x1, float y1)
-        => LineRounded(x0, y0, x1, y1, LineSize, LineColor);
+        => LineRounded(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    //
     private static void LineRounded(Vector2 start, Vector2 end, float lineSize, Color lineColor)
     {
         Raylib.DrawLineEx(start, end, lineSize, lineColor);
@@ -111,83 +111,9 @@ public static class Draw
         Raylib.DrawCircleV(start, circleRadius, lineColor);
         Raylib.DrawCircleV(end, circleRadius, lineColor);
     }
-    private static void LineRounded(float x0, float y0, float x1, float y1, float lineSize, Color lineColor)
-    {
-        Vector2 point0 = new Vector2(x0, y0);
-        Vector2 point1 = new Vector2(x1, y1);
-        LineRounded(point0, point1, lineSize, lineColor);
-    }
 
 
     // DRAW RECTANGLE
-
-    /// <summary>
-    ///     Draw a filled rectangle at <paramref name="position"/> expanding right and down
-    ///     to <paramref name="size"/> using <see cref="Draw.FillColor"/>.
-    /// </summary>
-    /// <param name="position">The rectangle position, defines the upper-left corner.</param>
-    /// <param name="size">The size of the rectangle.</param>
-    public static void Rectangle(Vector2 position, Vector2 size)
-        => Rectangle(position, size, FillColor);
-    /// <summary>
-    ///     Draw a filled rectangle at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding right and down to size (<paramref name="w"/>, <paramref name="h"/>)
-    ///     using <see cref="Draw.FillColor"/>.
-    /// </summary>
-    /// <param name="x">The rectangle's X position, defines the left edge.</param>
-    /// <param name="y">The rectangle's Y position, defines the top edge.</param>
-    /// <param name="w">The rectangle's width.</param>
-    /// <param name="h">The rectangle's height.</param>
-    public static void Rectangle(float x, float y, float w, float h)
-        => Rectangle(x, y, w, h, FillColor);
-    private static void Rectangle(Vector2 position, Vector2 size, Color fillColor)
-    {
-        int ix = (int)Math.Round(position.X, MidpointRounding.ToEven);
-        int iy = (int)Math.Round(position.Y, MidpointRounding.ToEven);
-        int iw = (int)Math.Round(size.X, MidpointRounding.ToEven);
-        int ih = (int)Math.Round(size.Y, MidpointRounding.ToEven);
-        Raylib.DrawRectangle(ix, iy, iw, ih, fillColor);
-    }
-    private static void Rectangle(float x, float y, float w, float h, Color fillColor)
-    {
-        Vector2 position = new Vector2(x, y);
-        Vector2 size = new Vector2(w, h);
-        Rectangle(position, size, fillColor);
-    }
-
-    /// <summary>
-    ///     Draw a rectangle outline at <paramref name="position"/> expanding right and down to
-    ///     <paramref name="size"/> using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="position">The rectangle position, defines the upper-left corner.</param>
-    /// <param name="size">The size of the rectangle.</param>
-    public static void RectangleOutline(Vector2 position, Vector2 size)
-        => RectangleOutline(position, size, LineSize, LineColor);
-    /// <summary>
-    ///     Draw a rectangle outline at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding right and down to size (<paramref name="w"/>, <paramref name="h"/>)
-    ///     using using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="x">The rectangle's X position, defines the left edge.</param>
-    /// <param name="y">The rectangle's Y position, defines the top edge.</param>
-    /// <param name="w">The rectangle's width.</param>
-    /// <param name="h">The rectangle's height.</param>
-    public static void RectangleOutline(float x, float y, float w, float h)
-        => RectangleOutline(x, y, w, h, LineSize, LineColor);
-    private static void RectangleOutline(Vector2 position, Vector2 size, float lineSize, Color lineColor)
-    {
-        int x = (int)Math.Round(position.X, MidpointRounding.ToEven);
-        int y = (int)Math.Round(position.Y, MidpointRounding.ToEven);
-        int w = (int)Math.Round(size.X, MidpointRounding.ToEven);
-        int h = (int)Math.Round(size.Y, MidpointRounding.ToEven);
-        Rectangle rectangle = new Rectangle(x, y, w, h);
-        Raylib.DrawRectangleLinesEx(rectangle, lineSize, lineColor);
-    }
-    private static void RectangleOutline(float x, float y, float w, float h, float lineSize, Color lineColor)
-    {
-        RectangleOutline(x, y, w, h, lineSize, lineColor);
-    }
-
     /// <summary>
     ///     Draw a filled and outlined rectangle at <paramref name="position"/> expanding
     ///     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
@@ -196,8 +122,8 @@ public static class Draw
     /// </summary>
     /// <param name="position">The rectangle position, defines the upper-left corner.</param>
     /// <param name="size">The size of the rectangle.</param>
-    public static void RectangleBordered(Vector2 position, Vector2 size)
-        => RectangleBordered(position, size, FillColor, LineSize, LineColor);
+    public static void Rectangle(Vector2 position, Vector2 size)
+        => Rectangle(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding right and down to size (<paramref name="w"/>, 
@@ -209,87 +135,128 @@ public static class Draw
     /// <param name="y">The rectangle's Y position, defines the top edge.</param>
     /// <param name="w">The rectangle's width.</param>
     /// <param name="h">The rectangle's height.</param>
-    public static void RectangleBordered(float x, float y, float w, float h)
-        => RectangleBordered(x, y, w, h, FillColor, LineSize, LineColor);
-    private static void RectangleBordered(Vector2 position, Vector2 size, Color fillColor, float lineSize, Color lineColor)
-    {
-        //int left = (int)Math.Round(position.X, MidpointRounding.ToEven);
-        //int top = (int)Math.Round(position.Y, MidpointRounding.ToEven);
-        //Vector2 roundedPosition = new Vector2(left, top);
-
-        // Draw rectangle inner fill area
-        Rectangle(position, size, fillColor);
-        RectangleOutline(position, size, lineSize, lineColor);
-    }
-    private static void RectangleBordered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
+    public static void Rectangle(float x, float y, float w, float h)
+        => Rectangle(x, y, w, h, FillColor, LineSize, LineColor);
+    //
+    private static void Rectangle(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
         Vector2 position = new Vector2(x, y);
         Vector2 size = new Vector2(w, h);
-        RectangleBordered(position, size, fillColor, lineSize, lineColor);
+        RectangleFill(position, size, fillColor);
+        RectangleOutline(position, size, lineSize, lineColor);
+    }
+    private static void RectangleFill(Vector2 position, Vector2 size, Color fillColor)
+    {
+        int ix = (int)Math.Round(position.X, MidpointRounding.ToEven);
+        int iy = (int)Math.Round(position.Y, MidpointRounding.ToEven);
+        int iw = (int)Math.Round(size.X, MidpointRounding.ToEven);
+        int ih = (int)Math.Round(size.Y, MidpointRounding.ToEven);
+        Raylib.DrawRectangle(ix, iy, iw, ih, fillColor);
+    }
+    private static void RectangleOutline(Vector2 position, Vector2 size, float lineSize, Color lineColor)
+    {
+        int x = (int)Math.Round(position.X, MidpointRounding.ToEven);
+        int y = (int)Math.Round(position.Y, MidpointRounding.ToEven);
+        int w = (int)Math.Round(size.X, MidpointRounding.ToEven);
+        int h = (int)Math.Round(size.Y, MidpointRounding.ToEven);
+        Rectangle rectangle = new Rectangle(x, y, w, h);
+        Raylib.DrawRectangleLinesEx(rectangle, lineSize, lineColor);
     }
 
+
+    // DRAW SQUARE
     /// <summary>
-    ///     Draw a filled and outlined rectangle at <paramref name="position"/> expanding
+    ///     Draw a filled and outlined square at <paramref name="position"/> expanding
     ///     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
     ///     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
-    ///     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
+    ///     <see cref="Draw.FillColor"/> for the square's fill Color.
     /// </summary>
-    /// <param name="position">The rectangle position, defines the centre point.</param>
-    /// <param name="size">The size of the rectangle.</param>
-    public static void RectangleBorderedCentered(Vector2 position, Vector2 size)
-        => RectangleBorderedCentered(position, size, FillColor, LineSize, LineColor);
+    /// <param name="position">The square position, defines the upper-left corner.</param>
+    /// <param name="size">The square's width and height.</param>
+    public static void Square(Vector2 position, float size)
+        => Square(position.X, position.Y, size, FillColor, LineSize, LineColor);
     /// <summary>
-    ///     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
-    ///     <paramref name="y"/>) expanding right and down to (<paramref name="w"/>, 
+    ///     Draw a filled and outlined square at position (<paramref name="x"/>, 
+    ///     <paramref name="y"/>) expanding right and down to size (<paramref name="w"/>, 
     ///     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for
     ///     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
-    ///     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
+    ///     <see cref="Draw.FillColor"/> for the square's fill Color.
     /// </summary>
-    /// <param name="x">The rectangle's X position, defines the horizontal centre.</param>
-    /// <param name="y">The rectangle's Y position, defines the vertical centre.</param>
-    /// <param name="w">The rectangle's width.</param>
-    /// <param name="h">The rectangle's height.</param>
-    public static void RectangleBorderedCentered(float x, float y, float w, float h)
-        => RectangleBorderedCentered(x, y, w, h, FillColor, LineSize, LineColor);
-    private static void RectangleBorderedCentered(Vector2 position, Vector2 size, Color fillColor, float lineSize, Color lineColor)
-    {
-        RectangleBorderedCentered(position.X, position.Y, size.X, size.Y, fillColor, lineSize, lineColor);
-    }
-    private static void RectangleBorderedCentered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
-    {
-        // Offset x and y by half the width and height, respectively.
-        float cx = x - w / 2;
-        float cy = y - h / 2;
-        RectangleBordered(cx, cy, w, h, fillColor, lineSize, lineColor);
-    }
+    /// <param name="x">The square's X position, defines the left edge.</param>
+    /// <param name="y">The square's Y position, defines the top edge.</param>
+    /// <param name="size">The square's width and height.</param>
+    public static void Square(float x, float y, float size)
+        => Square(x, y, size, FillColor, LineSize, LineColor);
+    //
+    private static void Square(float x, float y, float size, Color fillColor, float lineSize, Color lineColor)
+        => Rectangle(x, y, size, size, fillColor, lineSize, lineColor);
+
+
+    //// DRAW RECTANGLE CENTERED
+    ///// <summary>
+    /////     Draw a filled and outlined rectangle at <paramref name="position"/> expanding
+    /////     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
+    /////     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
+    /////     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
+    ///// </summary>
+    ///// <param name="position">The rectangle position, defines the centre point.</param>
+    ///// <param name="size">The size of the rectangle.</param>
+    //public static void RectangleCentered(Vector2 position, Vector2 size)
+    //    => RectangleCentered(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
+    ///// <summary>
+    /////     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
+    /////     <paramref name="y"/>) expanding right and down to (<paramref name="w"/>, 
+    /////     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for
+    /////     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
+    /////     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
+    ///// </summary>
+    ///// <param name="x">The rectangle's X position, defines the horizontal centre.</param>
+    ///// <param name="y">The rectangle's Y position, defines the vertical centre.</param>
+    ///// <param name="w">The rectangle's width.</param>
+    ///// <param name="h">The rectangle's height.</param>
+    //public static void RectangleCentered(float x, float y, float w, float h)
+    //    => RectangleCentered(x, y, w, h, FillColor, LineSize, LineColor);
+    ////
+    //private static void RectangleCentered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
+    //{
+    //    // Offset x and y by half the width and height, respectively.
+    //    float cx = x - w / 2;
+    //    float cy = y - h / 2;
+    //    Rectangle(cx, cy, w, h, fillColor, lineSize, lineColor);
+    //}
 
 
     // DRAW ELLIPSE
-
     /// <summary>
-    ///     Draw a filled ellipse at <paramref name="position"/> expanding outward to
-    ///     <paramref name="size"/> using <see cref="Draw.FillColor"/>.
+    ///     Draw a filled and outlined ellipse at <paramref name="position"/> expanding
+    ///     outward to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
+    ///     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the ellipse's fill Color.
     /// </summary>
-    /// <param name="position">The ellipse's position, defines the centre point.</param>
+    /// <param name="position">The ellipse position, defines the centre point.</param>
     /// <param name="size">The size of the ellipse.</param>
     public static void Ellipse(Vector2 position, Vector2 size)
-        => Ellipse(position, size, FillColor);
+        => Ellipse(position.X, position.Y, size.X, size.Y, LineColor, LineSize, FillColor);
     /// <summary>
-    ///     Draw a filled ellipse at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding outward to size (<paramref name="w"/>, <paramref name="h"/>)
-    ///     using <see cref="Draw.FillColor"/>.
+    ///     Draw a filled and outlined ellipse at position (<paramref name="x"/>, 
+    ///     <paramref name="y"/>) expanding outward to size (<paramref name="w"/>, 
+    ///     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for the
+    ///     outline thickness, <see cref="Draw.LineColor"/> for the line's color,
+    ///     and <see cref="Draw.FillColor"/> for the ellipse's fill Color.
     /// </summary>
     /// <param name="x">The ellipse's X position, defines the horizontal centre.</param>
     /// <param name="y">The ellipse's Y position, defines the vertical centre.</param>
     /// <param name="w">The ellipse's width.</param>
     /// <param name="h">The ellipse's height.</param>
     public static void Ellipse(float x, float y, float w, float h)
-        => Ellipse(x, y, w, h, FillColor);
-    private static void Ellipse(Vector2 position, Vector2 size, Color fillColor)
+        => Ellipse(x, y, w, h, LineColor, LineSize, FillColor);
+    // 
+    private static void Ellipse(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
-        Ellipse(position.X, position.Y, size.X, size.Y, fillColor);
+        EllipseFill(x, y, w, h, fillColor);
+        EllipseOutline(x, y, w, h, lineSize, lineColor);
     }
-    private static void Ellipse(float x, float y, float w, float h, Color fillColor)
+    private static void EllipseFill(float x, float y, float w, float h, Color fillColor)
     {
         // Do gradeschool math rounding. Ex: 0.499f rounds down to 0, 0.500f rounds up to 1.
         int ix = (int)Math.Round(x, MidpointRounding.ToEven);
@@ -297,30 +264,6 @@ public static class Draw
         float halfWidth = w / 2f;
         float halfHeight = h / 2f;
         Raylib.DrawEllipse(ix, iy, halfWidth, halfHeight, fillColor);
-    }
-
-    /// <summary>
-    ///     Draw an ellipse outline at <paramref name="position"/> expanding outward to
-    ///     <paramref name="size"/> using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="position">The ellipse's position, defines the centre point.</param>
-    /// <param name="size">The size of the ellipse.</param>
-    public static void EllipseOutline(Vector2 position, Vector2 size)
-        => EllipseOutline(position, size, LineSize, LineColor);
-    /// <summary>
-    ///     Draw an ellipse outline at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding outward to size (<paramref name="w"/>, <paramref name="h"/>)
-    ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="x">The ellipse's X position, defines the horizontal centre.</param>
-    /// <param name="y">The ellipse's Y position, defines the vertical centre.</param>
-    /// <param name="w">The ellipse's width.</param>
-    /// <param name="h">The ellipse's height.</param>
-    public static void EllipseOutline(float x, float y, float w, float h)
-        => EllipseOutline(x, y, w, h, LineSize, LineColor);
-    private static void EllipseOutline(Vector2 position, Vector2 size, float lineSize, Color lineColor)
-    {
-        EllipseOutline(position.X, position.Y, size.X, size.Y, lineSize, lineColor);
     }
     private static void EllipseOutline(float x, float y, float w, float h, float lineSize, Color lineColor)
     {
@@ -342,102 +285,8 @@ public static class Draw
         }
     }
 
-    /// <summary>
-    ///     Draw a filled and outlined ellipse at <paramref name="position"/> expanding
-    ///     outward to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
-    ///     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
-    ///     <see cref="Draw.FillColor"/> for the ellipse's fill Color.
-    /// </summary>
-    /// <param name="position">The ellipse position, defines the centre point.</param>
-    /// <param name="size">The size of the ellipse.</param>
-    public static void EllipseBordered(Vector2 position, Vector2 size)
-        => EllipseBordered(position, size, LineColor, LineSize, FillColor);
-    /// <summary>
-    ///     Draw a filled and outlined ellipse at position (<paramref name="x"/>, 
-    ///     <paramref name="y"/>) expanding outward to size (<paramref name="w"/>, 
-    ///     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for the
-    ///     outline thickness, <see cref="Draw.LineColor"/> for the line's color,
-    ///     and <see cref="Draw.FillColor"/> for the ellipse's fill Color.
-    /// </summary>
-    /// <param name="x">The ellipse's X position, defines the horizontal centre.</param>
-    /// <param name="y">The ellipse's Y position, defines the vertical centre.</param>
-    /// <param name="w">The ellipse's width.</param>
-    /// <param name="h">The ellipse's height.</param>
-    public static void EllipseBordered(float x, float y, float w, float h)
-        => EllipseBordered(x, y, w, h, LineColor, LineSize, FillColor);
-    private static void EllipseBordered(Vector2 position, Vector2 size, Color fillColor, float lineSize, Color lineColor)
-    {
-        EllipseBordered(position.X, position.Y, size.X, size.Y, fillColor, lineSize, lineColor);
-    }
-    private static void EllipseBordered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
-    {
-        Ellipse(x, y, w, h, fillColor);
-        EllipseOutline(x, y, w, h, lineSize, lineColor);
-    }
-
 
     // DRAW CIRCLE
-
-    /// <summary>
-    ///     Draw a filled circle at <paramref name="position"/> expanding outward to
-    ///     <paramref name="radius"/> size using <see cref="Draw.FillColor"/>.
-    /// </summary>
-    /// <param name="position">The ellipse's position, defines the centre point.</param>
-    /// <param name="radius">The radius of the circle.</param>
-    public static void Circle(Vector2 position, float radius)
-        => Circle(position, radius, FillColor);
-    /// <summary>
-    ///     Draw a filled circle at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding outward to expanding outward to <paramref name="radius"/> size
-    ///     using <see cref="Draw.FillColor"/>.
-    /// </summary>
-    /// <param name="x">The circle's X position, defines the horizontal centre.</param>
-    /// <param name="y">The circle's Y position, defines the vertical centre.</param>
-    /// <param name="radius">The circle radius.</param>
-    public static void Circle(float x, float y, float radius)
-        => Circle(x, y, radius, FillColor);
-    private static void Circle(Vector2 position, float radius, Color fillColor)
-    {
-        Raylib.DrawCircleV(position, radius, fillColor);
-    }
-    private static void Circle(float x, float y, float radius, Color fillColor)
-    {
-        Vector2 position = new Vector2(x, y);
-        Circle(position, radius, fillColor);
-    }
-
-    /// <summary>
-    ///     Draw an circle outline at <paramref name="position"/> expanding outward to
-    ///     <paramref name="radius"/> using <see cref="Draw.LineSize"/> and
-    ///     <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="position">The circle's position, defines the centre point.</param>
-    /// <param name="radius">The circle radius.</param>
-    public static void CircleOutline(Vector2 position, float radius)
-        => CircleOutline(position, radius, LineSize, LineColor);
-    /// <summary>
-    ///     Draw a circle outline at position (<paramref name="x"/>, <paramref name="y"/>)
-    ///     expanding outward to <paramref name="radius"/> using <see cref="Draw.LineSize"/>
-    ///     and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="x">The circle's X position, defines the horizontal centre.</param>
-    /// <param name="y">The circle's Y position, defines the vertical centre.</param>
-    /// <param name="radius">The circle radius.</param>
-    public static void CircleOutline(float x, float y, float radius)
-        => CircleOutline(x, y, radius, LineSize, LineColor);
-    private static void CircleOutline(Vector2 position, float radius, float lineSize, Color lineColor)
-    {
-        float innerRadius = radius - lineSize;
-        float outerRadius = radius;
-        int segments = (int)(radius * 4);
-        Raylib.DrawRing(position, innerRadius, outerRadius, 0, 360, segments, lineColor);
-    }
-    private static void CircleOutline(float x, float y, float radius, float lineSize, Color lineColor)
-    {
-        Vector2 position = new Vector2(x, y);
-        CircleOutline(position, radius, lineSize, lineColor);
-    }
-
     /// <summary>
     ///     Draw a filled and outlined circle at <paramref name="position"/> expanding
     ///     outward to <paramref name="radius"/> using <see cref="Draw.LineSize"/> for
@@ -446,9 +295,8 @@ public static class Draw
     /// </summary>
     /// <param name="position">The circle position, defines the centre point.</param>
     /// <param name="radius">The circle radius.</param>
-    /// <param name="lineSize">How thick the line is.</param>
-    public static void CircleBordered(Vector2 position, float radius)
-        => CircleBordered(position, radius, FillColor, LineSize, LineColor);
+    public static void Circle(Vector2 position, float radius)
+        => Circle(position, radius, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined circle at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to <paramref name="radius"/>
@@ -459,27 +307,52 @@ public static class Draw
     /// <param name="x">The circle's X position, defines the horizontal centre.</param>
     /// <param name="y">The circle's Y position, defines the vertical centre.</param>
     /// <param name="radius">The circle radius.</param>
-    public static void CircleBordered(float x, float y, float radius)
-        => CircleBordered(x, y, radius, FillColor, LineSize, LineColor);
-    private static void CircleBordered(Vector2 position, float radius, Color fillColor, float lineSize, Color lineColor)
+    public static void Circle(float x, float y, float radius)
+        => Circle(new Vector2(x, y), radius, FillColor, LineSize, LineColor);
+    //
+    private static void Circle(Vector2 position, float radius, Color fillColor, float lineSize, Color lineColor)
     {
-        Circle(position, radius, fillColor);
+        CircleFill(position, radius, fillColor);
         CircleOutline(position, radius, lineSize, lineColor);
     }
-    private static void CircleBordered(float x, float y, float radius, Color fillColor, float lineSize, Color lineColor)
+    private static void CircleFill(Vector2 position, float radius, Color fillColor)
     {
-        Vector2 position = new Vector2(x, y);
-        CircleBordered(position, radius, fillColor, lineSize, lineColor);
+        Raylib.DrawCircleV(position, radius, fillColor);
+    }
+    private static void CircleOutline(Vector2 position, float radius, float lineSize, Color lineColor)
+    {
+        float innerRadius = radius - lineSize;
+        float outerRadius = radius;
+        int segments = (int)(radius * 4);
+        Raylib.DrawRing(position, innerRadius, outerRadius, 0, 360, segments, lineColor);
     }
 
+
     // TRIANGLE
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="sideLength"></param>
+    /// <param name="angleDegrees"></param>
     public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
-        => Triangle(position, sideLength, angleDegrees, FillColor);
+        => Triangle(position, sideLength, angleDegrees, LineColor, LineSize, LineColor);
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="sideLength"></param>
+    /// <param name="angleDegrees"></param>
     public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
-        => Triangle(x, y, sideLength, angleDegrees, FillColor);
-    public static void Triangle(float x, float y, float sideLength, float angleDegrees, Color fillColor)
-        => Triangle(new(x, y), sideLength, angleDegrees, fillColor);
-    public static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
+        => Triangle(new Vector2(x, y), sideLength, angleDegrees, LineColor, LineSize, LineColor);
+    //
+    private static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
+    {
+        TriangleFill(position, sideLength, angleDegrees, fillColor);
+        TriangleOutline(position, sideLength, angleDegrees, lineSize, lineColor);
+    }
+    private static void TriangleFill(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
     {
         float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
         float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
@@ -488,14 +361,7 @@ public static class Draw
         Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
         Raylib.DrawTriangle(v0, v1, v2, fillColor);
     }
-
-    public static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees = 0)
-    => TriangleOutline(position, sideLength, angleDegrees, LineSize, LineColor);
-    public static void TriangleOutline(float x, float y, float sideLength, float angleDegrees = 0)
-        => TriangleOutline(x, y, sideLength, angleDegrees, LineSize, LineColor);
-    public static void TriangleOutline(float x, float y, float sideLength, float angleDegrees, float lineSize, Color lineColor)
-        => TriangleOutline(new(x, y), sideLength, angleDegrees, lineSize, lineColor);
-    public static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
+    private static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
     {
         float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
         float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
@@ -505,15 +371,4 @@ public static class Draw
         PolyLine([ v0, v1, v2, v0 ], lineSize, lineColor);
     }
 
-    public static void TriangleBordered(Vector2 position, float sideLength, float angleDegrees = 0)
-        => TriangleBordered(position, sideLength, angleDegrees, LineColor, LineSize, LineColor);
-    public static void TriangleBordered(float x, float y, float sideLength, float angleDegrees = 0)
-        => TriangleBordered(x, y, sideLength, angleDegrees, LineColor, LineSize, LineColor);
-    public static void TriangleBordered(float x, float y, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
-        => TriangleBordered(new(x, y), sideLength, angleDegrees, lineColor, lineSize, lineColor);
-    public static void TriangleBordered(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
-    {
-        Triangle(position, sideLength, angleDegrees, fillColor);
-        TriangleOutline(position, sideLength, angleDegrees, lineSize, lineColor);
-    }
 }
