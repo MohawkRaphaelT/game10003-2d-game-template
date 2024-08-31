@@ -72,8 +72,8 @@ public static class Draw
     /// </summary>
     /// <param name="start">Line start position.</param>
     /// <param name="end">Line end position.</param>
-    public static void RoundedLine(Vector2 start, Vector2 end)
-        => RoundedLine(start, end, LineSize, LineColor);
+    public static void LineRounded(Vector2 start, Vector2 end)
+        => LineRounded(start, end, LineSize, LineColor);
     /// <summary>
     ///     Draw a line with rounded ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
     ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/> and
@@ -83,9 +83,9 @@ public static class Draw
     /// <param name="y0">Line start position Y.</param>
     /// <param name="x1">Line end position X.</param>
     /// <param name="y1">Line end position Y.</param>
-    public static void RoundedLine(float x0, float y0, float x1, float y1)
-        => RoundedLine(x0, y0, x1, y1, LineSize, LineColor);
-    private static void RoundedLine(Vector2 start, Vector2 end, float lineSize, Color lineColor)
+    public static void LineRounded(float x0, float y0, float x1, float y1)
+        => LineRounded(x0, y0, x1, y1, LineSize, LineColor);
+    private static void LineRounded(Vector2 start, Vector2 end, float lineSize, Color lineColor)
     {
         Raylib.DrawLineEx(start, end, lineSize, lineColor);
         // Draw circles at each point to smooth ends
@@ -93,11 +93,11 @@ public static class Draw
         Raylib.DrawCircleV(start, circleRadius, lineColor);
         Raylib.DrawCircleV(end, circleRadius, lineColor);
     }
-    private static void RoundedLine(float x0, float y0, float x1, float y1, float lineSize, Color lineColor)
+    private static void LineRounded(float x0, float y0, float x1, float y1, float lineSize, Color lineColor)
     {
         Vector2 point0 = new Vector2(x0, y0);
         Vector2 point1 = new Vector2(x1, y1);
-        RoundedLine(point0, point1, lineSize, lineColor);
+        LineRounded(point0, point1, lineSize, lineColor);
     }
 
 
@@ -218,8 +218,8 @@ public static class Draw
     /// </summary>
     /// <param name="position">The rectangle position, defines the centre point.</param>
     /// <param name="size">The size of the rectangle.</param>
-    public static void BorderedRectangleCentered(Vector2 position, Vector2 size)
-        => BorderedRectangleCentered(position, size, FillColor, LineSize, LineColor);
+    public static void RectangleBorderedCentered(Vector2 position, Vector2 size)
+        => RectangleBorderedCentered(position, size, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding right and down to (<paramref name="w"/>, 
@@ -231,13 +231,13 @@ public static class Draw
     /// <param name="y">The rectangle's Y position, defines the vertical centre.</param>
     /// <param name="w">The rectangle's width.</param>
     /// <param name="h">The rectangle's height.</param>
-    public static void BorderedRectangleCentered(float x, float y, float w, float h)
-        => BorderedRectangleCentered(x, y, w, h, FillColor, LineSize, LineColor);
-    private static void BorderedRectangleCentered(Vector2 position, Vector2 size, Color fillColor, float lineSize, Color lineColor)
+    public static void RectangleBorderedCentered(float x, float y, float w, float h)
+        => RectangleBorderedCentered(x, y, w, h, FillColor, LineSize, LineColor);
+    private static void RectangleBorderedCentered(Vector2 position, Vector2 size, Color fillColor, float lineSize, Color lineColor)
     {
-        BorderedRectangleCentered(position.X, position.Y, size.X, size.Y, fillColor, lineSize, lineColor);
+        RectangleBorderedCentered(position.X, position.Y, size.X, size.Y, fillColor, lineSize, lineColor);
     }
-    private static void BorderedRectangleCentered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
+    private static void RectangleBorderedCentered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
         // Offset x and y by half the width and height, respectively.
         float cx = x - w / 2;
