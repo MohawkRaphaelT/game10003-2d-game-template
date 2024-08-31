@@ -1,34 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
+/// <summary>
+///     Get random values.
+/// </summary>
 public static class Random
 {
     private static readonly System.Random rng = new();
 
-    // BYTES
+    // BYTE
     public static byte Byte() => (byte)rng.Next(256);
     public static byte Byte(byte max) => (byte)rng.Next(max);
     public static byte Byte(byte min, byte max) => (byte)rng.Next(min, max);
 
-    // INTEGERS
+    // INTEGER
     public static int Integer() => rng.Next();
     public static int Integer(int max) => rng.Next(max);
     public static int Integer(int min, int max) => rng.Next(min, max);
 
-    // FLOATS
+    // FLOAT
     public static float Float() => rng.NextSingle();
     public static float Float(float max) => rng.NextSingle() * max;
     public static float Float(float min, float max) => rng.NextSingle() * (max - min) + min;
-    public static float AngleDegree()
+    public static float AngleDegrees()
     {
         float angleDegrees = Float(0, 360);
         return angleDegrees;
     }
-    public static float AngleRadian()
+    public static float AngleRadians()
     {
         float angleRadians = Float(0, MathF.Tau);
         return angleRadians;
@@ -49,7 +47,7 @@ public static class Random
     }
     public static Vector2 PointOnCircle()
     {
-        float angle = AngleRadian();
+        float angle = AngleRadians();
         Vector2 pointOnCircle = new(MathF.Cos(angle), -MathF.Sin(angle));
         return pointOnCircle;
     }
@@ -58,5 +56,5 @@ public static class Random
 
     // COLOR
     public static Color Color() => new(Byte(), Byte(), Byte());
-    public static Color Greyscale() => new(Byte());
+    public static Color GreyscaleColor() => new(Byte());
 }
