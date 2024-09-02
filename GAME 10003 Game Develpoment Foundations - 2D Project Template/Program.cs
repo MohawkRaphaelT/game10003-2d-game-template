@@ -11,13 +11,9 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
-using System;
-using System.IO;
 
 public class Program
 {
-    public static Font monospaceFont;
-
     static void Main()
     {
         // Create game instance

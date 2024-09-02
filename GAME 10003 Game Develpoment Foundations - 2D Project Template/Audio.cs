@@ -1,7 +1,7 @@
 ﻿using Raylib_cs;
 
 /// <summary>
-///     
+///     Access audio-related functions.
 /// </summary>
 public static class Audio
 {
