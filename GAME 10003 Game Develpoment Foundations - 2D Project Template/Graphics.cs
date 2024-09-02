@@ -53,4 +53,8 @@ public static class Graphics
         };
         Raylib.DrawTexturePro(texture, source, destination, -rotationOrigin, Rotation, Tint);
     }
+
+    // w/o rotation origin
+    public static void DrawSubset(Texture2D texture, Vector2 position, Vector2 subsetOrigin, Vector2 subsetSize)
+        => DrawSubset(texture, position, subsetOrigin, subsetSize, Vector2.Zero);
 }
