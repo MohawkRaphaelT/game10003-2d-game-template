@@ -31,6 +31,10 @@ public class Program
         game.Setup();
         while (!Raylib.WindowShouldClose())
         {
+            // Update music buffers every frame
+            foreach (var music in Audio.ActiveMusic)
+                Raylib.UpdateMusicStream(music);
+
             Raylib.SetWindowSize(game.screenWidth, game.screenHeight);
             Raylib.BeginDrawing();
             game.Update();
