@@ -2,7 +2,7 @@
 using System.Numerics;
 
 /// <summary>
-///     
+///     Access graphics-related functions.
 /// </summary>
 public static class Graphics
 {
@@ -13,7 +13,7 @@ public static class Graphics
     public static Color Tint { get; set; } = Color.White;
 
     /// <summary>
-    ///     Loads texture at <paramref name="filePath"/>.
+    ///     Loads texture at <paramref name="filePath"/> into GPU memory.
     /// </summary>
     /// <remarks>
     ///     This is slow and reads from disk. Reuse the resulting <see cref="Texture2D"/> 
@@ -27,6 +27,15 @@ public static class Graphics
     {
         var texture = Raylib.LoadTexture(filePath);
         return texture;
+    }
+
+    /// <summary>
+    ///     Unloads <paramref name="texture"/> from GPU memory.
+    /// </summary>
+    /// <param name="texture">The texture to unload from GPU memory.</param>
+    public static void UnoadTexture(Texture2D texture)
+    {
+        Raylib.UnloadTexture(texture);
     }
 
     public static void Draw(Texture2D texture, Vector2 position)
