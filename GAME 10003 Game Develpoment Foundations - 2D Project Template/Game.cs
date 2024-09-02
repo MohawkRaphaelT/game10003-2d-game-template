@@ -22,7 +22,7 @@ public class Game
     // Update runs every frame.
     public void Update()
     {
-        Raylib.DrawTextEx(Program.monospaceFont, "testing", new Vector2(5, 5), 16, 0, Color.Black);
+        //Raylib.DrawTextEx(Program.monospaceFont, "testing", new Vector2(5, 5), 16, 0, Color.Black);
         Text.Draw("Hello", new(200, 200));
 
         Draw.FillColor = Color.LightGray;
