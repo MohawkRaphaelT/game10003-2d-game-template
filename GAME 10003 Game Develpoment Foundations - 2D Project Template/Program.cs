@@ -33,7 +33,6 @@ public class Program
         {
             Raylib.SetWindowSize(game.screenWidth, game.screenHeight);
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(game.backgroundColor);
             game.Update();
             Raylib.EndDrawing();
             Time.ElapsedFrames++;

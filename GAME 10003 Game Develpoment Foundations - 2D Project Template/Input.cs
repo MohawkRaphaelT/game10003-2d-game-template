@@ -28,6 +28,13 @@ public static class Input
     public static float GetMouseWheelX() => Raylib.GetMouseWheelMoveV().X;
     public static float GetMouseWheelY() => Raylib.GetMouseWheelMoveV().Y;
 
+    // Mouse Cursor
+    public static void DisableMouseCursor() => Raylib.DisableCursor();
+    public static void EnableMouseCursor() => Raylib.EnableCursor();
+    public static void ShowMouseCursor() => Raylib.ShowCursor();
+    public static void HideMouseCursor() => Raylib.HideCursor();
+    public static void IsMouseCursorHidden() => Raylib.IsCursorHidden();
+    public static void IsMouseCursorOnScreen() => Raylib.IsCursorOnScreen();
 
     // Controller Button
     public static bool IsControllerButtonPressed(int controllerIndex, ControllerButton controllerButton)

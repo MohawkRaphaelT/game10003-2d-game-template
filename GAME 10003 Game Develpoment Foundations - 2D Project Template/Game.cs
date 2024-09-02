@@ -8,9 +8,9 @@ public class Game
     public string title = "Game Title";
     public int screenWidth = 800;
     public int screenHeight = 600;
-    public Color backgroundColor = new Color(240);
 
     // Place your variables here
+    public Color backgroundColor = new Color(240);
 
 
     // Setup runs once before the game loop begins.
@@ -22,8 +22,10 @@ public class Game
     // Update runs every frame.
     public void Update()
     {
+        Raylib.ClearBackground(backgroundColor);
+
         //Raylib.DrawTextEx(Program.monospaceFont, "testing", new Vector2(5, 5), 16, 0, Color.Black);
-        Text.Draw("Hello", new(200, 200));
+        Text.Draw("Hello", new Vector2(200, 200) * Time.Elapsed / 5);
 
         Draw.FillColor = Color.LightGray;
         Draw.Circle(new(440, 300), 130);
