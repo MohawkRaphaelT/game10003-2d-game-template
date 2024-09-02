@@ -39,7 +39,7 @@ public static class Text
     /// <summary>
     ///     Text rotation in degrees (0-360).
     /// </summary>
-    public static float Rotation { get; set; } = 0;
+    public static float Rotation { get; set; } = 35;
     /// <summary>
     ///     Text font.
     /// </summary>
@@ -95,7 +95,7 @@ public static class Text
     /// <param name="font">The font to draw with.</param>
     public static void Draw(string text, Vector2 position, Font font)
     {
-        Raylib.DrawTextPro(font.RaylibData, text, position, Vector2.Zero, Rotation, Size, Kerning, Color);
+        Raylib.DrawTextPro(font.RaylibData, text, position, Vector2.Zero, -Rotation, Size, Kerning, Color);
     }
 
     /// <summary>
