@@ -8,17 +8,18 @@ public static class Audio
     // TODO: alias Sound, Music
 
     // Keep list of music to auto-update in background
-    public static List<Music> ActiveMusic { get; } = [];
+    private static readonly List<Music> activeMusic = [];
+    public static Music[] ActiveMusic => activeMusic.ToArray();
 
     public static Music LoadMusic(string filePath)
     {
         var music = Raylib.LoadMusicStream(filePath);
-        ActiveMusic.Add(music);
+        activeMusic.Add(music);
         return music;
     }
     public static void UnloadMusic(Music music)
     {
-        ActiveMusic.Remove(music);
+        activeMusic.Remove(music);
         Raylib.UnloadMusicStream(music);
     }
     public static Sound LoadSound(string filePath)
