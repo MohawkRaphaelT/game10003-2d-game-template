@@ -1,6 +1,4 @@
-﻿using System;
-
-/// <summary>
+﻿/// <summary>
 ///     Represents an RGBA color (32-bit).
 /// </summary>
 public struct Color
