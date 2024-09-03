@@ -19,12 +19,16 @@ public class Program
         // Create game instance
         Game game = new();
 
+        // Raylib one-time setup
         Raylib.InitWindow(game.screenWidth, game.screenHeight, game.title);
         Raylib.InitAudioDevice();
         Raylib.SetTargetFPS(Time.TargetFPS);
-        Text.Initialize();
 
+        // Wrapper setup
+        Text.Initialize();
         game.Setup();
+
+        // Raylib & wrapper frame loop
         while (!Raylib.WindowShouldClose())
         {
             // Update music buffers every frame
@@ -38,6 +42,7 @@ public class Program
             Time.ElapsedFrames++;
         }
 
+        // Proper shutdown
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
     }
