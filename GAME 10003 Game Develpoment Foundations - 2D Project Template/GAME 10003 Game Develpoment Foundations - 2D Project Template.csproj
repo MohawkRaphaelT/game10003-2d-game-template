@@ -3,9 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>GAME_10003_Game_Develpoment_Foundations___2D_Project_Template</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>GAME10003</RootNamespace>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageId>MohawkGAME10003.2DProjectTemplate</PackageId>
   </PropertyGroup>
 
   <ItemGroup>

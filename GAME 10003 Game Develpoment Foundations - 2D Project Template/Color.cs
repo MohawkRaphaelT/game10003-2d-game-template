@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using System;
+
 /// <summary>
 ///     Represents an RGBA color (32-bit).
 /// </summary>

@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System.Collections.Generic;
 
 /// <summary>
 ///     Access audio-related functions.

@@ -5,6 +5,8 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System;
+using System.IO;
 using System.Numerics;
 
 /// <summary>
