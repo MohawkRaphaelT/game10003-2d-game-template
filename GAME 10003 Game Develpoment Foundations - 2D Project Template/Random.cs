@@ -8,24 +8,91 @@ public static class Random
     private static readonly System.Random rng = new();
 
     // BYTE
+    /// <summary>
+    ///     Get a random byte.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0 (inclusize) to 256 (exclusive).
+    /// </returns>
     public static byte Byte() => (byte)rng.Next(256);
+    /// <summary>
+    ///     Get a random byte.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0 (inclusize) to <paramref name="max"/> (exclusive).
+    /// </returns>
     public static byte Byte(byte max) => (byte)rng.Next(max);
+    /// <summary>
+    ///     Get a random byte.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from <paramref name="min"/> (inclusize) to
+    ///     <paramref name="max"/> (exclusive).
+    /// </returns>
     public static byte Byte(byte min, byte max) => (byte)rng.Next(min, max);
 
     // INTEGER
+    /// <summary>
+    ///     Get a random integer.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0 (inclusize) to 2,147,483,647 (exclusive).
+    /// </returns>
     public static int Integer() => rng.Next();
+    /// <summary>
+    ///     Get a random integer.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0 (inclusize) to <paramref name="max"/> (exclusive).
+    /// </returns>
     public static int Integer(int max) => rng.Next(max);
+    /// <summary>
+    ///     Get a random integer.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from <paramref name="min"/> (inclusize) to <paramref name="max"/> (exclusive).
+    /// </returns>
     public static int Integer(int min, int max) => rng.Next(min, max);
 
     // FLOAT
+    /// <summary>
+    ///     Get a random floating-point number.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0.0f (inclusize) to 1.0f (exclusive).
+    /// </returns>
     public static float Float() => rng.NextSingle();
+    /// <summary>
+    ///     Get a random floating-point number.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0.0f (inclusize) to <paramref name="max"/> (exclusive).
+    /// </returns>
     public static float Float(float max) => rng.NextSingle() * max;
+    /// <summary>
+    ///     Get a random floating-point number.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from <paramref name="min"/> (inclusize) to <paramref name="max"/> (exclusive).
+    /// </returns>
     public static float Float(float min, float max) => rng.NextSingle() * (max - min) + min;
+    /// <summary>
+    ///     Get a random angle in degrees as a floating-point number.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0.0f (inclusize) to 360 (exclusive).
+    /// </returns>
     public static float AngleDegrees()
     {
         float angleDegrees = Float(0, 360);
         return angleDegrees;
     }
+    /// <summary>
+    ///     Get a random angle in radians as a floating-point number.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from 0.0f (inclusize) to 6.283185307f (exclusive).
+    /// </returns>
     public static float AngleRadians()
     {
         float angleRadians = Float(0, MathF.Tau);
@@ -33,11 +100,54 @@ public static class Random
     }
 
     // VECTOR2
+    /// <summary>
+    ///     Get a random Vector2.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (0.0f, 0.0f) (inclusize) to 
+    ///     (1.0f, 1.0f) (exclusive).
+    /// </returns>
     public static Vector2 Vector2() => new(Float(), Float());
+    /// <summary>
+    ///     Get a random Vector2.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (0.0f, 0.0f) (inclusize) to 
+    ///     (<paramref name="max"/>, <paramref name="max"/>) (exclusive).
+    /// </returns>
     public static Vector2 Vector2(Vector2 max) => new(Float(max.X), Float(max.Y));
+    /// <summary>
+    ///     Get a random Vector2.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (0.0f, 0.0f) (inclusize) to 
+    ///     (<paramref name="maxX"/>, <paramref name="maxY"/>) (exclusive).
+    /// </returns>
     public static Vector2 Vector2(float maxX, float maxY) => new(Float(maxX), Float(maxY));
+    /// <summary>
+    ///     Get a random Vector2.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (<paramref name="min"/>, <paramref name="min"/>)
+    ///     (inclusize) to (<paramref name="max"/>, <paramref name="max"/>) (exclusive).
+    /// </returns>
     public static Vector2 Vector2(Vector2 min, Vector2 max) => new(Float(min.X, max.X), Float(min.Y, max.Y));
+    /// <summary>
+    ///     Get a random Vector2.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (<paramref name="minX"/>, <paramref name="minY"/>)
+    ///     (inclusize) to (<paramref name="maxX"/>, <paramref name="maxY"/>) (exclusive).
+    /// </returns>
     public static Vector2 Vector2(float minX, float maxX, float minY, float maxY) => new(Float(minX, maxX), Float(minY, maxY));
+    /// <summary>
+    ///     Get a random point inside a unit circle.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value from (-1.0f, -1.0f) (exclusive) to
+    ///     (1.0f, 1.0f) (exclusive), where the max length of the vector
+    ///     is 1.0f.
+    /// </returns>
     public static Vector2 PointInCircle()
     {
         Vector2 direction = PointOnCircle();
@@ -45,16 +155,44 @@ public static class Random
         Vector2 pointInCircle = direction * magnitude;
         return pointInCircle;
     }
+    /// <summary>
+    ///     Get a random point on a unit circle.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random point on a circle, where the length of the vector
+    ///     is always exactly 1.0f.
+    /// </returns>
     public static Vector2 PointOnCircle()
     {
         float angle = AngleRadians();
         Vector2 pointOnCircle = new(MathF.Cos(angle), -MathF.Sin(angle));
         return pointOnCircle;
     }
+    /// <summary>
+    ///     Get a random direction vector.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random direction vector in any possible direction, where
+    ///     the length of the vector is always exactly 1.0f.
+    /// </returns>
     public static Vector2 Direction()
         => PointOnCircle();
 
     // COLOR
+    /// <summary>
+    ///     Get a random color.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random color with R, G, and B component values of different 
+    ///     values from 0 (inclusize) to 256 (exclusive). A is always 255 (opaque).
+    /// </returns>
     public static Color Color() => new(Byte(), Byte(), Byte());
-    public static Color GreyscaleColor() => new(Byte());
+    /// <summary>
+    ///     Get a random grayscale color.
+    /// </summary>
+    /// <returns>
+    ///     Returns a random color with R, G, and B component values of the same
+    ///     value from 0 (inclusize) to 256 (exclusive). A is always 255 (opaque).
+    /// </returns>
+    public static Color GrayscaleColor() => new(Byte());
 }
