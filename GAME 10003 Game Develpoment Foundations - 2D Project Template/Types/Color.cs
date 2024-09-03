@@ -138,13 +138,17 @@ public struct Color
     /// </summary>
     public static readonly Color LightGray = new(195);
     /// <summary>
+    ///     RGB(240, 240, 240)
+    /// </summary>
+    public static readonly Color OffWhite = new(240);
+    /// <summary>
     ///     RGB(255, 255, 255)
     /// </summary>
     public static readonly Color White = new(255);
     /// <summary>
     ///     RGBA(0, 0, 0, 0)
     /// </summary>
-    public static readonly Color Blank = new(0, 0);
+    public static readonly Color Clear = new(0, 0);
     // Colors
     /// <summary>
     ///     RGB(255, 0, 0)

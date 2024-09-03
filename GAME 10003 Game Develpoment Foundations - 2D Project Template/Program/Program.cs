@@ -17,7 +17,7 @@ public class Program
         Game game = new();
 
         // Raylib one-time setup
-        Raylib.InitWindow(game.screenWidth, game.screenHeight, game.title);
+        Raylib.InitWindow(Window.Width, Window.Height, Window.Title);
         Raylib.InitAudioDevice();
         Raylib.SetTargetFPS(Time.TargetFPS);
 
@@ -32,10 +32,12 @@ public class Program
             foreach (var music in Audio.ActiveMusic)
                 Raylib.UpdateMusicStream(music);
 
-            Raylib.SetWindowSize(game.screenWidth, game.screenHeight);
+            // Run game frame
             Raylib.BeginDrawing();
             game.Update();
             Raylib.EndDrawing();
+
+            // Update rendered frame count
             Time.FramesElapsed++;
         }
 
