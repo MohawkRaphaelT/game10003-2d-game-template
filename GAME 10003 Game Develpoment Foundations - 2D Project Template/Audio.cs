@@ -5,8 +5,6 @@
 /// </summary>
 public static class Audio
 {
-    // TODO: alias Sound, Music
-
     // Keep list of music to auto-update in background
     private static readonly List<Music> activeMusic = [];
     public static Music[] ActiveMusic => activeMusic.ToArray();

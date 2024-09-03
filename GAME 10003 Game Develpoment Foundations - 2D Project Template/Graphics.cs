@@ -6,8 +6,6 @@ using System.Numerics;
 /// </summary>
 public static class Graphics
 {
-    // TODO: wrap Texture2D like Font
-
     public static float Rotation { get; set; } = 0;
     public static float Scale { get; set; } = 1;
     public static Color Tint { get; set; } = Color.White;
