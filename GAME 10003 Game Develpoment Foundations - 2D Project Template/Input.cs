@@ -10,16 +10,16 @@ using System.Numerics;
 public static class Input
 {
     // Keyboard
-    public static bool IsKeyboardKeyPressed(KeyboardKey key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
-    public static bool IsKeyboardKeyReleased(KeyboardKey key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
-    public static bool IsKeyboardKeyUp(KeyboardKey key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
-    public static bool IsKeyboardKeyDown(KeyboardKey key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyPressed(KeyboardKeyInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyReleased(KeyboardKeyInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyUp(KeyboardKeyInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyDown(KeyboardKeyInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
 
     // Mouse
-    public static bool IsMouseButtonPressed(MouseButton button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
-    public static bool IsMouseButtonReleased(MouseButton button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
-    public static bool IsMouseButtonUp(MouseButton button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
-    public static bool IsMouseButtonDown(MouseButton button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonPressed(MouseButtonInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonReleased(MouseButtonInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonUp(MouseButtonInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonDown(MouseButtonInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
     public static Vector2 GetMouseDeltaPosition() => Raylib.GetMouseDelta();
     public static Vector2 GetMousePosition() => Raylib.GetMousePosition();
     public static float GetMouseX() => Raylib.GetMouseX();

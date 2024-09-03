@@ -4,7 +4,7 @@
 /// <remarks>
 ///     Raylib's MouseButton
 /// </remarks>
-public enum MouseButton
+public enum MouseButtonInput
 {
     /// <summary>
     ///     Left mouse button.

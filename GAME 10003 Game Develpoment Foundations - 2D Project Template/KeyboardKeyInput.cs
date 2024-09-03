@@ -4,7 +4,7 @@
 /// <remarks>
 ///     Raylib's KeyboardKey
 /// </remarks>
-public enum KeyboardKey
+public enum KeyboardKeyInput
 {
     /// <summary>
     /// Used for no key pressed.
