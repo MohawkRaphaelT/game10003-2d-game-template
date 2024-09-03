@@ -20,7 +20,6 @@ using System.Diagnostics;
 /// </remarks>
 public static class Time
 {
-    // STATIC STATE
     private static int targetFPS = 60;
     private static double timeOffset = 0;
 

@@ -21,8 +21,6 @@ using System.Numerics;
 /// </remarks>
 public static class Text
 {
-    // STATIC STATE
-
     /// <summary>
     ///     Text color.
     /// </summary>
