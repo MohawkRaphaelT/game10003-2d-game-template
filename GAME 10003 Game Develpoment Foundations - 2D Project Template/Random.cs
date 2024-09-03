@@ -12,6 +12,29 @@ public static class Random
 {
     private static readonly System.Random rng = new();
 
+    // BOOL
+    /// <summary>
+    ///     Get a random Boolean (true or false).
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value of either true or false.
+    /// </returns>
+    public static bool Bool()
+    {
+        bool value = rng.Next(2) == 1;
+        return value;
+    }
+
+    /// <summary>
+    ///     Get a random Boolean (true or false).
+    /// </summary>
+    /// <returns>
+    ///     Returns a random value of either true or false.
+    /// </returns>
+    public static bool CoinFlip()
+        => Bool();
+
+
     // BYTE
     /// <summary>
     ///     Get a random byte.
