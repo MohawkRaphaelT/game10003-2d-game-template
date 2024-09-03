@@ -1,14 +1,8 @@
-﻿/* 
+﻿/*////////////////////////////////////////////////////////////////////////
  * Copyright (c)
  * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
  * Game Design (374): GAME 10003 Game Development Foundations
- * 
- * Written by:
- *      Raphaël Tétreault
- * History:
- *      2024/05/30: Initial draft
- *      2024/09/01: Add state, add proper Draw functions, add proper Font handling
- */
+ *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
 using System.Numerics;

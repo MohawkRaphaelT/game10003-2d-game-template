@@ -1,13 +1,7 @@
 ﻿/*////////////////////////////////////////////////////////////////////////
- * Raylib-CS Template
  * Copyright (c)
  * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
  * Game Design (374): GAME 10003 Game Development Foundations
- * 
- * Written by:
- *      Raphaël Tétreault
- * History:
- *      2024/05/26: Initial version
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
