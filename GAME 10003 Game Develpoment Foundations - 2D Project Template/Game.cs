@@ -43,13 +43,17 @@ public class Game
         Draw.Ellipse(new(480, 300), new(30, 100));
 
         // Triangle test
-        Draw.Triangle(new(100, 100), 100, Time.TimeElapsed * 36);
+        Draw.FillColor = Color.Red;
+        Draw.Circle(new(100, 100), 5);
+        Draw.Triangle(new(100, 100), 100, Time.TimeElapsed * 1);
+        Draw.FillColor = Color.Black;
 
         // Lines
         var lineSize = Draw.LineSize;
         Draw.LineSize = 10;
         Draw.LineSharp(new(100, 400), new(300, 200));
         Draw.Line(new(200, 400), new(400, 200));
+        Draw.PolyLine([ new(10, 10), new(50, 50), new(100, 10) ]);
         Draw.LineSize = lineSize;
     }
 }

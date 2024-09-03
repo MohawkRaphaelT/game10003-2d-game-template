@@ -24,15 +24,25 @@ using System.Numerics;
 /// </remarks>
 public static class Draw
 {
-    // Development notes
-    // CONSIDER: only rounded lines?
+    // CONSTANTS
+    private const float degreesToRadians = 57.2957795131f;
 
-    // Global state
+    // PROPERTIES
+    /// <summary>
+    ///     Shape fill color.
+    /// </summary>
     public static Color FillColor { get; set; } = Color.Black;
+
+    /// <summary>
+    ///     Line and outline color.
+    /// </summary>
     public static Color LineColor { get; set; } = Color.Black;
+
+    /// <summary>
+    ///     Line and outline size in pixels.
+    /// </summary>
     public static float LineSize { get; set; } = 1f;
 
-    private const float degreesToRadians = 57.2957795131f;
 
     // DRAW LINE
     /// <summary>
@@ -72,12 +82,21 @@ public static class Draw
     //
     private static void PolyLine(Vector2[] points, float lineSize, Color lineColor)
     {
+        float circleRadius = lineSize / 2f;
+
         for (int i = 0; i < points.Length - 1; i++)
         {
+            // Endpoints
             Vector2 start = points[i + 0];
             Vector2 end = points[i + 1];
-            Line(start, end, lineSize, lineColor);
+            // Draw lines
+            Raylib.DrawLineEx(start, end, lineSize, lineColor);
+            // Draw circles to smooth start points
+            Raylib.DrawCircleV(start, circleRadius, lineColor);
         }
+        // Draw circle on last line end to smooth it, too
+        Raylib.DrawCircleV(points[^1], circleRadius, lineColor);
+
     }
 
 
@@ -335,7 +354,7 @@ public static class Draw
     /// <param name="sideLength"></param>
     /// <param name="angleDegrees"></param>
     public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
-        => Triangle(position, sideLength, angleDegrees, LineColor, LineSize, LineColor);
+        => Triangle(position, sideLength, angleDegrees, FillColor, LineSize, LineColor);
     /// <summary>
     /// 
     /// </summary>
@@ -344,7 +363,7 @@ public static class Draw
     /// <param name="sideLength"></param>
     /// <param name="angleDegrees"></param>
     public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
-        => Triangle(new Vector2(x, y), sideLength, angleDegrees, LineColor, LineSize, LineColor);
+        => Triangle(new Vector2(x, y), sideLength, angleDegrees, FillColor, LineSize, LineColor);
     //
     private static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
     {
@@ -353,17 +372,18 @@ public static class Draw
     }
     private static void TriangleFill(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
     {
-        float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
+        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees - 60) / degreesToRadians;
         Vector2 v0 = position;
         Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
         Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
         Raylib.DrawTriangle(v0, v1, v2, fillColor);
+        Raylib.DrawTriangle(v0, v2, v1, fillColor);
     }
     private static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
     {
-        float angleRadiansV1 = (angleDegrees + 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
+        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees - 60) / degreesToRadians;
         Vector2 v0 = position;
         Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
         Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
