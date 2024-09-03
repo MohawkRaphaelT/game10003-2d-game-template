@@ -3,6 +3,9 @@
 /// <summary>
 ///     Access audio-related functions.
 /// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's audio API.
+/// </remarks>
 public static class Audio
 {
     // Keep list of music to auto-update in background

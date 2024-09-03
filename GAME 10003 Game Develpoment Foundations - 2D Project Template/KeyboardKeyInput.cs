@@ -2,7 +2,7 @@
 ///     Defines keyboard keys.
 /// </summary>
 /// <remarks>
-///     Raylib's KeyboardKey
+///     Wrapper around Raylib's KeyboardKey
 /// </remarks>
 public enum KeyboardKeyInput
 {

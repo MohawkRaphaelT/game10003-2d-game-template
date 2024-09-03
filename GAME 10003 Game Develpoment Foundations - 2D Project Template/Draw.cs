@@ -26,27 +26,25 @@ public static class Draw
 {
     // Development notes
     // CONSIDER: only rounded lines?
-    // TODO: draw text (underlying fonts)
-    // TODO: draw lines Vector2[]
 
     // Global state
     public static Color FillColor { get; set; } = Color.Black;
-    public static Color LineColor { get; set; } = Color.Blank;
+    public static Color LineColor { get; set; } = Color.Black;
     public static float LineSize { get; set; } = 1f;
 
     private const float degreesToRadians = 57.2957795131f;
 
     // DRAW LINE
     /// <summary>
-    ///     Draw a line from <paramref name="start"/> to <paramref name="end"/> 
+    ///     Draw a line with sharp ends from <paramref name="start"/> to <paramref name="end"/> 
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
     /// </summary>
     /// <param name="start">Line start position.</param>
     /// <param name="end">Line end position.</param>
-    public static void Line(Vector2 start, Vector2 end)
-        => Line(start, end, LineSize, LineColor);
+    public static void LineSharp(Vector2 start, Vector2 end)
+        => LineSharp(start, end, LineSize, LineColor);
     /// <summary>
-    ///     Draw a line from (<paramref name="x0"/>, <paramref name="y0"/>) to
+    ///     Draw a line with sharp ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
     ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/>
     ///     and <see cref="Draw.LineColor"/>.
     /// </summary>
@@ -54,10 +52,10 @@ public static class Draw
     /// <param name="y0">Line start position Y.</param>
     /// <param name="x1">Line end position X.</param>
     /// <param name="y1">Line end position Y.</param>
-    public static void Line(float x0, float y0, float x1, float y1)
-        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    public static void LineSharp(float x0, float y0, float x1, float y1)
+        => LineSharp(new(x0, y0), new(x1, y1), LineSize, LineColor);
     //
-    private static void Line(Vector2 start, Vector2 end, float lineSize, Color lineColor)
+    private static void LineSharp(Vector2 start, Vector2 end, float lineSize, Color lineColor)
     {
         Raylib.DrawLineEx(start, end, lineSize, lineColor);
     }
@@ -65,10 +63,10 @@ public static class Draw
 
     // DRAW POLY-LINES
     /// <summary>
-    ///     Draw lines between all <paramref name="points"/> using <see cref="Draw.LineSize"/>
-    ///     and <see cref="Draw.LineColor"/>
+    ///     Draw lines with rounded ends between all <paramref name="points"/>
+    ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
     /// </summary>
-    /// <param name="points"></param>
+    /// <param name="points">The points to draw between.</param>
     public static void PolyLine(Vector2[] points)
         => PolyLine(points, LineSize, LineColor);
     //
@@ -78,7 +76,7 @@ public static class Draw
         {
             Vector2 start = points[i + 0];
             Vector2 end = points[i + 1];
-            LineRounded(start, end, lineSize, lineColor);
+            Line(start, end, lineSize, lineColor);
         }
     }
 
@@ -90,8 +88,8 @@ public static class Draw
     /// </summary>
     /// <param name="start">Line start position.</param>
     /// <param name="end">Line end position.</param>
-    public static void LineRounded(Vector2 start, Vector2 end)
-        => LineRounded(start, end, LineSize, LineColor);
+    public static void Line(Vector2 start, Vector2 end)
+        => Line(start, end, LineSize, LineColor);
     /// <summary>
     ///     Draw a line with rounded ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
     ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/> and
@@ -101,10 +99,10 @@ public static class Draw
     /// <param name="y0">Line start position Y.</param>
     /// <param name="x1">Line end position X.</param>
     /// <param name="y1">Line end position Y.</param>
-    public static void LineRounded(float x0, float y0, float x1, float y1)
-        => LineRounded(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    public static void Line(float x0, float y0, float x1, float y1)
+        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
     //
-    private static void LineRounded(Vector2 start, Vector2 end, float lineSize, Color lineColor)
+    private static void Line(Vector2 start, Vector2 end, float lineSize, Color lineColor)
     {
         Raylib.DrawLineEx(start, end, lineSize, lineColor);
         // Draw circles at each point to smooth ends

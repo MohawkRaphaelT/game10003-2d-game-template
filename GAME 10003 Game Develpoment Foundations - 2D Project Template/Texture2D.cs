@@ -1,6 +1,9 @@
 ﻿/// <summary>
-///     
+///     Represents a 2D texture.
 /// </summary>
+/// <remarks>
+///     Wrapper around Raylib.Texture2D
+/// </remarks>
 public readonly record struct Texture2D
 {
     public Raylib_cs.Texture2D RaylibTexture2D { get; init; }

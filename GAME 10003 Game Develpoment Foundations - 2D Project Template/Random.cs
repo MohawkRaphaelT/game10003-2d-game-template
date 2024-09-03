@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 
 /// <summary>
-///     Get random values.
+///     Generate random values.
 /// </summary>
 public static class Random
 {

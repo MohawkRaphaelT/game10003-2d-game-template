@@ -4,6 +4,9 @@ using System.Numerics;
 /// <summary>
 ///     Access graphics-related functions.
 /// </summary>
+/// <remarks>
+///     A static wrapper to standardize raylib's texture drawing API.
+/// </remarks>
 public static class Graphics
 {
     public static float Rotation { get; set; } = 0;

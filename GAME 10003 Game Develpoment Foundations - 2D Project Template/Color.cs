@@ -41,6 +41,20 @@ public struct Color
         set => a = ConstrainAsByte(value);
     }
 
+
+    // OPERATORS
+    public static implicit operator Raylib_cs.Color(Color color)
+    {
+        Raylib_cs.Color raylibColor = new(color.r, color.g, color.b, color.a);
+        return raylibColor;
+    }
+    public static implicit operator Color(Raylib_cs.Color raylibColor)
+    {
+        Color color = new(raylibColor.R, raylibColor.G, raylibColor.B, raylibColor.A);
+        return color;
+    }
+
+
     // CONSTRUCTORS
     public Color()
     {
@@ -92,11 +106,5 @@ public struct Color
     {
         byte byteValue = (byte)Math.Clamp(value, 0, 255);
         return byteValue;
-    }
-
-    public static implicit operator Raylib_cs.Color(Color color)
-    {
-        Raylib_cs.Color raylibColor = new(color.r, color.g, color.b, color.a);
-        return raylibColor;
     }
 }

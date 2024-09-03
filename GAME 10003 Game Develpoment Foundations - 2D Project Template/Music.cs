@@ -1,6 +1,9 @@
 ﻿/// <summary>
-///     
+///     Represents a music file (audio over 10s long).
 /// </summary>
+/// <remarks>
+///     Wrapper around Raylib.Music
+/// </remarks>
 public readonly record struct Music
 {
     public Raylib_cs.Music RaylibMusic { get; init; }

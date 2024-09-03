@@ -2,7 +2,7 @@
 ///     Defines mouse buttons.
 /// </summary>
 /// <remarks>
-///     Raylib's MouseButton
+///     Wrapper around Raylib's MouseButton
 /// </remarks>
 public enum MouseButtonInput
 {

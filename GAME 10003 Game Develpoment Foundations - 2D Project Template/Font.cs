@@ -1,4 +1,9 @@
-﻿// TODO: C#13 Alias Raylib.Font => Font
+﻿/// <summary>
+///     Represents a font.
+/// </summary>
+/// <remarks>
+///     Wrapper around Raylib.Font
+/// </remarks>
 public readonly record struct Font
 {
     public Raylib_cs.Font RaylibFont { get; init; }

@@ -2,7 +2,7 @@
 ///     Defines the various controller axes (analog inputs) in a generic way.
 /// </summary>
 /// <remarks>
-///     Raylib's GamepadAxis
+///     Wrapper around Raylib's GamepadAxis
 /// </remarks>
 public enum ControllerAxis
 {

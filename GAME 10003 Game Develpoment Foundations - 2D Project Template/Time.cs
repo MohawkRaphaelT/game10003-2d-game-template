@@ -16,9 +16,9 @@ using System.Diagnostics;
 ///     Access time-related information.
 /// </summary>
 /// <remarks>
-///     A static wrapper to standardize raylib's draw API.
+///     A static wrapper to standardize raylib's time API.
 /// </remarks>
-public class Time
+public static class Time
 {
     // STATIC STATE
     private static int targetFPS = 60;
@@ -38,16 +38,16 @@ public class Time
     /// <summary>
     ///     How much time has elapsed (as a <see cref="float"/>).
     /// </summary>
-    public static float Elapsed
+    public static float TimeElapsed
     {
-        get => (float)ElapsedPrecise;
-        set => ElapsedPrecise = value;
+        get => (float)TimeElapsedPrecise;
+        set => TimeElapsedPrecise = value;
     }
 
     /// <summary>
     ///     How much time has elapsed (as a <see cref="double"/>).
     /// </summary>
-    public static double ElapsedPrecise
+    public static double TimeElapsedPrecise
     {
         get => Raylib.GetTime() - timeOffset;
         set => timeOffset = value - Raylib.GetTime();
@@ -56,7 +56,7 @@ public class Time
     /// <summary>
     ///     How many frames have elapsed.
     /// </summary>
-    public static int ElapsedFrames { get; set; }
+    public static int FramesElapsed { get; set; }
 
     /// <summary>
     ///     The time between the last frame and this frame in seconds.

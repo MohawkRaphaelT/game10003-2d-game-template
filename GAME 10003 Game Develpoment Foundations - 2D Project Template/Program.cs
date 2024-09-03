@@ -12,6 +12,9 @@
 
 using Raylib_cs;
 
+/// <summary>
+///     The main underlying program. DO NOT EDIT.
+/// </summary>
 public class Program
 {
     static void Main()
@@ -39,7 +42,7 @@ public class Program
             Raylib.BeginDrawing();
             game.Update();
             Raylib.EndDrawing();
-            Time.ElapsedFrames++;
+            Time.FramesElapsed++;
         }
 
         // Proper shutdown

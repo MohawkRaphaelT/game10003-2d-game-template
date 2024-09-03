@@ -2,6 +2,9 @@
 using System;
 using System.Numerics;
 
+/// <summary>
+///     Your game code goes inside this class!
+/// </summary>
 public class Game
 {
     // Variables needed to set up raylib
@@ -13,19 +16,23 @@ public class Game
     public Color backgroundColor = new Color(240);
 
 
-    // Setup runs once before the game loop begins.
+    /// <summary>
+    ///     Setup runs once before the game loop begins.
+    /// </summary>
     public void Setup()
     {
 
     }
 
-    // Update runs every frame.
+    /// <summary>
+    ///     Update runs every frame.
+    /// </summary>
     public void Update()
     {
         Raylib.ClearBackground(backgroundColor);
 
         //Raylib.DrawTextEx(Program.monospaceFont, "testing", new Vector2(5, 5), 16, 0, Color.Black);
-        Text.Draw("Hello", new Vector2(200, 200) * Time.Elapsed / 5);
+        Text.Draw("Hello", new Vector2(200, 200) * Time.TimeElapsed / 5);
 
         Draw.FillColor = Color.LightGray;
         Draw.Circle(new(440, 300), 130);
@@ -36,6 +43,13 @@ public class Game
         Draw.Ellipse(new(480, 300), new(30, 100));
 
         // Triangle test
-        Draw.Triangle(new(100, 100), 100, Time.Elapsed * 36);
+        Draw.Triangle(new(100, 100), 100, Time.TimeElapsed * 36);
+
+        // Lines
+        var lineSize = Draw.LineSize;
+        Draw.LineSize = 10;
+        Draw.LineSharp(new(100, 400), new(300, 200));
+        Draw.Line(new(200, 400), new(400, 200));
+        Draw.LineSize = lineSize;
     }
 }
