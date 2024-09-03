@@ -62,21 +62,40 @@ public struct Color
 
 
     // CONSTRUCTORS
+    /// <summary>
+    ///     Create a new color. Black.
+    /// </summary>
     public Color()
     {
         r = g = b = 0;
         a = 255;
     }
+    /// <summary>
+    ///     Create a new grayscale color using the <paramref name="intensity"/> value.
+    /// </summary>
+    /// <param name="intensity">The intesity (brightness).</param>
     public Color(int intensity)
     {
         r = g = b = ConstrainAsByte(intensity);
         a = 255;
     }
+    /// <summary>
+    ///     Create a new grayscale color using the <paramref name="intensity"/> value
+    ///     with <paramref name="opacity"/>.
+    /// </summary>
+    /// <param name="intensity">The intesity (brightness).</param>
+    /// <param name="opacity">0 for fully translucid, 255 for fully opaque.</param>
     public Color(int intensity, int opacity)
     {
         r = g = b = ConstrainAsByte(intensity);
         A = opacity;
     }
+    /// <summary>
+    ///     Creates a new RGB color.
+    /// </summary>
+    /// <param name="r">Red color channel.</param>
+    /// <param name="g">Green color channel.</param>
+    /// <param name="b">Blue color channel.</param>
     public Color(int r, int g, int b)
     {
         R = r;
@@ -84,6 +103,13 @@ public struct Color
         B = b;
         a = 255;
     }
+    /// <summary>
+    ///     Creates a new RGBA color.
+    /// </summary>
+    /// <param name="r">Red color channel.</param>
+    /// <param name="g">Green color channel.</param>
+    /// <param name="b">Blue color channel.</param>
+    /// <param name="a">Alpha channel.</param>
     public Color(int r, int g, int b, int a)
     {
         R = r;
@@ -93,18 +119,54 @@ public struct Color
     }
 
     // Shades
+    /// <summary>
+    ///     RGB(0, 0, 0)
+    /// </summary>
     public static readonly Color Black = new(0);
-    public static readonly Color DarkGray = new(64);
-    public static readonly Color Gray = new(128);
-    public static readonly Color LightGray = new(196);
+    /// <summary>
+    ///     RGB(63, 63, 63)
+    /// </summary>
+    public static readonly Color DarkGray = new(63);
+    /// <summary>
+    ///     RGB(127, 127, 127)
+    /// </summary>
+    public static readonly Color Gray = new(127);
+    /// <summary>
+    ///     RGB(195, 195, 195)
+    /// </summary>
+    public static readonly Color LightGray = new(195);
+    /// <summary>
+    ///     RGB(255, 255, 255)
+    /// </summary>
     public static readonly Color White = new(255);
+    /// <summary>
+    ///     RGBA(0, 0, 0, 0)
+    /// </summary>
     public static readonly Color Blank = new(0, 0);
     // Colors
+    /// <summary>
+    ///     RGB(255, 0, 0)
+    /// </summary>
     public static readonly Color Red = new(255, 0, 0);
+    /// <summary>
+    ///     RGB(255, 255, 0)
+    /// </summary>
     public static readonly Color Yellow = new(255, 255, 0);
+    /// <summary>
+    ///     RGB(0, 255, 0)
+    /// </summary>
     public static readonly Color Green = new(0, 255, 0);
+    /// <summary>
+    ///     RGB(0, 255, 255)
+    /// </summary>
     public static readonly Color Cyan = new(0, 255, 255);
+    /// <summary>
+    ///     RGB(0, 0, 255)
+    /// </summary>
     public static readonly Color Blue = new(0, 0, 255);
+    /// <summary>
+    ///     RGB(255, 0, 255)
+    /// </summary>
     public static readonly Color Magenta = new(255, 0, 255);
 
 
