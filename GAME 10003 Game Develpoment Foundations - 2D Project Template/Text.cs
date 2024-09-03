@@ -39,7 +39,7 @@ public static class Text
     /// <summary>
     ///     Text rotation in degrees (0-360).
     /// </summary>
-    public static float Rotation { get; set; } = 35;
+    public static float Rotation { get; set; } = 0;
     /// <summary>
     ///     Text font.
     /// </summary>
