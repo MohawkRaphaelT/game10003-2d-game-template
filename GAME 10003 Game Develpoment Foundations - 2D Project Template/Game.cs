@@ -16,8 +16,7 @@ public class Game
     /// </summary>
     public void Setup()
     {
-        Window.SetTitle("Game");
-        Window.SetSize(800, 600);
+
     }
 
     /// <summary>
@@ -25,9 +24,6 @@ public class Game
     /// </summary>
     public void Update()
     {
-        Window.ClearBackground(Color.OffWhite);
-        Draw.LineColor = Color.Clear;
-        Draw.FillColor = Color.Red;
-        Draw.Circle(Window.Width / 2, Window.Height / 2, 100);
+
     }
 }
