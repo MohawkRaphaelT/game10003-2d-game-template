@@ -9,6 +9,9 @@ using System.Numerics;
 
 namespace Game10003;
 
+/// <summary>
+///     Access window-related information.
+/// </summary>
 public static class Window
 {
     private static int width = 256;
