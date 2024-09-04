@@ -3,9 +3,9 @@
     {
       "src": [
         {
-          "src": "../src",
+          "src": "../",
           "files": [
-            "**/*.csproj"
+            "GAME 10003 Game Development Foundations - 2D Project Template/*.csproj"
           ]
         }
       ],
