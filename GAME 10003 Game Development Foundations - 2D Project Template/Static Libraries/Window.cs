@@ -7,6 +7,8 @@
 using Raylib_cs;
 using System.Numerics;
 
+namespace Game10003;
+
 public static class Window
 {
     private static int width = 256;

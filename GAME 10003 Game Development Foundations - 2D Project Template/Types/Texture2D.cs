@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+namespace Game10003;
+
 /// <summary>
 ///     Represents a 2D texture.
 /// </summary>

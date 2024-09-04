@@ -6,10 +6,12 @@
 
 using Raylib_cs;
 
+namespace Game10003;
+
 /// <summary>
 ///     The main underlying program. DO NOT EDIT.
 /// </summary>
-public class Program
+internal class Program
 {
     static void Main()
     {

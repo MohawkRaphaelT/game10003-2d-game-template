@@ -6,6 +6,8 @@
 
 using System;
 
+namespace Game10003;
+
 /// <summary>
 ///     Represents an RGBA color (32-bit).
 /// </summary>

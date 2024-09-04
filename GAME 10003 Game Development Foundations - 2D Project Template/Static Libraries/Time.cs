@@ -8,6 +8,8 @@ using Raylib_cs;
 using System;
 using System.Diagnostics;
 
+namespace Game10003;
+
 /// <summary>
 ///     Access time-related information.
 /// </summary>

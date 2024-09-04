@@ -1,6 +1,7 @@
-﻿// Add libraries to be used here
-using System;
+﻿using System;
 using System.Numerics;
+
+namespace Game10003;
 
 /// <summary>
 ///     Your game code goes inside this class!
@@ -16,7 +17,7 @@ public class Game
     /// </summary>
     public void Setup()
     {
-
+        
     }
 
     /// <summary>
