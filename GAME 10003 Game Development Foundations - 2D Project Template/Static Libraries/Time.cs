@@ -54,7 +54,7 @@ public static class Time
     // METHODS
     private static float GetFixedDeltaTime()
     {
-        float fixedDeltaTime = 1f / targetFPS;
+        float fixedDeltaTime = 1f / Window.TargetFPS;
         return fixedDeltaTime;
     }
     private static float GetDynamicDeltaTime()
