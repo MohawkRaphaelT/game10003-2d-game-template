@@ -367,20 +367,20 @@ public static class Draw
     private static void TriangleFill(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
     {
         float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees - 60) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
         Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
+        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
+        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
         Raylib.DrawTriangle(v0, v1, v2, fillColor);
         Raylib.DrawTriangle(v0, v2, v1, fillColor);
     }
     private static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
     {
         float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees - 60) / degreesToRadians;
+        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
         Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), -MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), -MathF.Sin(angleRadiansV2)) * sideLength;
+        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
+        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
         PolyLine([ v0, v1, v2, v0 ], lineSize, lineColor);
     }
 

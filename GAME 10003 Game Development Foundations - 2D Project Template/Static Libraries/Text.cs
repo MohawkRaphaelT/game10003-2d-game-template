@@ -91,7 +91,7 @@ public static class Text
     /// <param name="font">The font to draw with.</param>
     public static void Draw(string text, Vector2 position, Font font)
     {
-        Raylib.DrawTextPro(font.RaylibFont, text, position, Vector2.Zero, -Rotation, Size, Kerning, Color);
+        Raylib.DrawTextPro(font.RaylibFont, text, position, Vector2.Zero, Rotation, Size, Kerning, Color);
     }
 
     /// <summary>
