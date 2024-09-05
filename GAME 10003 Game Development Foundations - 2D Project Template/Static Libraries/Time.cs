@@ -18,33 +18,23 @@ namespace Game10003;
 /// </remarks>
 public static class Time
 {
-    private static int targetFPS = 60;
     private static double timeOffset = 0;
 
 
     // PROPERTIES
     /// <summary>
-    ///     How many frames-per-second (FPS) the game tries to output every second.
+    ///     How much time in seconds has elapsed (as a <see cref="float"/>).
     /// </summary>
-    public static int TargetFPS
+    public static float SecondsElapsed
     {
-        get => targetFPS;
-        set => SetTargetFpsOrError(value);
+        get => (float)SecondsElapsedPrecise;
+        set => SecondsElapsedPrecise = value;
     }
 
     /// <summary>
-    ///     How much time has elapsed (as a <see cref="float"/>).
+    ///     How much time in seconds has elapsed (as a <see cref="double"/>).
     /// </summary>
-    public static float TimeElapsed
-    {
-        get => (float)TimeElapsedPrecise;
-        set => TimeElapsedPrecise = value;
-    }
-
-    /// <summary>
-    ///     How much time has elapsed (as a <see cref="double"/>).
-    /// </summary>
-    public static double TimeElapsedPrecise
+    public static double SecondsElapsedPrecise
     {
         get => Raylib.GetTime() - timeOffset;
         set => timeOffset = value - Raylib.GetTime();
@@ -62,16 +52,6 @@ public static class Time
 
 
     // METHODS
-    private static void SetTargetFpsOrError(int targetFPS)
-    {
-        if (targetFPS < 0)
-        {
-            string msg = "FPS must be greater than 0!";
-            throw new ArgumentException(msg);
-        }
-
-        Time.targetFPS = targetFPS;
-    }
     private static float GetFixedDeltaTime()
     {
         float fixedDeltaTime = 1f / targetFPS;

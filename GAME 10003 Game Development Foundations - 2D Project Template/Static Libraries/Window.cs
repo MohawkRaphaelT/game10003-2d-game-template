@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System;
 using System.Numerics;
 
 namespace Game10003;
@@ -14,10 +15,13 @@ namespace Game10003;
 /// </summary>
 public static class Window
 {
+    // FIELDS
     private static int width = 256;
     private static int height = 256;
     private static string title = "2D Game Template";
+    private static int targetFPS = 60;
 
+    //PROPERTIES
     /// <summary>
     ///     Width of screen in pixels.
     /// </summary>
@@ -54,6 +58,21 @@ public static class Window
         set => title = value;
     }
 
+    /// <summary>
+    ///     How many frames-per-second (FPS) the game tries to output every second.
+    /// </summary>
+    public static int TargetFPS
+    {
+        get => targetFPS;
+        set => SetTargetFpsOrError(value);
+    }
+
+    /// <summary>
+    ///     How many frames-per-second the window is running at.
+    /// </summary>
+    public static float CurrentFPS => Raylib.GetFPS();
+
+    // METHODS
     /// <summary>
     ///     Clears the screen to the specified <paramref name="color"/>.
     /// </summary>
@@ -100,6 +119,15 @@ public static class Window
         int height = (int)size.Y;
         Raylib.SetWindowSize(width, height);
     }
+    private static void SetTargetFpsOrError(int targetFPS)
+    {
+        if (targetFPS < 0)
+        {
+            string msg = "FPS must be greater than 0!";
+            throw new ArgumentException(msg);
+        }
 
+        Window.targetFPS = targetFPS;
+    }
 
 }
