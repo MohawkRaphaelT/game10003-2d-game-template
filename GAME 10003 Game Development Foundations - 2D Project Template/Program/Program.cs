@@ -21,7 +21,7 @@ internal class Program
         // Raylib one-time setup
         Raylib.InitWindow(Window.Width, Window.Height, Window.Title);
         Raylib.InitAudioDevice();
-        Raylib.SetTargetFPS(Time.TargetFPS);
+        Raylib.SetTargetFPS(Window.TargetFPS);
 
         // Wrapper setup
         Text.Initialize();

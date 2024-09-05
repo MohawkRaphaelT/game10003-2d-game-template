@@ -3,26 +3,21 @@ using System.Numerics;
 
 namespace Game10003;
 
-/// <summary>
-///     Your game code goes inside this class!
-/// </summary>
+// Your game code goes inside this class!
 public class Game
 {
     // Place your variables here
-    // ex. Color backgroundColor = new Color(240);
+    // Example (try uncommenting line of code below)
+    //Color backgroundColor = new Color(240); // off-white
 
 
-    /// <summary>
-    ///     Setup runs once before the game loop begins.
-    /// </summary>
+    // Setup runs once before the game loop begins.
     public void Setup()
     {
         
     }
 
-    /// <summary>
-    ///     Update runs every frame.
-    /// </summary>
+    // Update runs every frame.
     public void Update()
     {
 

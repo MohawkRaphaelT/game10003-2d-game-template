@@ -121,7 +121,7 @@ public static class Window
     }
     private static void SetTargetFpsOrError(int targetFPS)
     {
-        if (targetFPS < 0)
+        if (targetFPS <= 0)
         {
             string msg = "FPS must be greater than 0!";
             throw new ArgumentException(msg);
