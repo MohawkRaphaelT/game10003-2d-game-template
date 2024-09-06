@@ -340,20 +340,28 @@ public static class Draw
 
     // TRIANGLE
     /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="position"></param>
-    /// <param name="sideLength"></param>
-    /// <param name="angleDegrees"></param>
+    ///     Draw a filled and outlined isosceles triangle at position
+    ///     <paramref name="position"/> of <paramref name="sideLength"/> size 
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
+    /// /// </summary>
+    /// <param name="position">The triangle's position, defines the upper-left corner.</param>
+    /// <param name="sideLength">Length of each side.</param>
+    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
     public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
         => Triangle(position, sideLength, angleDegrees, FillColor, LineSize, LineColor);
     /// <summary>
-    /// 
+    ///     Draw a filled and outlined isosceles triangle at position (<paramref name="x"/>,
+    ///     <paramref name="y"/>) of <paramref name="sideLength"/> size 
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
     /// </summary>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <param name="sideLength"></param>
-    /// <param name="angleDegrees"></param>
+    /// <param name="x">The triangle's X position, defines the upper-left corner.</param>
+    /// <param name="y">The triangle's Y position, defines the upper-left corner.</param>
+    /// <param name="sideLength">Length of each side.</param>
+    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
     public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
         => Triangle(new Vector2(x, y), sideLength, angleDegrees, FillColor, LineSize, LineColor);
     //
