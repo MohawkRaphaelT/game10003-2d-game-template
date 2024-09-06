@@ -31,7 +31,7 @@ public static class Text
     /// </summary>
     public static int Kerning { get; set; } = 0;
     /// <summary>
-    ///     Text rotation in degrees (0-360).
+    ///     Text rotation in degrees (0-360), clockwise.
     /// </summary>
     public static float Rotation { get; set; } = 0;
     /// <summary>
