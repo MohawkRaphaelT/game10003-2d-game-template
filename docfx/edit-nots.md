@@ -1,0 +1,2 @@
+- `toc.json`: change `"name":"","href":"Global.html"` to `"name":"Global","href":"Global.html"`
+- `toc.html`: change `<a href="Global.html" name="" title="">Global</a>` to `<a href="Global.html" name="Global" title="Global">Global</a>`

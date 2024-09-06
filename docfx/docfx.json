@@ -11,6 +11,7 @@
       ],
       "globalNamespaceId": "Global",
       "filter": "filter.yml", 
+      "_disableToc": true,
       "dest": "api"
     }
   ],
@@ -38,10 +39,10 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "",
+      "_appName": "Mohawk GAME 10003 Game Development Foundations - 2D Game Template",
       "_appTitle": "",
       "_enableSearch": true,
-      "pdf": true
+      "pdf": false
     }
   }
 }
