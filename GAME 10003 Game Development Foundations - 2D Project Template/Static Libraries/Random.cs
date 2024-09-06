@@ -45,9 +45,11 @@ public static class Random
     ///     Returns a random value from 0 (inclusize) to 256 (exclusive).
     /// </returns>
     public static byte Byte() => (byte)rng.Next(256);
+
     /// <summary>
     ///     Get a random byte.
     /// </summary>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from 0 (inclusize) to <paramref name="max"/> (exclusive).
     /// </returns>
@@ -55,6 +57,8 @@ public static class Random
     /// <summary>
     ///     Get a random byte.
     /// </summary>
+    /// <param name="min">The minimum value (included from range).</param>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from <paramref name="min"/> (inclusize) to
     ///     <paramref name="max"/> (exclusive).
@@ -72,6 +76,7 @@ public static class Random
     /// <summary>
     ///     Get a random integer.
     /// </summary>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from 0 (inclusize) to <paramref name="max"/> (exclusive).
     /// </returns>
@@ -79,6 +84,8 @@ public static class Random
     /// <summary>
     ///     Get a random integer.
     /// </summary>
+    /// <param name="min">The minimum value (included from range).</param>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from <paramref name="min"/> (inclusize) to <paramref name="max"/> (exclusive).
     /// </returns>
@@ -95,6 +102,7 @@ public static class Random
     /// <summary>
     ///     Get a random floating-point number.
     /// </summary>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from 0.0f (inclusize) to <paramref name="max"/> (exclusive).
     /// </returns>
@@ -102,6 +110,8 @@ public static class Random
     /// <summary>
     ///     Get a random floating-point number.
     /// </summary>
+    /// <param name="min">The minimum value (included from range).</param>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from <paramref name="min"/> (inclusize) to <paramref name="max"/> (exclusive).
     /// </returns>
@@ -141,6 +151,7 @@ public static class Random
     /// <summary>
     ///     Get a random Vector2.
     /// </summary>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from (0.0f, 0.0f) (inclusize) to 
     ///     (<paramref name="max"/>, <paramref name="max"/>) (exclusive).
@@ -149,6 +160,8 @@ public static class Random
     /// <summary>
     ///     Get a random Vector2.
     /// </summary>
+    /// <param name="maxX">The maximum X value (excluded from range).</param>
+    /// <param name="maxY">The maximum Y value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from (0.0f, 0.0f) (inclusize) to 
     ///     (<paramref name="maxX"/>, <paramref name="maxY"/>) (exclusive).
@@ -157,6 +170,8 @@ public static class Random
     /// <summary>
     ///     Get a random Vector2.
     /// </summary>
+    /// <param name="min">The minimum value (included from range).</param>
+    /// <param name="max">The maximum value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from (<paramref name="min"/>, <paramref name="min"/>)
     ///     (inclusize) to (<paramref name="max"/>, <paramref name="max"/>) (exclusive).
@@ -165,6 +180,10 @@ public static class Random
     /// <summary>
     ///     Get a random Vector2.
     /// </summary>
+    /// <param name="minX">The minimum X value (excluded from range).</param>
+    /// <param name="minY">The minimum Y value (excluded from range).</param>
+    /// <param name="maxX">The maximum X value (excluded from range).</param>
+    /// <param name="maxY">The maximum Y value (excluded from range).</param>
     /// <returns>
     ///     Returns a random value from (<paramref name="minX"/>, <paramref name="minY"/>)
     ///     (inclusize) to (<paramref name="maxX"/>, <paramref name="maxY"/>) (exclusive).

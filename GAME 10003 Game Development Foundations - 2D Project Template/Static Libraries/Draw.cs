@@ -187,9 +187,9 @@ public static class Draw
         => Square(position.X, position.Y, size, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined square at position (<paramref name="x"/>, 
-    ///     <paramref name="y"/>) expanding right and down to size (<paramref name="w"/>, 
-    ///     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for
-    ///     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <paramref name="y"/>) expanding right and down to <paramref name="size"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
     ///     <see cref="Draw.FillColor"/> for the square's fill Color.
     /// </summary>
     /// <param name="x">The square's X position, defines the left edge.</param>
@@ -200,40 +200,6 @@ public static class Draw
     //
     private static void Square(float x, float y, float size, Color fillColor, float lineSize, Color lineColor)
         => Rectangle(x, y, size, size, fillColor, lineSize, lineColor);
-
-
-    //// DRAW RECTANGLE CENTERED
-    ///// <summary>
-    /////     Draw a filled and outlined rectangle at <paramref name="position"/> expanding
-    /////     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
-    /////     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
-    /////     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
-    ///// </summary>
-    ///// <param name="position">The rectangle position, defines the centre point.</param>
-    ///// <param name="size">The size of the rectangle.</param>
-    //public static void RectangleCentered(Vector2 position, Vector2 size)
-    //    => RectangleCentered(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
-    ///// <summary>
-    /////     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
-    /////     <paramref name="y"/>) expanding right and down to (<paramref name="w"/>, 
-    /////     <paramref name="h"/>) using <see cref="Draw.LineSize"/> for
-    /////     the outline thickness, <see cref="Draw.LineColor"/> for the line's color, and
-    /////     <see cref="Draw.FillColor"/> for the rectangle's fill Color.
-    ///// </summary>
-    ///// <param name="x">The rectangle's X position, defines the horizontal centre.</param>
-    ///// <param name="y">The rectangle's Y position, defines the vertical centre.</param>
-    ///// <param name="w">The rectangle's width.</param>
-    ///// <param name="h">The rectangle's height.</param>
-    //public static void RectangleCentered(float x, float y, float w, float h)
-    //    => RectangleCentered(x, y, w, h, FillColor, LineSize, LineColor);
-    ////
-    //private static void RectangleCentered(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
-    //{
-    //    // Offset x and y by half the width and height, respectively.
-    //    float cx = x - w / 2;
-    //    float cy = y - h / 2;
-    //    Rectangle(cx, cy, w, h, fillColor, lineSize, lineColor);
-    //}
 
 
     // DRAW ELLIPSE
