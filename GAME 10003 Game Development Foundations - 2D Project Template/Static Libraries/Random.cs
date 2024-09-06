@@ -214,7 +214,7 @@ public static class Random
     public static Vector2 PointOnCircle()
     {
         float angle = AngleRadians();
-        Vector2 pointOnCircle = new(MathF.Cos(angle), -MathF.Sin(angle));
+        Vector2 pointOnCircle = new(MathF.Cos(angle), MathF.Sin(angle));
         return pointOnCircle;
     }
     /// <summary>
