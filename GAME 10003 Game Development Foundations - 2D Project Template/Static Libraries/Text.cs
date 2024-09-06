@@ -169,7 +169,7 @@ public static class Text
             PlatformID.Win32S or
             PlatformID.Win32Windows or
             PlatformID.Win32NT or
-            PlatformID.WinCE => [ "Consola", "lucon", "cour"],
+            PlatformID.WinCE => [ "Consola", "lucon", "cour" ],
             // macOS
             PlatformID.MacOSX => [ "SFMono-Regular", "Menlo-Regular", "Monaco-Regular" ],
             // Assume Linux

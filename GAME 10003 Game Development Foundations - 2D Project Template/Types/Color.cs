@@ -4,10 +4,6 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-using System;
-
-namespace Game10003;
-
 /// <summary>
 ///     Represents an RGBA color (32-bit).
 /// </summary>
@@ -180,7 +176,7 @@ public struct Color
 
     private static byte ConstrainAsByte(int value)
     {
-        byte byteValue = (byte)Math.Clamp(value, 0, 255);
+        byte byteValue = (byte)System.Math.Clamp(value, 0, 255);
         return byteValue;
     }
 }

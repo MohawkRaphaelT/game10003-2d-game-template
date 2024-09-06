@@ -7,8 +7,6 @@
 using Raylib_cs;
 using System.Numerics;
 
-namespace Game10003;
-
 /// <summary>
 ///     Access graphics-related functions.
 /// </summary>

@@ -8,8 +8,6 @@ using Raylib_cs;
 using System;
 using System.Numerics;
 
-namespace Game10003;
-
 /// <summary>
 ///     Access drawing functions.
 /// </summary>

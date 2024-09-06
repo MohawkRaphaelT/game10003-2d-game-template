@@ -4,8 +4,6 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-namespace Game10003;
-
 /// <summary>
 ///     Defines the various controller buttons (gitial inputs) on a generic way.
 /// </summary>

@@ -3,10 +3,9 @@
  * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
+
 using System;
 using System.Numerics;
-
-namespace Game10003;
 
 /// <summary>
 ///     Generate random values.

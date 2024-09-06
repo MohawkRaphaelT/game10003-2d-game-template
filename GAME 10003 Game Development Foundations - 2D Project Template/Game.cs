@@ -1,25 +1,29 @@
 ﻿using System;
 using System.Numerics;
 
-namespace Game10003;
-
 // Your game code goes inside this class!
 public class Game
 {
     // Place your variables here
-    // Example (try uncommenting line of code below)
-    //Color backgroundColor = new Color(240); // off-white
-
+    
 
     // Setup runs once before the game loop begins.
     public void Setup()
     {
-        
+        Window.TargetFPS = 30;
+        Window.SetSize(400, 400);
     }
 
     // Update runs every frame.
     public void Update()
     {
+        Window.ClearBackground(Color.White);
 
+        Draw.LineColor = Color.Black;
+        Draw.FillColor = Color.Red;
+        Draw.Triangle(new(100, 100), 50, Time.SecondsElapsed);
+        Draw.Square(20, 20, 50);
+
+        Raylib_cs.Raylib.DrawCircle(200, 200, 50, Color.Blue);
     }
 }

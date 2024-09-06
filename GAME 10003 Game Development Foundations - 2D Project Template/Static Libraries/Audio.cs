@@ -7,8 +7,6 @@
 using Raylib_cs;
 using System.Collections.Generic;
 
-namespace Game10003;
-
 /// <summary>
 ///     Access audio-related functions.
 /// </summary>
