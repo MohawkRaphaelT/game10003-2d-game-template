@@ -9,8 +9,6 @@ using System;
 using System.IO;
 using System.Numerics;
 
-namespace Game10003;
-
 /// <summary>
 ///     Access text drawing functions.
 /// </summary>
@@ -45,11 +43,11 @@ public static class Text
     /// </summary>
     public static Font MonospaceFont { get; private set; }
     /// <summary>
-    ///     Name of <see cref="Text.Font"/>.
+    ///     Name of <see cref="Font"/>.
     /// </summary>
     public static string FontName { get; private set; } = string.Empty;
     /// <summary>
-    ///     Name of <see cref="Text.MonospaceFont"/>.
+    ///     Name of <see cref="MonospaceFont"/>.
     /// </summary>
     public static string MonospaceFontName { get; private set; } = string.Empty;
 
@@ -66,7 +64,7 @@ public static class Text
     }
 
     /// <summary>
-    ///     Resets <see cref="Text.Font"/> to the default font.
+    ///     Resets <see cref="Font"/> to the default font.
     /// </summary>
     public static void ResetFont()
     {
@@ -99,7 +97,7 @@ public static class Text
     /// </summary>
     /// <param name="filePath">The path to the font file.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="global::Font"/>.
     /// </returns>
     /// <exception cref="FileNotFoundException">
     ///     Error thrown if the font file could not be found.
@@ -126,7 +124,7 @@ public static class Text
     /// <param name="filename">The font's file name.</param>
     /// <param name="extension">The font's extension.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="global::Font"/>.
     /// </returns>
     /// <exception cref="FileNotFoundException">
     ///     Error thrown if the font file could not be found.
