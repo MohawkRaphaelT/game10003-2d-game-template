@@ -150,8 +150,8 @@ public static class Draw
     //
     private static void Rectangle(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
-        Vector2 position = new Vector2(x, y);
-        Vector2 size = new Vector2(w, h);
+        Vector2 position = new(x, y);
+        Vector2 size = new(w, h);
         RectangleFill(position, size, fillColor);
         RectangleOutline(position, size, lineSize, lineColor);
     }
@@ -169,7 +169,7 @@ public static class Draw
         int y = (int)Math.Round(position.Y, MidpointRounding.ToEven);
         int w = (int)Math.Round(size.X, MidpointRounding.ToEven);
         int h = (int)Math.Round(size.Y, MidpointRounding.ToEven);
-        Rectangle rectangle = new Rectangle(x, y, w, h);
+        Rectangle rectangle = new(x, y, w, h);
         Raylib.DrawRectangleLinesEx(rectangle, lineSize, lineColor);
     }
 

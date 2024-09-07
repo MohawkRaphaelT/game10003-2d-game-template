@@ -17,7 +17,7 @@ public record struct Music
     /// </summary>
     public bool Looping
     {
-        get => RaylibMusic.Looping;
+        readonly get => RaylibMusic.Looping;
         set
         {
             var local = RaylibMusic;

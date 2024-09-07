@@ -21,7 +21,9 @@ public static class Audio
     /// <summary>
     ///     Get an array of all active music.
     /// </summary>
+#pragma warning disable IDE0305 // Simplify collection initialization
     public static Music[] ActiveMusic => activeMusic.ToArray();
+#pragma warning restore IDE0305 // Simplify collection initialization
 
     /// <summary>
     ///     Loads a music file at <paramref name="filePath"/>.
