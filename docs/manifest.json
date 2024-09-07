@@ -212,16 +212,6 @@
         }
       },
       "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "edit-nots.md",
-      "output": {
-        ".html": {
-          "relative_path": "edit-nots.html"
-        }
-      },
-      "version": ""
     }
   ],
   "groups": [
