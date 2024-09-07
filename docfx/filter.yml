@@ -8,17 +8,20 @@ apiRules:
 #--------------------------- EXCLUDE ---------------------------#
 # Color implicit operators
 - exclude:
-    uidRegex: Color
+    uidRegex: ^Color$
     type: Method
 # Font implicit operators
 - exclude:
-    uidRegex: Font
+    uidRegex: ^Font$
     type: Method
 # Music implicit operators
 - exclude:
-    uidRegex: Music
+    uidRegex: ^Music$
     type: Method
 # Sound implicit operators
 - exclude:
-    uidRegex: Sound
+    uidRegex: ^Sound$
     type: Method
+- exclude:
+    hasAttribute:
+        uid: GeneratorTools.OmitFromDocumentationAttribute

@@ -12,8 +12,10 @@
 /// </remarks>
 public readonly record struct Font
 {
+    [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Font RaylibFont { get; init; }
 
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Font(Raylib_cs.Font raylibFont)
     {
         var font = new Font()
@@ -22,6 +24,8 @@ public readonly record struct Font
         };
         return font;
     }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Font(Font font)
     {
         var raylibFont = font.RaylibFont;

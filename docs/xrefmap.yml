@@ -442,34 +442,6 @@ references:
   commentId: F:Global.Color.Yellow
   fullName: Color.Yellow
   nameWithType: Color.Yellow
-- uid: Global.Color.op_Implicit(Color)~Raylib_cs.Color
-  name: implicit operator Color(Color)
-  href: api/Global.Color.html#Global_Color_op_Implicit_Color__Raylib_cs_Color
-  commentId: M:Global.Color.op_Implicit(Color)~Raylib_cs.Color
-  name.vb: CType(Color)
-  fullName: Color.implicit operator Raylib_cs.Color(Color)
-  fullName.vb: Color.CType(Color)
-  nameWithType: Color.implicit operator Color(Color)
-  nameWithType.vb: Color.CType(Color)
-- uid: Global.Color.op_Implicit(Raylib_cs.Color)~Color
-  name: implicit operator Color(Color)
-  href: api/Global.Color.html#Global_Color_op_Implicit_Raylib_cs_Color__Color
-  commentId: M:Global.Color.op_Implicit(Raylib_cs.Color)~Color
-  name.vb: CType(Color)
-  fullName: Color.implicit operator Color(Raylib_cs.Color)
-  fullName.vb: Color.CType(Raylib_cs.Color)
-  nameWithType: Color.implicit operator Color(Color)
-  nameWithType.vb: Color.CType(Color)
-- uid: Global.Color.op_Implicit*
-  name: implicit operator
-  href: api/Global.Color.html#Global_Color_op_Implicit_
-  commentId: Overload:Global.Color.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Color.implicit operator
-  fullName.vb: Color.CType
-  nameWithType: Color.implicit operator
-  nameWithType.vb: Color.CType
 - uid: Global.ControllerAxis
   name: ControllerAxis
   href: api/Global.ControllerAxis.html
@@ -850,47 +822,6 @@ references:
   commentId: T:Global.Font
   fullName: Font
   nameWithType: Font
-- uid: Global.Font.RaylibFont
-  name: RaylibFont
-  href: api/Global.Font.html#Global_Font_RaylibFont
-  commentId: P:Global.Font.RaylibFont
-  fullName: Font.RaylibFont
-  nameWithType: Font.RaylibFont
-- uid: Global.Font.RaylibFont*
-  name: RaylibFont
-  href: api/Global.Font.html#Global_Font_RaylibFont_
-  commentId: Overload:Global.Font.RaylibFont
-  isSpec: "True"
-  fullName: Font.RaylibFont
-  nameWithType: Font.RaylibFont
-- uid: Global.Font.op_Implicit(Font)~Raylib_cs.Font
-  name: implicit operator Font(Font)
-  href: api/Global.Font.html#Global_Font_op_Implicit_Font__Raylib_cs_Font
-  commentId: M:Global.Font.op_Implicit(Font)~Raylib_cs.Font
-  name.vb: CType(Font)
-  fullName: Font.implicit operator Raylib_cs.Font(Font)
-  fullName.vb: Font.CType(Font)
-  nameWithType: Font.implicit operator Font(Font)
-  nameWithType.vb: Font.CType(Font)
-- uid: Global.Font.op_Implicit(Raylib_cs.Font)~Font
-  name: implicit operator Font(Font)
-  href: api/Global.Font.html#Global_Font_op_Implicit_Raylib_cs_Font__Font
-  commentId: M:Global.Font.op_Implicit(Raylib_cs.Font)~Font
-  name.vb: CType(Font)
-  fullName: Font.implicit operator Font(Raylib_cs.Font)
-  fullName.vb: Font.CType(Raylib_cs.Font)
-  nameWithType: Font.implicit operator Font(Font)
-  nameWithType.vb: Font.CType(Font)
-- uid: Global.Font.op_Implicit*
-  name: implicit operator
-  href: api/Global.Font.html#Global_Font_op_Implicit_
-  commentId: Overload:Global.Font.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Font.implicit operator
-  fullName.vb: Font.CType
-  nameWithType: Font.implicit operator
-  nameWithType.vb: Font.CType
 - uid: Global.Game
   name: Game
   href: api/Global.Game.html
@@ -2214,47 +2145,19 @@ references:
   commentId: T:Global.Music
   fullName: Music
   nameWithType: Music
-- uid: Global.Music.RaylibMusic
-  name: RaylibMusic
-  href: api/Global.Music.html#Global_Music_RaylibMusic
-  commentId: P:Global.Music.RaylibMusic
-  fullName: Music.RaylibMusic
-  nameWithType: Music.RaylibMusic
-- uid: Global.Music.RaylibMusic*
-  name: RaylibMusic
-  href: api/Global.Music.html#Global_Music_RaylibMusic_
-  commentId: Overload:Global.Music.RaylibMusic
+- uid: Global.Music.Looping
+  name: Looping
+  href: api/Global.Music.html#Global_Music_Looping
+  commentId: P:Global.Music.Looping
+  fullName: Music.Looping
+  nameWithType: Music.Looping
+- uid: Global.Music.Looping*
+  name: Looping
+  href: api/Global.Music.html#Global_Music_Looping_
+  commentId: Overload:Global.Music.Looping
   isSpec: "True"
-  fullName: Music.RaylibMusic
-  nameWithType: Music.RaylibMusic
-- uid: Global.Music.op_Implicit(Music)~Raylib_cs.Music
-  name: implicit operator Music(Music)
-  href: api/Global.Music.html#Global_Music_op_Implicit_Music__Raylib_cs_Music
-  commentId: M:Global.Music.op_Implicit(Music)~Raylib_cs.Music
-  name.vb: CType(Music)
-  fullName: Music.implicit operator Raylib_cs.Music(Music)
-  fullName.vb: Music.CType(Music)
-  nameWithType: Music.implicit operator Music(Music)
-  nameWithType.vb: Music.CType(Music)
-- uid: Global.Music.op_Implicit(Raylib_cs.Music)~Music
-  name: implicit operator Music(Music)
-  href: api/Global.Music.html#Global_Music_op_Implicit_Raylib_cs_Music__Music
-  commentId: M:Global.Music.op_Implicit(Raylib_cs.Music)~Music
-  name.vb: CType(Music)
-  fullName: Music.implicit operator Music(Raylib_cs.Music)
-  fullName.vb: Music.CType(Raylib_cs.Music)
-  nameWithType: Music.implicit operator Music(Music)
-  nameWithType.vb: Music.CType(Music)
-- uid: Global.Music.op_Implicit*
-  name: implicit operator
-  href: api/Global.Music.html#Global_Music_op_Implicit_
-  commentId: Overload:Global.Music.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Music.implicit operator
-  fullName.vb: Music.CType
-  nameWithType: Music.implicit operator
-  nameWithType.vb: Music.CType
+  fullName: Music.Looping
+  nameWithType: Music.Looping
 - uid: Global.Random
   name: Random
   href: api/Global.Random.html
@@ -2520,47 +2423,6 @@ references:
   commentId: T:Global.Sound
   fullName: Sound
   nameWithType: Sound
-- uid: Global.Sound.RaylibSound
-  name: RaylibSound
-  href: api/Global.Sound.html#Global_Sound_RaylibSound
-  commentId: P:Global.Sound.RaylibSound
-  fullName: Sound.RaylibSound
-  nameWithType: Sound.RaylibSound
-- uid: Global.Sound.RaylibSound*
-  name: RaylibSound
-  href: api/Global.Sound.html#Global_Sound_RaylibSound_
-  commentId: Overload:Global.Sound.RaylibSound
-  isSpec: "True"
-  fullName: Sound.RaylibSound
-  nameWithType: Sound.RaylibSound
-- uid: Global.Sound.op_Implicit(Raylib_cs.Sound)~Sound
-  name: implicit operator Sound(Sound)
-  href: api/Global.Sound.html#Global_Sound_op_Implicit_Raylib_cs_Sound__Sound
-  commentId: M:Global.Sound.op_Implicit(Raylib_cs.Sound)~Sound
-  name.vb: CType(Sound)
-  fullName: Sound.implicit operator Sound(Raylib_cs.Sound)
-  fullName.vb: Sound.CType(Raylib_cs.Sound)
-  nameWithType: Sound.implicit operator Sound(Sound)
-  nameWithType.vb: Sound.CType(Sound)
-- uid: Global.Sound.op_Implicit(Sound)~Raylib_cs.Sound
-  name: implicit operator Sound(Sound)
-  href: api/Global.Sound.html#Global_Sound_op_Implicit_Sound__Raylib_cs_Sound
-  commentId: M:Global.Sound.op_Implicit(Sound)~Raylib_cs.Sound
-  name.vb: CType(Sound)
-  fullName: Sound.implicit operator Raylib_cs.Sound(Sound)
-  fullName.vb: Sound.CType(Sound)
-  nameWithType: Sound.implicit operator Sound(Sound)
-  nameWithType.vb: Sound.CType(Sound)
-- uid: Global.Sound.op_Implicit*
-  name: implicit operator
-  href: api/Global.Sound.html#Global_Sound_op_Implicit_
-  commentId: Overload:Global.Sound.op_Implicit
-  isSpec: "True"
-  name.vb: CType
-  fullName: Sound.implicit operator
-  fullName.vb: Sound.CType
-  nameWithType: Sound.implicit operator
-  nameWithType.vb: Sound.CType
 - uid: Global.Text
   name: Text
   href: api/Global.Text.html
@@ -2753,47 +2615,32 @@ references:
   commentId: T:Global.Texture2D
   fullName: Texture2D
   nameWithType: Texture2D
-- uid: Global.Texture2D.RaylibTexture2D
-  name: RaylibTexture2D
-  href: api/Global.Texture2D.html#Global_Texture2D_RaylibTexture2D
-  commentId: P:Global.Texture2D.RaylibTexture2D
-  fullName: Texture2D.RaylibTexture2D
-  nameWithType: Texture2D.RaylibTexture2D
-- uid: Global.Texture2D.RaylibTexture2D*
-  name: RaylibTexture2D
-  href: api/Global.Texture2D.html#Global_Texture2D_RaylibTexture2D_
-  commentId: Overload:Global.Texture2D.RaylibTexture2D
+- uid: Global.Texture2D.Height
+  name: Height
+  href: api/Global.Texture2D.html#Global_Texture2D_Height
+  commentId: P:Global.Texture2D.Height
+  fullName: Texture2D.Height
+  nameWithType: Texture2D.Height
+- uid: Global.Texture2D.Height*
+  name: Height
+  href: api/Global.Texture2D.html#Global_Texture2D_Height_
+  commentId: Overload:Global.Texture2D.Height
   isSpec: "True"
-  fullName: Texture2D.RaylibTexture2D
-  nameWithType: Texture2D.RaylibTexture2D
-- uid: Global.Texture2D.op_Implicit(Raylib_cs.Texture2D)~Texture2D
-  name: implicit operator Texture2D(Texture2D)
-  href: api/Global.Texture2D.html#Global_Texture2D_op_Implicit_Raylib_cs_Texture2D__Texture2D
-  commentId: M:Global.Texture2D.op_Implicit(Raylib_cs.Texture2D)~Texture2D
-  name.vb: CType(Texture2D)
-  fullName: Texture2D.implicit operator Texture2D(Raylib_cs.Texture2D)
-  fullName.vb: Texture2D.CType(Raylib_cs.Texture2D)
-  nameWithType: Texture2D.implicit operator Texture2D(Texture2D)
-  nameWithType.vb: Texture2D.CType(Texture2D)
-- uid: Global.Texture2D.op_Implicit(Texture2D)~Raylib_cs.Texture2D
-  name: implicit operator Texture2D(Texture2D)
-  href: api/Global.Texture2D.html#Global_Texture2D_op_Implicit_Texture2D__Raylib_cs_Texture2D
-  commentId: M:Global.Texture2D.op_Implicit(Texture2D)~Raylib_cs.Texture2D
-  name.vb: CType(Texture2D)
-  fullName: Texture2D.implicit operator Raylib_cs.Texture2D(Texture2D)
-  fullName.vb: Texture2D.CType(Texture2D)
-  nameWithType: Texture2D.implicit operator Texture2D(Texture2D)
-  nameWithType.vb: Texture2D.CType(Texture2D)
-- uid: Global.Texture2D.op_Implicit*
-  name: implicit operator
-  href: api/Global.Texture2D.html#Global_Texture2D_op_Implicit_
-  commentId: Overload:Global.Texture2D.op_Implicit
+  fullName: Texture2D.Height
+  nameWithType: Texture2D.Height
+- uid: Global.Texture2D.Width
+  name: Width
+  href: api/Global.Texture2D.html#Global_Texture2D_Width
+  commentId: P:Global.Texture2D.Width
+  fullName: Texture2D.Width
+  nameWithType: Texture2D.Width
+- uid: Global.Texture2D.Width*
+  name: Width
+  href: api/Global.Texture2D.html#Global_Texture2D_Width_
+  commentId: Overload:Global.Texture2D.Width
   isSpec: "True"
-  name.vb: CType
-  fullName: Texture2D.implicit operator
-  fullName.vb: Texture2D.CType
-  nameWithType: Texture2D.implicit operator
-  nameWithType.vb: Texture2D.CType
+  fullName: Texture2D.Width
+  nameWithType: Texture2D.Width
 - uid: Global.Time
   name: Time
   href: api/Global.Time.html

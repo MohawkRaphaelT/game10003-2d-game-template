@@ -12,8 +12,20 @@
 /// </remarks>
 public readonly record struct Texture2D
 {
+    /// <summary>
+    ///     Texture width in pixels.
+    /// </summary>
+    public int Width => RaylibTexture2D.Width;
+    /// <summary>
+    ///     Texture height in pixels.
+    /// </summary>
+    public int Height => RaylibTexture2D.Height;
+
+
+    [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Texture2D RaylibTexture2D { get; init; }
 
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Texture2D(Raylib_cs.Texture2D raylibTexture2D)
     {
         var font = new Texture2D()
@@ -22,6 +34,8 @@ public readonly record struct Texture2D
         };
         return font;
     }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Texture2D(Texture2D texture2D)
     {
         var raylibTexture2D = texture2D.RaylibTexture2D;

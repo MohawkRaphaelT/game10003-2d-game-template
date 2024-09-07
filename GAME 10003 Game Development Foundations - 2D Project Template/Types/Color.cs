@@ -49,11 +49,14 @@ public struct Color
 
 
     // OPERATORS
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Color(Color color)
     {
         Raylib_cs.Color raylibColor = new(color.r, color.g, color.b, color.a);
         return raylibColor;
     }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Color(Raylib_cs.Color raylibColor)
     {
         Color color = new(raylibColor.R, raylibColor.G, raylibColor.B, raylibColor.A);

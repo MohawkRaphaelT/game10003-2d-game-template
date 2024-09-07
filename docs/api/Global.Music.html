@@ -102,7 +102,7 @@ Struct Music  <a class="header-action link-secondary" title="View source" href="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly record struct Music : IEquatable&lt;Music&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public record struct Music : IEquatable&lt;Music&gt;</code></pre>
   </div>
 
 
@@ -152,18 +152,19 @@ Struct Music  <a class="header-action link-secondary" title="View source" href="
 </h2>
 
 
-  <a id="Global_Music_RaylibMusic_" data-uid="Global.Music.RaylibMusic*"></a>
+  <a id="Global_Music_Looping_" data-uid="Global.Music.Looping*"></a>
 
-  <h3 id="Global_Music_RaylibMusic" data-uid="Global.Music.RaylibMusic">
-  RaylibMusic
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Music.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Global_Music_Looping" data-uid="Global.Music.Looping">
+  Looping
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Music.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Whether or not this music loops.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Music RaylibMusic { get; init; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool Looping { get; set; }</code></pre>
   </div>
 
 
@@ -172,85 +173,9 @@ Struct Music  <a class="header-action link-secondary" title="View source" href="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><span class="xref">Music</span></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd></dd>
   </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="operators">Operators
-</h2>
-
-
-  <a id="Global_Music_op_Implicit_" data-uid="Global.Music.op_Implicit*"></a>
-
-  <h3 id="Global_Music_op_Implicit_Music__Raylib_cs_Music" data-uid="Global.Music.op_Implicit(Music)~Raylib_cs.Music">
-  implicit operator Music(Music)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Music.cs/#L25"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator Music(Music music)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>music</code> <a class="xref" href="Global.Music.html">Music</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><span class="xref">Music</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-  <a id="Global_Music_op_Implicit_" data-uid="Global.Music.op_Implicit*"></a>
-
-  <h3 id="Global_Music_op_Implicit_Raylib_cs_Music__Music" data-uid="Global.Music.op_Implicit(Raylib_cs.Music)~Music">
-  implicit operator Music(Music)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Music.cs/#L17"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static implicit operator Music(Music raylibMusic)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>raylibMusic</code> <span class="xref">Music</span></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Global.Music.html">Music</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
 
 
 

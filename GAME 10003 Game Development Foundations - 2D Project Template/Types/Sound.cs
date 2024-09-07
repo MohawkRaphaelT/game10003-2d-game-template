@@ -12,8 +12,10 @@
 /// </remarks>
 public readonly record struct Sound
 {
+    [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Sound RaylibSound { get; init; }
 
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Sound(Raylib_cs.Sound raylibSound)
     {
         var font = new Sound()
@@ -22,6 +24,8 @@ public readonly record struct Sound
         };
         return font;
     }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Sound(Sound sound)
     {
         var raylibSound = sound.RaylibSound;

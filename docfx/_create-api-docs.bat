@@ -7,5 +7,3 @@ docfx .\docfx.json
 
 :: Copy index.html
 robocopy "." "./_site" "index.html"
-
-pause

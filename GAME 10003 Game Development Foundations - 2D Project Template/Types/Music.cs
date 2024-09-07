@@ -10,10 +10,26 @@
 /// <remarks>
 ///     Wrapper around Raylib.Music
 /// </remarks>
-public readonly record struct Music
+public record struct Music
 {
-    public Raylib_cs.Music RaylibMusic { get; init; }
+    /// <summary>
+    ///     Whether or not this music loops.
+    /// </summary>
+    public bool Looping
+    {
+        get => RaylibMusic.Looping;
+        set
+        {
+            var local = RaylibMusic;
+            local.Looping = value;
+            RaylibMusic = local;
+        }
+    }
 
+    [GeneratorTools.OmitFromDocumentation]
+    public Raylib_cs.Music RaylibMusic { get; private set; }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Music(Raylib_cs.Music raylibMusic)
     {
         var font = new Music()
@@ -22,6 +38,8 @@ public readonly record struct Music
         };
         return font;
     }
+
+    [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Music(Music music)
     {
         var raylibMusic = music.RaylibMusic;
