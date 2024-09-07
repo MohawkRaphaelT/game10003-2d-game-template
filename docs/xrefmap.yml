@@ -2158,6 +2158,12 @@ references:
   isSpec: "True"
   fullName: Music.Looping
   nameWithType: Music.Looping
+- uid: Global.Program
+  name: Program
+  href: api/Global.Program.html
+  commentId: T:Global.Program
+  fullName: Program
+  nameWithType: Program
 - uid: Global.Random
   name: Random
   href: api/Global.Random.html
