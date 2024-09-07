@@ -4,6 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using Game10003;
 using Raylib_cs;
 
 /// <summary>

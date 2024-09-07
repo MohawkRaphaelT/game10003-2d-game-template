@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Struct Sound </title>
+      <title>Struct Texture2D </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct Sound ">
+      <meta name="title" content="Struct Texture2D ">
       
-      <meta name="description" content="Represents a sound file (audio 10s or less).">
+      <meta name="description" content="Represents a 2D texture.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/docfx-documentation/apiSpec/new?filename=Global_Sound.md&amp;value=---%0Auid%3A%20Global.Sound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/raphael/development/apiSpec/new?filename=Game10003_Texture2D.md&amp;value=---%0Auid%3A%20Game10003.Texture2D%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Global.Sound">
+        <article data-uid="Game10003.Texture2D">
 
 
 
-  <h1 id="Global_Sound" data-uid="Global.Sound" class="text-break">
-Struct Sound  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Sound.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <h1 id="Game10003_Texture2D" data-uid="Game10003.Texture2D" class="text-break">
+Struct Texture2D  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Types/Texture2D.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Global.html">Global</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>GAME 10003 Game Development Foundations - 2D Project Template.dll</dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Game10003.html">Game10003</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GAME 10003 Game Development Foundations - 2D Game Template.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a sound file (audio 10s or less).</p>
+  <div class="markdown summary"><p>Represents a 2D texture.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly record struct Sound : IEquatable&lt;Sound&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly record struct Texture2D : IEquatable&lt;Texture2D&gt;</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Struct Sound  <a class="header-action link-secondary" title="View source" href="
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Sound.html">Sound</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="Game10003.Texture2D.html">Texture2D</a>&gt;</div>
     </dd>
   </dl>
 
@@ -143,16 +143,84 @@ Struct Sound  <a class="header-action link-secondary" title="View source" href="
 
 
 
-  <h2 id="Global_Sound_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>Wrapper around Raylib.Sound</p>
+  <h2 id="Game10003_Texture2D_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Wrapper around Raylib.Texture2D</p>
 </div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Game10003_Texture2D_Height_" data-uid="Game10003.Texture2D.Height*"></a>
+
+  <h3 id="Game10003_Texture2D_Height" data-uid="Game10003.Texture2D.Height">
+  Height
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Types/Texture2D.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Texture height in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Height { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Game10003_Texture2D_Width_" data-uid="Game10003.Texture2D.Width*"></a>
+
+  <h3 id="Game10003_Texture2D_Width" data-uid="Game10003.Texture2D.Width">
+  Width
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Types/Texture2D.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Texture width in pixels.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Width { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/docfx-documentation/GAME 10003 Game Development Foundations - 2D Project Template/Types/Sound.cs/#L13" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Types/Texture2D.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

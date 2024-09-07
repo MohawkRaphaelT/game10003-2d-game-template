@@ -9,6 +9,8 @@ using System;
 using System.IO;
 using System.Numerics;
 
+namespace Game10003;
+
 /// <summary>
 ///     Access text drawing functions.
 /// </summary>

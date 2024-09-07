@@ -7,6 +7,8 @@
 using System;
 using System.Numerics;
 
+namespace Game10003;
+
 /// <summary>
 ///     Generate random values.
 /// </summary>

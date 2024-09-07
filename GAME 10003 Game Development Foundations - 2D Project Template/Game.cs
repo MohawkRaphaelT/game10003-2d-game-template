@@ -2,6 +2,8 @@
 using System;
 using System.Numerics;
 
+// Where your code is placed.
+namespace Game10003;
 
 /// <summary>
 ///     Your game code goes inside this class!

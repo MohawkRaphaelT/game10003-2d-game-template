@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+namespace Game10003;
+
 /// <summary>
 ///     Represents an RGBA color (32-bit).
 /// </summary>
