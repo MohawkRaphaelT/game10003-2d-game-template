@@ -9,9 +9,10 @@ using Raylib_cs;
 /// <summary>
 ///     The main underlying program. DO NOT EDIT.
 /// </summary>
-internal class Program
+[GeneratorTools.OmitFromDocumentation]
+public static class Program
 {
-    static void Main()
+    private static void Main()
     {
         // Create game instance
         Game game = new();
