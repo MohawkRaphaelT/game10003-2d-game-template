@@ -27,8 +27,10 @@ public static class Text
     public static int Size { get; set; } = 32;
     /// <summary>
     ///     Text kerning (space between letters) in pixels.
-    ///     Default is 0px.
     /// </summary>
+    /// <remarks>
+    ///     Default is 0px.
+    /// </remarks>
     public static int Kerning { get; set; } = 0;
     /// <summary>
     ///     Text rotation in degrees (0-360), clockwise.
