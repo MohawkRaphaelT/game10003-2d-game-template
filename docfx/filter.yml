@@ -6,22 +6,6 @@ apiRules:
     uidRegex: ^Global\.
     type: Type
 #--------------------------- EXCLUDE ---------------------------#
-# Color implicit operators
-- exclude:
-    uidRegex: ^Color$
-    type: Method
-# Font implicit operators
-- exclude:
-    uidRegex: ^Font$
-    type: Method
-# Music implicit operators
-- exclude:
-    uidRegex: ^Music$
-    type: Method
-# Sound implicit operators
-- exclude:
-    uidRegex: ^Sound$
-    type: Method
 - exclude:
     hasAttribute:
         uid: GeneratorTools.OmitFromDocumentationAttribute
