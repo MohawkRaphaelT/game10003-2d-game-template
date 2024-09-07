@@ -2,9 +2,9 @@
 apiRules:
 #--------------------------- INCLUDE ---------------------------#
 # Force include global::X (named Global.X)
-- include:
-    uidRegex: ^Global\.
-    type: Type
+#- include:
+#    uidRegex: ^Global\.
+#    type: Type
 #--------------------------- EXCLUDE ---------------------------#
 - exclude:
     hasAttribute:

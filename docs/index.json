@@ -94,16 +94,6 @@
     "title": "Namespace Game10003",
     "keywords": "Namespace Game10003 Classes Audio Access audio-related functions. Draw Access drawing functions. Game Your game code goes inside this class! Graphics Access graphics-related functions. Input Access player input functions. Random Generate random values. Text Access text drawing functions. Time Access time-related information. Window Access window-related information. Structs Color Represents an RGBA color (32-bit). Font Represents a font. Music Represents a music file (audio over 10s long). Sound Represents a sound file (audio 10s or less). Texture2D Represents a 2D texture. Enums ControllerAxis Defines the various controller axes (analog inputs) in a generic way. ControllerButton Defines the various controller buttons (gitial inputs) on a generic way. KeyboardKeyInput Defines keyboard keys. MouseButtonInput Defines mouse buttons."
   },
-  "api/Global.Program.html": {
-    "href": "api/Global.Program.html",
-    "title": "Class Program",
-    "keywords": "Class Program Namespace Global Assembly GAME 10003 Game Development Foundations - 2D Game Template.dll The main underlying program. DO NOT EDIT. public static class Program Inheritance object Program Inherited Members object.Equals(object) object.Equals(object, object) object.GetHashCode() object.GetType() object.MemberwiseClone() object.ReferenceEquals(object, object) object.ToString()"
-  },
-  "api/Global.html": {
-    "href": "api/Global.html",
-    "title": "Namespace",
-    "keywords": "Namespace Classes Program The main underlying program. DO NOT EDIT."
-  },
   "edit-nots.html": {
     "href": "edit-nots.html",
     "title": "",

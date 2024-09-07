@@ -2831,12 +2831,3 @@ references:
   isSpec: "True"
   fullName: Game10003.Window.Width
   nameWithType: Window.Width
-- uid: Global
-  name: ''
-  href: api/Global.html
-- uid: Global.Program
-  name: Program
-  href: api/Global.Program.html
-  commentId: T:Global.Program
-  fullName: Program
-  nameWithType: Program
