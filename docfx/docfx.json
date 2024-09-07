@@ -10,7 +10,6 @@
         }
       ],
       "filter": "filter.yml", 
-      "_disableToc": true,
       "dest": "api"
     }
   ],

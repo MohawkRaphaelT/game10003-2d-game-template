@@ -101,7 +101,7 @@ public static class Text
     /// </summary>
     /// <param name="filePath">The path to the font file.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="global::Font"/>.
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
     /// <exception cref="FileNotFoundException">
     ///     Error thrown if the font file could not be found.
@@ -128,7 +128,7 @@ public static class Text
     /// <param name="filename">The font's file name.</param>
     /// <param name="extension">The font's extension.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="global::Font"/>.
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
     /// <exception cref="FileNotFoundException">
     ///     Error thrown if the font file could not be found.
