@@ -1,0 +1,1 @@
+robocopy /s _site ../docs

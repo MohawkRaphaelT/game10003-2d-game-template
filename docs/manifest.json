@@ -1,0 +1,232 @@
+{
+  "source_base_path": "C:/Users/Raphael/source/repos/game10003-raylib-template/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Audio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Audio.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Color.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ControllerAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ControllerAxis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.ControllerButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.ControllerButton.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Draw.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Draw.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Font.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Font.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Game.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Graphics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Graphics.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Input.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.KeyboardKeyInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.KeyboardKeyInput.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.MouseButtonInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.MouseButtonInput.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Music.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Music.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Random.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Random.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Sound.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Text.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Texture2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Texture2D.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Time.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Time.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.Window.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.Window.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Global.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Global.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "edit-nots.md",
+      "output": {
+        ".html": {
+          "relative_path": "edit-nots.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
