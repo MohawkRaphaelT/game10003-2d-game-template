@@ -11,16 +11,13 @@ using System.Numerics;
 namespace Game10003;
 
 /// <summary>
-///     Access drawing functions.
+///     Access shape drawing functions.
 /// </summary>
 /// <remarks>
 ///     A static wrapper to standardize raylib's draw API.
 /// </remarks>
 public static class Draw
 {
-    // CONSTANTS
-    private const float degreesToRadians = 57.2957795131f;
-
     // PROPERTIES
     /// <summary>
     ///     Shape fill color.
@@ -214,7 +211,7 @@ public static class Draw
     /// <param name="position">The ellipse position, defines the centre point.</param>
     /// <param name="size">The size of the ellipse.</param>
     public static void Ellipse(Vector2 position, Vector2 size)
-        => Ellipse(position.X, position.Y, size.X, size.Y, LineColor, LineSize, FillColor);
+        => Ellipse(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined ellipse at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to size (<paramref name="w"/>, 
@@ -227,7 +224,7 @@ public static class Draw
     /// <param name="w">The ellipse's width.</param>
     /// <param name="h">The ellipse's height.</param>
     public static void Ellipse(float x, float y, float w, float h)
-        => Ellipse(x, y, w, h, LineColor, LineSize, FillColor);
+        => Ellipse(x, y, w, h, FillColor, LineSize, LineColor);
     // 
     private static void Ellipse(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
@@ -308,54 +305,102 @@ public static class Draw
 
     // TRIANGLE
     /// <summary>
-    ///     Draw a filled and outlined isosceles triangle at position
-    ///     <paramref name="position"/> of <paramref name="sideLength"/> size 
-    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
-    ///     <see cref="Draw.LineColor"/> for the line's color, and
-    ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
-    /// /// </summary>
-    /// <param name="position">The triangle's position, defines the upper-left corner.</param>
-    /// <param name="sideLength">Length of each side.</param>
-    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
-    public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
-        => Triangle(position, sideLength, angleDegrees, FillColor, LineSize, LineColor);
+    ///     Draw a filled and outlined triangle with corners at positions
+    ///     <paramref name="position1"/>, <paramref name="position2"/>,
+    ///     and <paramref name="position3"/> using <see cref="Draw.LineSize"/>
+    ///     for the outline thickness, <see cref="Draw.LineColor"/> for the line's
+    ///     color, and <see cref="Draw.FillColor"/> for the triangle's fill color.
+    /// </summary>
+    /// <param name="position1">The triangle's first corner's position.</param>
+    /// <param name="position2">The triangle's second corner's position.</param>
+    /// <param name="position3">The triangle's third corner's position.</param>
+    public static void Triangle(Vector2 position1, Vector2 position2, Vector2 position3)
+        => Triangle(position1, position2, position3, FillColor, LineSize, LineColor);
     /// <summary>
-    ///     Draw a filled and outlined isosceles triangle at position (<paramref name="x"/>,
-    ///     <paramref name="y"/>) of <paramref name="sideLength"/> size 
+    ///     Draw a filled and outlined triangle with corners at positions
+    ///     (<paramref name="x1"/>, <paramref name="y1"/>),
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>), and
+    ///     (<paramref name="x3"/>, <paramref name="y3"/>)
     ///     using <see cref="Draw.LineSize"/> for the outline thickness,
     ///     <see cref="Draw.LineColor"/> for the line's color, and
     ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
     /// </summary>
-    /// <param name="x">The triangle's X position, defines the upper-left corner.</param>
-    /// <param name="y">The triangle's Y position, defines the upper-left corner.</param>
-    /// <param name="sideLength">Length of each side.</param>
-    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
-    public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
-        => Triangle(new Vector2(x, y), sideLength, angleDegrees, FillColor, LineSize, LineColor);
+    /// <param name="x1">The triangle's first corner's X position.</param>
+    /// <param name="y1">The triangle's first corner's Y position.</param>
+    /// <param name="x2">The triangle's second corner's X position.</param>
+    /// <param name="y2">The triangle's second corner's Y position.</param>
+    /// <param name="x3">The triangle's third corner's X position.</param>
+    /// <param name="y3">The triangle's third corner's Y position.</param>
+    public static void Triangle(float x1, float y1, float x2, float y2, float x3, float y3)
+        => Triangle(new(x1, y1), new(x2, y2), new(x3, y3), FillColor, LineSize, LineColor);
     //
-    private static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
+    private static void Triangle(Vector2 position1, Vector2 position2, Vector2 position3, Color fillColor, float lineSize, Color lineColor)
     {
-        TriangleFill(position, sideLength, angleDegrees, fillColor);
-        TriangleOutline(position, sideLength, angleDegrees, lineSize, lineColor);
+        TriangleFill(position1, position2, position3, fillColor);
+        TriangleOutline(position1, position2, position3, lineSize, lineColor);
     }
-    private static void TriangleFill(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
+    private static void TriangleFill(Vector2 position1, Vector2 position2, Vector2 position3, Color fillColor)
     {
-        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
-        Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
-        Raylib.DrawTriangle(v0, v1, v2, fillColor);
-        Raylib.DrawTriangle(v0, v2, v1, fillColor);
+        Raylib.DrawTriangle(position1, position2, position3, fillColor);
+        Raylib.DrawTriangle(position3, position2, position1, fillColor);
     }
-    private static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
+    private static void TriangleOutline(Vector2 position1, Vector2 position2, Vector2 position3, float lineSize, Color lineColor)
     {
-        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
-        Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
-        PolyLine([ v0, v1, v2, v0 ], lineSize, lineColor);
+        Vector2[] outline = [position1, position2, position3, position1];
+        PolyLine(outline, lineSize, lineColor);
+    }
+
+
+    // QUAD
+    /// <summary>
+    ///     Draw a filled and outlined quad with corners at positions
+    ///     <paramref name="position1"/>, <paramref name="position2"/>,
+    ///     <paramref name="position3"/>, and <paramref name="position4"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the quad's fill color.
+    /// </summary>
+    /// <param name="position1">The quad's first corner's position.</param>
+    /// <param name="position2">The quad's second corner's position.</param>
+    /// <param name="position3">The quad's third corner's position.</param>
+    /// <param name="position4">The quad's third corner's position.</param>
+    public static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4)
+        => Quad(position1, position2, position3, position4, FillColor, LineSize, LineColor);
+    /// <summary>
+    ///     Draw a filled and outlined quad with corners at positions
+    ///     (<paramref name="x1"/>, <paramref name="y1"/>),
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>),
+    ///     (<paramref name="x3"/>, <paramref name="y3"/>), and
+    ///     (<paramref name="x4"/>, <paramref name="y4"/>)
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the quad's fill color.
+    /// </summary>
+    /// <param name="x1">The quad's first corner's X position.</param>
+    /// <param name="y1">The quad's first corner's Y position.</param>
+    /// <param name="x2">The quad's second corner's X position.</param>
+    /// <param name="y2">The quad's second corner's Y position.</param>
+    /// <param name="x3">The quad's third corner's X position.</param>
+    /// <param name="y3">The quad's third corner's Y position.</param>
+    /// <param name="x4">The quad's fourth corner's X position.</param>
+    /// <param name="y4">The quad's fourth corner's Y position.</param>
+    public static void Quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
+        => Quad(new(x1, y1), new(x2, y2), new(x3, y3), new(x4, y4), FillColor, LineSize, LineColor);
+    //
+    private static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, Color fillColor, float lineSize, Color lineColor)
+    {
+        QuadFill(position1, position2, position3, position4, fillColor);
+        QuadOutline(position1, position2, position3, position4, lineSize, lineColor);
+    }
+    private static void QuadFill(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, Color fillColor)
+    {
+        Raylib.DrawTriangleFan([position1, position2, position3, position4], 4, fillColor);
+        Raylib.DrawTriangleFan([position4, position3, position2, position1], 4, fillColor);
+    }
+    private static void QuadOutline(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, float lineSize, Color lineColor)
+    {
+        Vector2[] outline = [position1, position2, position3, position4, position1];
+        PolyLine(outline, lineSize, lineColor);
     }
 
 }

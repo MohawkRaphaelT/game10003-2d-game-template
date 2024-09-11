@@ -12,7 +12,7 @@ namespace Game10003;
 /// <remarks>
 ///     Wrapper around Raylib's KeyboardKey
 /// </remarks>
-public enum KeyboardKeyInput
+public enum KeyboardInput
 {
     /// <summary>
     /// Used for no key pressed.

@@ -12,24 +12,10 @@ namespace Game10003;
 /// <remarks>
 ///     Wrapper around Raylib.Music
 /// </remarks>
-public record struct Music
+public readonly record struct Music
 {
-    /// <summary>
-    ///     Whether or not this music loops.
-    /// </summary>
-    public bool Looping
-    {
-        readonly get => RaylibMusic.Looping;
-        set
-        {
-            var local = RaylibMusic;
-            local.Looping = value;
-            RaylibMusic = local;
-        }
-    }
-
     [GeneratorTools.OmitFromDocumentation]
-    public Raylib_cs.Music RaylibMusic { get; private set; }
+    public Raylib_cs.Music RaylibMusic { get; init; }
 
     [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Music(Raylib_cs.Music raylibMusic)

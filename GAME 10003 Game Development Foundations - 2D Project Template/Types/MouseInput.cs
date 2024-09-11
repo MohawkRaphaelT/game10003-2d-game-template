@@ -12,7 +12,7 @@ namespace Game10003;
 /// <remarks>
 ///     Wrapper around Raylib's MouseButton
 /// </remarks>
-public enum MouseButtonInput
+public enum MouseInput
 {
     /// <summary>
     ///     Left mouse button.

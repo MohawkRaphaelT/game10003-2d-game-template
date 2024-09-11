@@ -11,7 +11,7 @@ using System.Numerics;
 namespace Game10003;
 
 /// <summary>
-///     Access window-related information.
+///     Access window information.
 /// </summary>
 public static class Window
 {
@@ -64,7 +64,7 @@ public static class Window
     public static int TargetFPS
     {
         get => targetFPS;
-        set => SetTargetFpsOrError(value);
+        set => SetTargetFpsOrWarn(value);
     }
 
     /// <summary>
@@ -119,12 +119,12 @@ public static class Window
         int height = (int)size.Y;
         Raylib.SetWindowSize(width, height);
     }
-    private static void SetTargetFpsOrError(int targetFPS)
+    private static void SetTargetFpsOrWarn(int targetFPS)
     {
         if (targetFPS <= 0)
         {
             string msg = "FPS must be greater than 0!";
-            throw new ArgumentException(msg);
+            Console.WriteLine(msg);
         }
 
         Window.targetFPS = targetFPS;

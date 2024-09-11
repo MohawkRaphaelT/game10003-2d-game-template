@@ -10,7 +10,7 @@ using System.Diagnostics;
 namespace Game10003;
 
 /// <summary>
-///     Access time-related information.
+///     Access time information.
 /// </summary>
 /// <remarks>
 ///     A static wrapper to standardize raylib's time API.
@@ -36,7 +36,7 @@ public static class Time
     public static double SecondsElapsedPrecise
     {
         get => Raylib.GetTime() - timeOffset;
-        set => timeOffset = value - Raylib.GetTime();
+        set => timeOffset = Raylib.GetTime() - value;
     }
 
     /// <summary>

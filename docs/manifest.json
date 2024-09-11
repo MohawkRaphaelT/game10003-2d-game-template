@@ -102,20 +102,20 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Game10003.KeyboardKeyInput.yml",
+      "source_relative_path": "api/Game10003.KeyboardInput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Game10003.KeyboardKeyInput.html"
+          "relative_path": "api/Game10003.KeyboardInput.html"
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Game10003.MouseButtonInput.yml",
+      "source_relative_path": "api/Game10003.MouseInput.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Game10003.MouseButtonInput.html"
+          "relative_path": "api/Game10003.MouseInput.html"
         }
       },
       "version": ""
