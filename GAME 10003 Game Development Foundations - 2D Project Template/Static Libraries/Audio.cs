@@ -189,6 +189,6 @@ public static class Audio
     /// <returns>
     ///     Returns the length of audio file <paramref name="music"/> in seconds.
     /// </returns>
-    public static float GetAudioLength(Music music) => Raylib.GetMusicTimeLength(music);
+    public static float GetMusicLength(Music music) => Raylib.GetMusicTimeLength(music);
 
 }

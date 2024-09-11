@@ -13,19 +13,19 @@ references:
   commentId: T:Game10003.Audio
   fullName: Game10003.Audio
   nameWithType: Audio
-- uid: Game10003.Audio.GetAudioLength(Game10003.Music)
-  name: GetAudioLength(Music)
-  href: api/Game10003.Audio.html#Game10003_Audio_GetAudioLength_Game10003_Music_
-  commentId: M:Game10003.Audio.GetAudioLength(Game10003.Music)
-  fullName: Game10003.Audio.GetAudioLength(Game10003.Music)
-  nameWithType: Audio.GetAudioLength(Music)
-- uid: Game10003.Audio.GetAudioLength*
-  name: GetAudioLength
-  href: api/Game10003.Audio.html#Game10003_Audio_GetAudioLength_
-  commentId: Overload:Game10003.Audio.GetAudioLength
+- uid: Game10003.Audio.GetMusicLength(Game10003.Music)
+  name: GetMusicLength(Music)
+  href: api/Game10003.Audio.html#Game10003_Audio_GetMusicLength_Game10003_Music_
+  commentId: M:Game10003.Audio.GetMusicLength(Game10003.Music)
+  fullName: Game10003.Audio.GetMusicLength(Game10003.Music)
+  nameWithType: Audio.GetMusicLength(Music)
+- uid: Game10003.Audio.GetMusicLength*
+  name: GetMusicLength
+  href: api/Game10003.Audio.html#Game10003_Audio_GetMusicLength_
+  commentId: Overload:Game10003.Audio.GetMusicLength
   isSpec: "True"
-  fullName: Game10003.Audio.GetAudioLength
-  nameWithType: Audio.GetAudioLength
+  fullName: Game10003.Audio.GetMusicLength
+  nameWithType: Audio.GetMusicLength
 - uid: Game10003.Audio.IsPlaying(Game10003.Music)
   name: IsPlaying(Music)
   href: api/Game10003.Audio.html#Game10003_Audio_IsPlaying_Game10003_Music_
