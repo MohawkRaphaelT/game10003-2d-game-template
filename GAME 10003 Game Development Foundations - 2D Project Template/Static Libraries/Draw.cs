@@ -11,7 +11,7 @@ using System.Numerics;
 namespace Game10003;
 
 /// <summary>
-///     Access drawing functions.
+///     Access shape drawing functions.
 /// </summary>
 /// <remarks>
 ///     A static wrapper to standardize raylib's draw API.

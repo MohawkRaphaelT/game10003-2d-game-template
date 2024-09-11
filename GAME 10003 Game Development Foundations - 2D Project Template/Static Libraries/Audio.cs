@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Game10003;
 
 /// <summary>
-///     Access audio-related functions.
+///     Access audio functions.
 /// </summary>
 /// <remarks>
 ///     A static wrapper to standardize raylib's audio API.

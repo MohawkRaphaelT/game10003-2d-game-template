@@ -10,7 +10,7 @@ using System.Numerics;
 namespace Game10003;
 
 /// <summary>
-///     Access graphics-related functions.
+///     Access texture drawing functions.
 /// </summary>
 /// <remarks>
 ///     A static wrapper to standardize raylib's texture drawing API.

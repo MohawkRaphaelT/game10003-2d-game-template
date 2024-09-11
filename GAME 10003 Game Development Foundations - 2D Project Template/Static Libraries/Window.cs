@@ -11,7 +11,7 @@ using System.Numerics;
 namespace Game10003;
 
 /// <summary>
-///     Access window-related information.
+///     Access window information.
 /// </summary>
 public static class Window
 {
