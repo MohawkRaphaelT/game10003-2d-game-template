@@ -758,14 +758,23 @@ references:
   fullName: Game10003.Draw.LineSize
   nameWithType: Draw.LineSize
 - uid: Game10003.Draw.PolyLine(System.Numerics.Vector2[])
-  name: PolyLine(Vector2[])
+  name: PolyLine(params Vector2[])
   href: api/Game10003.Draw.html#Game10003_Draw_PolyLine_System_Numerics_Vector2___
   commentId: M:Game10003.Draw.PolyLine(System.Numerics.Vector2[])
-  name.vb: PolyLine(Vector2())
-  fullName: Game10003.Draw.PolyLine(System.Numerics.Vector2[])
-  fullName.vb: Game10003.Draw.PolyLine(System.Numerics.Vector2())
-  nameWithType: Draw.PolyLine(Vector2[])
-  nameWithType.vb: Draw.PolyLine(Vector2())
+  name.vb: PolyLine(ParamArray Vector2())
+  fullName: Game10003.Draw.PolyLine(params System.Numerics.Vector2[])
+  fullName.vb: Game10003.Draw.PolyLine(ParamArray System.Numerics.Vector2())
+  nameWithType: Draw.PolyLine(params Vector2[])
+  nameWithType.vb: Draw.PolyLine(ParamArray Vector2())
+- uid: Game10003.Draw.PolyLine(System.Single[])
+  name: PolyLine(params float[])
+  href: api/Game10003.Draw.html#Game10003_Draw_PolyLine_System_Single___
+  commentId: M:Game10003.Draw.PolyLine(System.Single[])
+  name.vb: PolyLine(ParamArray Single())
+  fullName: Game10003.Draw.PolyLine(params float[])
+  fullName.vb: Game10003.Draw.PolyLine(ParamArray Single())
+  nameWithType: Draw.PolyLine(params float[])
+  nameWithType.vb: Draw.PolyLine(ParamArray Single())
 - uid: Game10003.Draw.PolyLine*
   name: PolyLine
   href: api/Game10003.Draw.html#Game10003_Draw_PolyLine_
@@ -870,6 +879,32 @@ references:
   commentId: T:Game10003.Font
   fullName: Game10003.Font
   nameWithType: Font
+- uid: Game10003.Font.FileName
+  name: FileName
+  href: api/Game10003.Font.html#Game10003_Font_FileName
+  commentId: P:Game10003.Font.FileName
+  fullName: Game10003.Font.FileName
+  nameWithType: Font.FileName
+- uid: Game10003.Font.FileName*
+  name: FileName
+  href: api/Game10003.Font.html#Game10003_Font_FileName_
+  commentId: Overload:Game10003.Font.FileName
+  isSpec: "True"
+  fullName: Game10003.Font.FileName
+  nameWithType: Font.FileName
+- uid: Game10003.Font.FilePath
+  name: FilePath
+  href: api/Game10003.Font.html#Game10003_Font_FilePath
+  commentId: P:Game10003.Font.FilePath
+  fullName: Game10003.Font.FilePath
+  nameWithType: Font.FilePath
+- uid: Game10003.Font.FilePath*
+  name: FilePath
+  href: api/Game10003.Font.html#Game10003_Font_FilePath_
+  commentId: Overload:Game10003.Font.FilePath
+  isSpec: "True"
+  fullName: Game10003.Font.FilePath
+  nameWithType: Font.FilePath
 - uid: Game10003.Game
   name: Game
   href: api/Game10003.Game.html
@@ -2206,6 +2241,32 @@ references:
   commentId: T:Game10003.Music
   fullName: Game10003.Music
   nameWithType: Music
+- uid: Game10003.Music.FileName
+  name: FileName
+  href: api/Game10003.Music.html#Game10003_Music_FileName
+  commentId: P:Game10003.Music.FileName
+  fullName: Game10003.Music.FileName
+  nameWithType: Music.FileName
+- uid: Game10003.Music.FileName*
+  name: FileName
+  href: api/Game10003.Music.html#Game10003_Music_FileName_
+  commentId: Overload:Game10003.Music.FileName
+  isSpec: "True"
+  fullName: Game10003.Music.FileName
+  nameWithType: Music.FileName
+- uid: Game10003.Music.FilePath
+  name: FilePath
+  href: api/Game10003.Music.html#Game10003_Music_FilePath
+  commentId: P:Game10003.Music.FilePath
+  fullName: Game10003.Music.FilePath
+  nameWithType: Music.FilePath
+- uid: Game10003.Music.FilePath*
+  name: FilePath
+  href: api/Game10003.Music.html#Game10003_Music_FilePath_
+  commentId: Overload:Game10003.Music.FilePath
+  isSpec: "True"
+  fullName: Game10003.Music.FilePath
+  nameWithType: Music.FilePath
 - uid: Game10003.Random
   name: Random
   href: api/Game10003.Random.html
@@ -2471,6 +2532,32 @@ references:
   commentId: T:Game10003.Sound
   fullName: Game10003.Sound
   nameWithType: Sound
+- uid: Game10003.Sound.FileName
+  name: FileName
+  href: api/Game10003.Sound.html#Game10003_Sound_FileName
+  commentId: P:Game10003.Sound.FileName
+  fullName: Game10003.Sound.FileName
+  nameWithType: Sound.FileName
+- uid: Game10003.Sound.FileName*
+  name: FileName
+  href: api/Game10003.Sound.html#Game10003_Sound_FileName_
+  commentId: Overload:Game10003.Sound.FileName
+  isSpec: "True"
+  fullName: Game10003.Sound.FileName
+  nameWithType: Sound.FileName
+- uid: Game10003.Sound.FilePath
+  name: FilePath
+  href: api/Game10003.Sound.html#Game10003_Sound_FilePath
+  commentId: P:Game10003.Sound.FilePath
+  fullName: Game10003.Sound.FilePath
+  nameWithType: Sound.FilePath
+- uid: Game10003.Sound.FilePath*
+  name: FilePath
+  href: api/Game10003.Sound.html#Game10003_Sound_FilePath_
+  commentId: Overload:Game10003.Sound.FilePath
+  isSpec: "True"
+  fullName: Game10003.Sound.FilePath
+  nameWithType: Sound.FilePath
 - uid: Game10003.Text
   name: Text
   href: api/Game10003.Text.html
@@ -2707,6 +2794,32 @@ references:
   commentId: T:Game10003.Texture2D
   fullName: Game10003.Texture2D
   nameWithType: Texture2D
+- uid: Game10003.Texture2D.FileName
+  name: FileName
+  href: api/Game10003.Texture2D.html#Game10003_Texture2D_FileName
+  commentId: P:Game10003.Texture2D.FileName
+  fullName: Game10003.Texture2D.FileName
+  nameWithType: Texture2D.FileName
+- uid: Game10003.Texture2D.FileName*
+  name: FileName
+  href: api/Game10003.Texture2D.html#Game10003_Texture2D_FileName_
+  commentId: Overload:Game10003.Texture2D.FileName
+  isSpec: "True"
+  fullName: Game10003.Texture2D.FileName
+  nameWithType: Texture2D.FileName
+- uid: Game10003.Texture2D.FilePath
+  name: FilePath
+  href: api/Game10003.Texture2D.html#Game10003_Texture2D_FilePath
+  commentId: P:Game10003.Texture2D.FilePath
+  fullName: Game10003.Texture2D.FilePath
+  nameWithType: Texture2D.FilePath
+- uid: Game10003.Texture2D.FilePath*
+  name: FilePath
+  href: api/Game10003.Texture2D.html#Game10003_Texture2D_FilePath_
+  commentId: Overload:Game10003.Texture2D.FilePath
+  isSpec: "True"
+  fullName: Game10003.Texture2D.FilePath
+  nameWithType: Texture2D.FilePath
 - uid: Game10003.Texture2D.Height
   name: Height
   href: api/Game10003.Texture2D.html#Game10003_Texture2D_Height
@@ -2778,19 +2891,6 @@ references:
   isSpec: "True"
   fullName: Game10003.Time.SecondsElapsed
   nameWithType: Time.SecondsElapsed
-- uid: Game10003.Time.SecondsElapsedPrecise
-  name: SecondsElapsedPrecise
-  href: api/Game10003.Time.html#Game10003_Time_SecondsElapsedPrecise
-  commentId: P:Game10003.Time.SecondsElapsedPrecise
-  fullName: Game10003.Time.SecondsElapsedPrecise
-  nameWithType: Time.SecondsElapsedPrecise
-- uid: Game10003.Time.SecondsElapsedPrecise*
-  name: SecondsElapsedPrecise
-  href: api/Game10003.Time.html#Game10003_Time_SecondsElapsedPrecise_
-  commentId: Overload:Game10003.Time.SecondsElapsedPrecise
-  isSpec: "True"
-  fullName: Game10003.Time.SecondsElapsedPrecise
-  nameWithType: Time.SecondsElapsedPrecise
 - uid: Game10003.Window
   name: Window
   href: api/Game10003.Window.html
