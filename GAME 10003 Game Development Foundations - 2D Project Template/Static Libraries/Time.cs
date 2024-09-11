@@ -17,26 +17,16 @@ namespace Game10003;
 /// </remarks>
 public static class Time
 {
+    // When manually setting time, this stores the offset relative to start time.
     private static double timeOffset = 0;
 
-
-    // PROPERTIES
     /// <summary>
-    ///     How much time in seconds has elapsed (as a <see cref="float"/>).
+    ///     How much time in seconds has elapsed.
     /// </summary>
     public static float SecondsElapsed
     {
         get => (float)SecondsElapsedPrecise;
         set => SecondsElapsedPrecise = value;
-    }
-
-    /// <summary>
-    ///     How much time in seconds has elapsed (as a <see cref="double"/>).
-    /// </summary>
-    public static double SecondsElapsedPrecise
-    {
-        get => Raylib.GetTime() - timeOffset;
-        set => timeOffset = Raylib.GetTime() - value;
     }
 
     /// <summary>
@@ -51,6 +41,15 @@ public static class Time
 
 
     // METHODS
+
+    /// <summary>
+    ///     How much time in seconds has elapsed (as a <see cref="double"/>).
+    /// </summary>
+    private static double SecondsElapsedPrecise
+    {
+        get => Raylib.GetTime() - timeOffset;
+        set => timeOffset = Raylib.GetTime() - value;
+    }
     private static float GetFixedDeltaTime()
     {
         float fixedDeltaTime = 1f / Window.TargetFPS;
