@@ -308,54 +308,49 @@ public static class Draw
 
     // TRIANGLE
     /// <summary>
-    ///     Draw a filled and outlined isosceles triangle at position
-    ///     <paramref name="position"/> of <paramref name="sideLength"/> size 
-    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
-    ///     <see cref="Draw.LineColor"/> for the line's color, and
-    ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
-    /// /// </summary>
-    /// <param name="position">The triangle's position, defines the upper-left corner.</param>
-    /// <param name="sideLength">Length of each side.</param>
-    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
-    public static void Triangle(Vector2 position, float sideLength, float angleDegrees = 0)
-        => Triangle(position, sideLength, angleDegrees, FillColor, LineSize, LineColor);
+    ///     Draw a filled and outlined triangle with corners at positions
+    ///     <paramref name="position1"/>, <paramref name="position2"/>,
+    ///     and <paramref name="position3"/> using <see cref="Draw.LineSize"/>
+    ///     for the outline thickness, <see cref="Draw.LineColor"/> for the line's
+    ///     color, and <see cref="Draw.FillColor"/> for the triangle's fill color.
+    /// </summary>
+    /// <param name="position1">The triangle's first corner's position.</param>
+    /// <param name="position2">The triangle's second corner's position.</param>
+    /// <param name="position3">The triangle's third corner's position.</param>
+    public static void Triangle(Vector2 position1, Vector2 position2, Vector2 position3)
+        => Triangle(position1, position2, position3, FillColor, LineSize, LineColor);
     /// <summary>
-    ///     Draw a filled and outlined isosceles triangle at position (<paramref name="x"/>,
-    ///     <paramref name="y"/>) of <paramref name="sideLength"/> size 
+    ///     Draw a filled and outlined triangle with corners at positions
+    ///     (<paramref name="x1"/>, <paramref name="y1"/>),
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>), and
+    ///     (<paramref name="x3"/>, <paramref name="y3"/>)
     ///     using <see cref="Draw.LineSize"/> for the outline thickness,
     ///     <see cref="Draw.LineColor"/> for the line's color, and
     ///     <see cref="Draw.FillColor"/> for the triangle's fill color.
     /// </summary>
-    /// <param name="x">The triangle's X position, defines the upper-left corner.</param>
-    /// <param name="y">The triangle's Y position, defines the upper-left corner.</param>
-    /// <param name="sideLength">Length of each side.</param>
-    /// <param name="angleDegrees">The rotation about the upper-left corner, clockwise.</param>
-    public static void Triangle(float x, float y, float sideLength, float angleDegrees = 0)
-        => Triangle(new Vector2(x, y), sideLength, angleDegrees, FillColor, LineSize, LineColor);
+    /// <param name="x1">The triangle's first corner's X position.</param>
+    /// <param name="y1">The triangle's first corner's Y position.</param>
+    /// <param name="x2">The triangle's second corner's X position.</param>
+    /// <param name="y2">The triangle's second corner's Y position.</param>
+    /// <param name="x3">The triangle's third corner's X position.</param>
+    /// <param name="y3">The triangle's third corner's Y position.</param>
+    public static void Triangle(float x1, float y1, float x2, float y2, float x3, float y3)
+        => Triangle(new(x1, y1), new(x2, y2), new(x3, y3), FillColor, LineSize, LineColor);
     //
-    private static void Triangle(Vector2 position, float sideLength, float angleDegrees, Color fillColor, float lineSize, Color lineColor)
+    private static void Triangle(Vector2 position1, Vector2 position2, Vector2 position3, Color fillColor, float lineSize, Color lineColor)
     {
-        TriangleFill(position, sideLength, angleDegrees, fillColor);
-        TriangleOutline(position, sideLength, angleDegrees, lineSize, lineColor);
+        TriangleFill(position1, position2, position3, fillColor);
+        TriangleOutline(position1, position2, position3, lineSize, lineColor);
     }
-    private static void TriangleFill(Vector2 position, float sideLength, float angleDegrees, Color fillColor)
+    private static void TriangleFill(Vector2 position1, Vector2 position2, Vector2 position3, Color fillColor)
     {
-        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
-        Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
-        Raylib.DrawTriangle(v0, v1, v2, fillColor);
-        Raylib.DrawTriangle(v0, v2, v1, fillColor);
+        Raylib.DrawTriangle(position1, position2, position3, fillColor);
+        Raylib.DrawTriangle(position1, position3, position2, fillColor);
     }
-    private static void TriangleOutline(Vector2 position, float sideLength, float angleDegrees, float lineSize, Color lineColor)
+    private static void TriangleOutline(Vector2 position1, Vector2 position2, Vector2 position3, float lineSize, Color lineColor)
     {
-        float angleRadiansV1 = (angleDegrees - 0) / degreesToRadians;
-        float angleRadiansV2 = (angleDegrees + 60) / degreesToRadians;
-        Vector2 v0 = position;
-        Vector2 v1 = position + new Vector2(MathF.Cos(angleRadiansV1), MathF.Sin(angleRadiansV1)) * sideLength;
-        Vector2 v2 = position + new Vector2(MathF.Cos(angleRadiansV2), MathF.Sin(angleRadiansV2)) * sideLength;
-        PolyLine([ v0, v1, v2, v0 ], lineSize, lineColor);
+        PolyLine([position1, position2, position3], lineSize, lineColor);
     }
+
 
 }
