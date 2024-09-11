@@ -345,12 +345,65 @@ public static class Draw
     private static void TriangleFill(Vector2 position1, Vector2 position2, Vector2 position3, Color fillColor)
     {
         Raylib.DrawTriangle(position1, position2, position3, fillColor);
-        Raylib.DrawTriangle(position1, position3, position2, fillColor);
+        Raylib.DrawTriangle(position3, position2, position1, fillColor);
     }
     private static void TriangleOutline(Vector2 position1, Vector2 position2, Vector2 position3, float lineSize, Color lineColor)
     {
-        PolyLine([position1, position2, position3], lineSize, lineColor);
+        Vector2[] outline = [position1, position2, position3, position1];
+        PolyLine(outline, lineSize, lineColor);
     }
 
+
+    // QUAD
+    /// <summary>
+    ///     Draw a filled and outlined quad with corners at positions
+    ///     <paramref name="position1"/>, <paramref name="position2"/>,
+    ///     <paramref name="position3"/>, and <paramref name="position4"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the quad's fill color.
+    /// </summary>
+    /// <param name="position1">The quad's first corner's position.</param>
+    /// <param name="position2">The quad's second corner's position.</param>
+    /// <param name="position3">The quad's third corner's position.</param>
+    /// <param name="position4">The quad's third corner's position.</param>
+    public static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4)
+        => Quad(position1, position2, position3, position4, FillColor, LineSize, LineColor);
+    /// <summary>
+    ///     Draw a filled and outlined quad with corners at positions
+    ///     (<paramref name="x1"/>, <paramref name="y1"/>),
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>),
+    ///     (<paramref name="x3"/>, <paramref name="y3"/>), and
+    ///     (<paramref name="x4"/>, <paramref name="y4"/>)
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the quad's fill color.
+    /// </summary>
+    /// <param name="x1">The quad's first corner's X position.</param>
+    /// <param name="y1">The quad's first corner's Y position.</param>
+    /// <param name="x2">The quad's second corner's X position.</param>
+    /// <param name="y2">The quad's second corner's Y position.</param>
+    /// <param name="x3">The quad's third corner's X position.</param>
+    /// <param name="y3">The quad's third corner's Y position.</param>
+    /// <param name="x4">The quad's fourth corner's X position.</param>
+    /// <param name="y4">The quad's fourth corner's Y position.</param>
+    public static void Quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
+        => Quad(new(x1, y1), new(x2, y2), new(x3, y3), new(x4, y4), FillColor, LineSize, LineColor);
+    //
+    private static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, Color fillColor, float lineSize, Color lineColor)
+    {
+        QuadFill(position1, position2, position3, position4, fillColor);
+        QuadOutline(position1, position2, position3, position4, lineSize, lineColor);
+    }
+    private static void QuadFill(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, Color fillColor)
+    {
+        Raylib.DrawTriangleFan([position1, position2, position3, position4], 4, fillColor);
+        Raylib.DrawTriangleFan([position4, position3, position2, position1], 4, fillColor);
+    }
+    private static void QuadOutline(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, float lineSize, Color lineColor)
+    {
+        Vector2[] outline = [position1, position2, position3, position4, position1];
+        PolyLine(outline, lineSize, lineColor);
+    }
 
 }
