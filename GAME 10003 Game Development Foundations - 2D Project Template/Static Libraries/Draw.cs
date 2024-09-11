@@ -211,7 +211,7 @@ public static class Draw
     /// <param name="position">The ellipse position, defines the centre point.</param>
     /// <param name="size">The size of the ellipse.</param>
     public static void Ellipse(Vector2 position, Vector2 size)
-        => Ellipse(position.X, position.Y, size.X, size.Y, LineColor, LineSize, FillColor);
+        => Ellipse(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
     /// <summary>
     ///     Draw a filled and outlined ellipse at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to size (<paramref name="w"/>, 
@@ -224,7 +224,7 @@ public static class Draw
     /// <param name="w">The ellipse's width.</param>
     /// <param name="h">The ellipse's height.</param>
     public static void Ellipse(float x, float y, float w, float h)
-        => Ellipse(x, y, w, h, LineColor, LineSize, FillColor);
+        => Ellipse(x, y, w, h, FillColor, LineSize, LineColor);
     // 
     private static void Ellipse(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
     {
