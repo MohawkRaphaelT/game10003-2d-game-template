@@ -56,7 +56,7 @@ public static class Text
     public static string MonospaceFontName { get; private set; } = string.Empty;
 
     /// <summary>
-    ///     Loads teh inital fonts.
+    ///     Loads the inital fonts.
     /// </summary>
     public static void Initialize()
     {
@@ -119,11 +119,8 @@ public static class Text
     /// </summary>
     /// <param name="filePath">The path to the font file.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="global::Font"/>.
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
-    /// <exception cref="FileNotFoundException">
-    ///     Error thrown if the font file could not be found.
-    /// </exception>
     public static Font LoadFont(string filePath)
     {
         bool success = File.Exists(filePath);
@@ -134,8 +131,11 @@ public static class Text
         }
         else
         {
-            string msg = $"FONT: failed to find font {filePath}.";
-            throw new FileNotFoundException(msg);
+            string msg =
+                $"{nameof(LoadFont)}: failed to find font {filePath}." +
+                $"Returning default font {MonospaceFontName}.";
+            Console.WriteLine(msg);
+            return MonospaceFont;
         }
     }
 
@@ -146,11 +146,8 @@ public static class Text
     /// <param name="filename">The font's file name.</param>
     /// <param name="extension">The font's extension.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="global::Font"/>.
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
-    /// <exception cref="FileNotFoundException">
-    ///     Error thrown if the font file could not be found.
-    /// </exception>
     public static Font LoadFont(string filename, string extension)
     {
         string fontPath = GetOsFontPath(filename, extension);
@@ -176,27 +173,43 @@ public static class Text
                 }
             }
         }
-        
-        // If failed, then return empty string.
+
+        // If failed, print message...
+        string msg =
+            $"{nameof(GetOsDefaultMonospaceFontPath)}: " +
+            $"failed to load any font file.";
+        Console.WriteLine(msg);
+        // then return empty string.
         return string.Empty;
     }
 
     private static string[] GetOsDefaultMonospaceFontNames()
     {
-        string[] fontFileName = Environment.OSVersion.Platform switch
+        string[] fontFileName = [];
+        switch (Environment.OSVersion.Platform)
         {
             // Windows
-            PlatformID.Win32S or
-            PlatformID.Win32Windows or
-            PlatformID.Win32NT or
-            PlatformID.WinCE => [ "Consola", "lucon", "cour" ],
+            case PlatformID.Win32S:
+            case PlatformID.Win32Windows:
+            case PlatformID.Win32NT:
+            case PlatformID.WinCE:
+                fontFileName = ["Consola", "lucon", "cour"];
+                break;
             // macOS
-            PlatformID.MacOSX => [ "SFMono-Regular", "Menlo-Regular", "Monaco-Regular" ],
+            case PlatformID.MacOSX:
+                fontFileName = ["SFMono-Regular", "Menlo-Regular", "Monaco-Regular"];
+                break;
             // Assume Linux
-            PlatformID.Unix => [ "DejaVu Sans Mono" ],
-            // All others
-            _ => throw new Exception("Unknown platform."),
-        };
+            case PlatformID.Unix:
+                fontFileName = ["DejaVu Sans Mono" ];
+                break;
+            default:
+                string msg =
+                    $"{nameof(GetOsDefaultMonospaceFontNames)}: " +
+                    $"unhandled OS {Environment.OSVersion.Platform}.";
+                Console.WriteLine(msg);
+                break;
+        }
         return fontFileName;
     }
 
