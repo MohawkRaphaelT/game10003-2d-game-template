@@ -6,6 +6,7 @@
 
 using Raylib_cs;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
 
@@ -19,6 +20,13 @@ namespace Game10003;
 /// </remarks>
 public static class Text
 {
+    // Internally track textures to properly unload when game is quit
+    private static readonly List<Font> loadedFonts = [];
+    /// <summary>
+    ///     Get an array of all loaded music.
+    /// </summary>
+    public static Font[] LoadedFonts => [.. loadedFonts];
+
     /// <summary>
     ///     Text color.
     /// </summary>
@@ -152,9 +160,19 @@ public static class Text
     {
         string fontPath = GetOsFontPath(filename, extension);
         Font font = LoadFont(fontPath);
+        loadedFonts.Add(font);
         return font;
     }
 
+    /// <summary>
+    ///     Unloads a <paramref name="font"/> from memory.
+    /// </summary>
+    /// <param name="font">The font to unload.</param>
+    public static void UnloadFont(Font font)
+    {
+        loadedFonts.Remove(font);
+        Raylib.UnloadFont(font);
+    }
 
     // PRIVATE METHODS
     private static string GetOsDefaultMonospaceFontPath()

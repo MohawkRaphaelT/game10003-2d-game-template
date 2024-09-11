@@ -48,6 +48,8 @@ public static class Program
             Audio.UnloadMusic(music);
         foreach (var sound in Audio.LoadedSounds)
             Audio.UnloadSound(sound);
+        foreach (var font in Text.LoadedFonts)
+            Text.UnloadFont(font);
         foreach (var texture in Graphics.LoadedTextures)
             Graphics.UnloadTexture(texture);
         // Proper shutdown
