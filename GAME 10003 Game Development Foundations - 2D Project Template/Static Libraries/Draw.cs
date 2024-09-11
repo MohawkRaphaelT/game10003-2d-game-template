@@ -68,8 +68,30 @@ public static class Draw
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <param name="points">The points to draw between.</param>
-    public static void PolyLine(Vector2[] points)
+    public static void PolyLine(params Vector2[] points)
         => PolyLine(points, LineSize, LineColor);
+    /// <summary>
+    ///     Draw lines with rounded ends between all <paramref name="xyCoordinates"/>
+    ///     (pairs) using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
+    /// </summary>
+    /// <remarks>
+    ///     Order of coordinates is: XY, XY, XY, etc. If the number of coordinates passed
+    ///     is uneven (missing X or Y), the last coordinate will be dropped.
+    /// </remarks>
+    /// <param name="xyCoordinates">The X and Y coordinates to draw between.</param>
+    public static void PolyLine(params float[] xyCoordinates)
+    {
+        // Concatenate every 2 cooridnates, x then y. Div by 2 truncates odd numbers.
+        Vector2[] points = new Vector2[xyCoordinates.Length / 2];
+        // Note: stride of +2
+        for (int pointIndex = 0; pointIndex < points.Length; pointIndex++)
+        {
+            int coordIndex = pointIndex * 2;
+            points[pointIndex] = new Vector2(xyCoordinates[coordIndex + 0], xyCoordinates[coordIndex + 1]);
+        }
+        // Then call Vector2 version of function
+        PolyLine(points, LineSize, LineColor);
+    }
     //
     private static void PolyLine(Vector2[] points, float lineSize, Color lineColor)
     {
