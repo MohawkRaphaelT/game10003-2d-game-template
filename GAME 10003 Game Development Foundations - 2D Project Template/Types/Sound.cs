@@ -14,6 +14,17 @@ namespace Game10003;
 /// </remarks>
 public readonly record struct Sound
 {
+    /// <summary>
+    ///     File path of this sound.
+    /// </summary>
+    public string FilePath { get; init; }
+
+    /// <summary>
+    ///     Name of this sound file.
+    /// </summary>
+    public string FileName { get; init; }
+
+
     [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Sound RaylibSound { get; init; }
 

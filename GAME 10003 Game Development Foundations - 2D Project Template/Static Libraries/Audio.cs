@@ -6,6 +6,7 @@
 
 using Raylib_cs;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Game10003;
 
@@ -45,7 +46,12 @@ public static class Audio
     /// </returns>
     public static Music LoadMusic(string filePath)
     {
-        var music = Raylib.LoadMusicStream(filePath);
+        Music music = new()
+        {
+            RaylibMusic = Raylib.LoadMusicStream(filePath),
+            FilePath = filePath,
+            FileName = Path.GetFileNameWithoutExtension(filePath)
+        };
         loadedMusic.Add(music);
         return music;
     }
@@ -73,7 +79,12 @@ public static class Audio
     /// </returns>
     public static Sound LoadSound(string filePath)
     {
-        var sound = Raylib.LoadSound(filePath);
+        Sound sound = new()
+        {
+            RaylibSound = Raylib.LoadSound(filePath),
+            FilePath = filePath,
+            FileName = Path.GetFileNameWithoutExtension(filePath)
+        };
         loadedSounds.Add(sound);
         return sound;
     }

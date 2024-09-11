@@ -14,6 +14,17 @@ namespace Game10003;
 /// </remarks>
 public readonly record struct Music
 {
+    /// <summary>
+    ///     File path of this music.
+    /// </summary>
+    public string FilePath { get; init; }
+
+    /// <summary>
+    ///     Name of this music file.
+    /// </summary>
+    public string FileName { get; init; }
+
+
     [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Music RaylibMusic { get; init; }
 

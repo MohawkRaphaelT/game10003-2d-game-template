@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System.IO;
 using System.Collections.Generic;
 using System.Numerics;
 
@@ -52,7 +53,12 @@ public static class Graphics
     /// </returns>
     public static Texture2D LoadTexture(string filePath)
     {
-        var texture = Raylib.LoadTexture(filePath);
+        Texture2D texture = new()
+        {
+            RaylibTexture2D = Raylib.LoadTexture(filePath),
+            FilePath = filePath,
+            FileName = Path.GetFileNameWithoutExtension(filePath)
+        };
         loadedTextures.Add(texture);
         return texture;
     }

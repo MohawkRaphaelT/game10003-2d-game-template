@@ -14,6 +14,17 @@ namespace Game10003;
 /// </remarks>
 public readonly record struct Font
 {
+    /// <summary>
+    ///     File path of this font.
+    /// </summary>
+    public string FilePath { get; init; }
+
+    /// <summary>
+    ///     Name of this font file.
+    /// </summary>
+    public string FileName { get; init; }
+
+
     [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Font RaylibFont { get; init; }
 

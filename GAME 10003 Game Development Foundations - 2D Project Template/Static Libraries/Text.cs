@@ -137,13 +137,18 @@ public static class Text
         bool success = File.Exists(filePath);
         if (success)
         {
-            var font = Raylib.LoadFont(filePath);
+            Font font = new()
+            {
+                RaylibFont = Raylib.LoadFont(filePath),
+                FilePath = filePath,
+                FileName = Path.GetFileNameWithoutExtension(filePath),
+            };
             return font;
         }
         else
         {
             string msg =
-                $"{nameof(LoadFont)}: failed to find font {filePath}." +
+                $"{nameof(LoadFont)}: failed to find font {filePath}. " +
                 $"Returning default font {MonospaceFontName}.";
             Console.WriteLine(msg);
             return MonospaceFont;

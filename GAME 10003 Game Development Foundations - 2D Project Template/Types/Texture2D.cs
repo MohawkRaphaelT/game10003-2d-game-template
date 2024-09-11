@@ -15,9 +15,20 @@ namespace Game10003;
 public readonly record struct Texture2D
 {
     /// <summary>
+    ///     File path of this texture.
+    /// </summary>
+    public string FilePath { get; init; }
+
+    /// <summary>
+    ///     Name of this texture file.
+    /// </summary>
+    public string FileName { get; init; }
+
+    /// <summary>
     ///     Texture width in pixels.
     /// </summary>
     public int Width => RaylibTexture2D.Width;
+
     /// <summary>
     ///     Texture height in pixels.
     /// </summary>
