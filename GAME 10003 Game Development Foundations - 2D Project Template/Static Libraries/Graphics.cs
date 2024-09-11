@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace Game10003;
@@ -17,6 +18,14 @@ namespace Game10003;
 /// </remarks>
 public static class Graphics
 {
+    // Internally track textures to properly unload when game is quit
+    private static readonly List<Texture2D> loadedTextures = [];
+    /// <summary>
+    ///     Get an array of all loaded music.
+    /// </summary>
+    public static Texture2D[] LoadedTextures => [.. loadedTextures];
+
+
     /// <summary>
     ///     Angle rotation of graphics in degrees.
     /// </summary>
@@ -44,6 +53,7 @@ public static class Graphics
     public static Texture2D LoadTexture(string filePath)
     {
         var texture = Raylib.LoadTexture(filePath);
+        loadedTextures.Add(texture);
         return texture;
     }
 
@@ -51,8 +61,9 @@ public static class Graphics
     ///     Unloads <paramref name="texture"/> from GPU memory.
     /// </summary>
     /// <param name="texture">The texture to unload from GPU memory.</param>
-    public static void UnoadTexture(Texture2D texture)
+    public static void UnloadTexture(Texture2D texture)
     {
+        loadedTextures.Remove(texture);
         Raylib.UnloadTexture(texture);
     }
 

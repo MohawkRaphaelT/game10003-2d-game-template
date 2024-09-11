@@ -43,12 +43,13 @@ public static class Program
             Time.FramesElapsed++;
         }
 
-        
         // Unload assets
         foreach (var music in Audio.LoadedMusic)
             Audio.UnloadMusic(music);
         foreach (var sound in Audio.LoadedSounds)
             Audio.UnloadSound(sound);
+        foreach (var texture in Graphics.LoadedTextures)
+            Graphics.UnloadTexture(texture);
         // Proper shutdown
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
