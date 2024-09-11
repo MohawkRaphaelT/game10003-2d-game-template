@@ -36,7 +36,7 @@ public static class Time
     public static double SecondsElapsedPrecise
     {
         get => Raylib.GetTime() - timeOffset;
-        set => timeOffset = value - Raylib.GetTime();
+        set => timeOffset = Raylib.GetTime() - value;
     }
 
     /// <summary>
