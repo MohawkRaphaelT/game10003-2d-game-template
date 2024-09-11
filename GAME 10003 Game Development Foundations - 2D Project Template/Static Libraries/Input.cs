@@ -26,7 +26,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key was pressed this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyPressed(KeyboardKeyInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyPressed(KeyboardInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
     /// <summary>
     ///     Checks if keyboard key was released this frame.
     /// </summary>
@@ -34,7 +34,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key was released this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyReleased(KeyboardKeyInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyReleased(KeyboardInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
     /// <summary>
     ///     Checks if keyboard key is up this frame.
     /// </summary>
@@ -42,7 +42,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key is up this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyUp(KeyboardKeyInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyUp(KeyboardInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
     /// <summary>
     ///     Checks if keyboard key is down this frame.
     /// </summary>
@@ -50,7 +50,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key is down this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyDown(KeyboardKeyInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyDown(KeyboardInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
 
     // Mouse
     /// <summary>
@@ -60,7 +60,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button was pressed this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonPressed(MouseButtonInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonPressed(MouseInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
     /// <summary>
     ///     Checks if mouse button was released this frame.
     /// </summary>
@@ -68,7 +68,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button was released this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonReleased(MouseButtonInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonReleased(MouseInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
     /// <summary>
     ///     Checks if mouse button is up this frame.
     /// </summary>
@@ -76,7 +76,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button is up this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonUp(MouseButtonInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonUp(MouseInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
     /// <summary>
     ///     Checks if mouse button is down this frame.
     /// </summary>
@@ -84,7 +84,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button is down this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonDown(MouseButtonInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonDown(MouseInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
     /// <summary>
     ///     Gets the movement of mouse between last frame and this frame.
     /// </summary>
