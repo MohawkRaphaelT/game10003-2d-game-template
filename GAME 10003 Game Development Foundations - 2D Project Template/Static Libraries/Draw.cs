@@ -18,9 +18,6 @@ namespace Game10003;
 /// </remarks>
 public static class Draw
 {
-    // CONSTANTS
-    private const float degreesToRadians = 57.2957795131f;
-
     // PROPERTIES
     /// <summary>
     ///     Shape fill color.
