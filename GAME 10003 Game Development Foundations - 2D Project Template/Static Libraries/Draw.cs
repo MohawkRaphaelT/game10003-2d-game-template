@@ -75,7 +75,7 @@ public static class Draw
     ///     (pairs) using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <remarks>
-    ///     Order of coordinates is: XY, XY, XY, etc. If the number of coordinates passed
+    ///     Order of coordinates is: X, Y, X, Y, etc. If the number of coordinates passed
     ///     is uneven (missing X or Y), the last coordinate will be dropped.
     /// </remarks>
     /// <param name="xyCoordinates">The X and Y coordinates to draw between.</param>
