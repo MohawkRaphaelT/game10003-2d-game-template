@@ -20,8 +20,8 @@ public static class Program
 
         // Raylib one-time setup
         Raylib.InitWindow(Window.Width, Window.Height, Window.Title);
-        Raylib.InitAudioDevice();
         Raylib.SetTargetFPS(Window.TargetFPS);
+        Raylib.InitAudioDevice();
 
         // Wrapper setup
         Text.Initialize();
