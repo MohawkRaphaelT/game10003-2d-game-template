@@ -103,7 +103,7 @@ public static class Graphics
             Position = position,
             Size = subsetSize * Scale,
         };
-        Raylib.DrawTexturePro(texture, source, destination, -rotationOrigin, Rotation, Tint);
+        Raylib.DrawTexturePro(texture, source, destination, rotationOrigin, Rotation, Tint);
     }
 
     /// <summary>
