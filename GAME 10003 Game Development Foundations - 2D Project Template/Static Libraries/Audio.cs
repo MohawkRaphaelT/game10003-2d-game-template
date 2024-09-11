@@ -18,14 +18,19 @@ namespace Game10003;
 public static class Audio
 {
     // Keep list of music to auto-update in background
-    private static readonly List<Music> activeMusic = [];
+    private static readonly List<Music> loadedMusic = [];
+    // Internally track sounds to properly unload when game is quit
+    private static readonly List<Sound> loadedSounds = [];
 
     /// <summary>
-    ///     Get an array of all active music.
+    ///     Get an array of all loaded music.
     /// </summary>
-#pragma warning disable IDE0305 // Simplify collection initialization
-    public static Music[] ActiveMusic => activeMusic.ToArray();
-#pragma warning restore IDE0305 // Simplify collection initialization
+    public static Music[] LoadedMusic => [.. loadedMusic];
+    /// <summary>
+    ///     Get an array of all loaded sounds.
+    /// </summary>
+    public static Sound[] LoadedSounds => [.. loadedSounds];
+
 
     /// <summary>
     ///     Loads a music file at <paramref name="filePath"/>.
@@ -41,7 +46,7 @@ public static class Audio
     public static Music LoadMusic(string filePath)
     {
         var music = Raylib.LoadMusicStream(filePath);
-        activeMusic.Add(music);
+        loadedMusic.Add(music);
         return music;
     }
 
@@ -51,7 +56,7 @@ public static class Audio
     /// <param name="music">The music to unload.</param>
     public static void UnloadMusic(Music music)
     {
-        activeMusic.Remove(music);
+        loadedMusic.Remove(music);
         Raylib.UnloadMusicStream(music);
     }
 
@@ -69,6 +74,7 @@ public static class Audio
     public static Sound LoadSound(string filePath)
     {
         var sound = Raylib.LoadSound(filePath);
+        loadedSounds.Add(sound);
         return sound;
     }
 
@@ -78,6 +84,7 @@ public static class Audio
     /// <param name="sound">The sound to unload.</param>
     public static void UnloadSound(Sound sound)
     {
+        loadedSounds.Remove(sound);
         Raylib.UnloadSound(sound);
     }
 
@@ -175,5 +182,13 @@ public static class Audio
     /// <param name="music">The music to set.</param>
     /// <param name="volume">The volume amount. 0 is silent, 1 is max volume.</param>
     public static void SetVolume(Music music, float volume) => Raylib.SetMusicVolume(music, volume);
+    /// <summary>
+    ///     Get the length of <paramref name="music"/> in seconds.
+    /// </summary>
+    /// <param name="music">The music data to check.</param>
+    /// <returns>
+    ///     Returns the length of audio file <paramref name="music"/> in seconds.
+    /// </returns>
+    public static float GetAudioLength(Music music) => Raylib.GetMusicTimeLength(music);
 
 }

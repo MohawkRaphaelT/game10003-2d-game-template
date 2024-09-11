@@ -31,7 +31,7 @@ public static class Program
         while (!Raylib.WindowShouldClose())
         {
             // Update music buffers every frame
-            foreach (var music in Audio.ActiveMusic)
+            foreach (var music in Audio.LoadedMusic)
                 Raylib.UpdateMusicStream(music);
 
             // Run game frame
@@ -43,6 +43,12 @@ public static class Program
             Time.FramesElapsed++;
         }
 
+        
+        // Unload assets
+        foreach (var music in Audio.LoadedMusic)
+            Audio.UnloadMusic(music);
+        foreach (var sound in Audio.LoadedSounds)
+            Audio.UnloadSound(sound);
         // Proper shutdown
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
