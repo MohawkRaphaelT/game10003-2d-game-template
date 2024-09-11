@@ -93,7 +93,8 @@ public static class Text
     public static void Draw(string text, Vector2 position)
         => Draw(text, position, Font);
     /// <summary>
-    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen.
+    ///     Draws <paramref name="text"/> at position (<paramref name="x"/>,
+    ///     <paramref name="y"/>) on screen.
     /// </summary>
     /// <param name="text">The text to draw.</param>
     /// <param name="x">The X position to draw text at.</param>
@@ -103,7 +104,8 @@ public static class Text
 
 
     /// <summary>
-    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen.
+    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen
+    ///     using <paramref name="font"/>.
     /// </summary>
     /// <param name="text">The text to draw.</param>
     /// <param name="position">The position to draw text at.</param>
@@ -113,7 +115,8 @@ public static class Text
         Raylib.DrawTextPro(font.RaylibFont, text, position, Vector2.Zero, Rotation, Size, Kerning, Color);
     }
     /// <summary>
-    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen.
+    ///     Draws <paramref name="text"/> at position (<paramref name="x"/>,
+    ///     <paramref name="y"/>) on screen using <paramref name="font"/>.
     /// </summary>
     /// <param name="text">The text to draw.</param>
     /// <param name="x">The X position to draw text at.</param>
