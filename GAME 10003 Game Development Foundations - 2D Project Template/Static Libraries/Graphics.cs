@@ -19,12 +19,12 @@ namespace Game10003;
 /// </remarks>
 public static class Graphics
 {
-    // Internally track textures to properly unload when game is quit
-    private static readonly List<Texture2D> loadedTextures = [];
+    // Internally track textures to speed up duplicate loads and properly unload when game is quit
+    private static readonly Dictionary<string, Texture2D> loadedTextures = [];
     /// <summary>
     ///     Get an array of all loaded music.
     /// </summary>
-    public static Texture2D[] LoadedTextures => [.. loadedTextures];
+    public static Texture2D[] LoadedTextures => [.. loadedTextures.Values];
 
 
     /// <summary>
@@ -53,13 +53,22 @@ public static class Graphics
     /// </returns>
     public static Texture2D LoadTexture(string filePath)
     {
+        // Return existing instance if reloading same asset.
+        if (loadedTextures.TryGetValue(filePath, out Texture2D value))
+            return value;
+
+        // Load asset from disk. Assign it file path and file name.
         Texture2D texture = new()
         {
             RaylibTexture2D = Raylib.LoadTexture(filePath),
             FilePath = filePath,
             FileName = Path.GetFileNameWithoutExtension(filePath)
         };
-        loadedTextures.Add(texture);
+
+        // Add to reference dictionary for data reused on duplicate load calls.
+        loadedTextures.Add(filePath, texture);
+
+        // Return newly loaded value.
         return texture;
     }
 
@@ -69,7 +78,7 @@ public static class Graphics
     /// <param name="texture">The texture to unload from GPU memory.</param>
     public static void UnloadTexture(Texture2D texture)
     {
-        loadedTextures.Remove(texture);
+        loadedTextures.Remove(texture.FilePath);
         Raylib.UnloadTexture(texture);
     }
 

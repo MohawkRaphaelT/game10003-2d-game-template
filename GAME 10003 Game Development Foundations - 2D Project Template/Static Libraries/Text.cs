@@ -20,12 +20,12 @@ namespace Game10003;
 /// </remarks>
 public static class Text
 {
-    // Internally track textures to properly unload when game is quit
-    private static readonly List<Font> loadedFonts = [];
+    // Internally track fonts to speed up duplicate loads and properly unload when game is quit
+    private static readonly Dictionary<string, Font> loadedFonts = [];
     /// <summary>
     ///     Get an array of all loaded music.
     /// </summary>
-    public static Font[] LoadedFonts => [.. loadedFonts];
+    public static Font[] LoadedFonts => [.. loadedFonts.Values];
 
     /// <summary>
     ///     Text color.
@@ -134,15 +134,26 @@ public static class Text
     /// </returns>
     public static Font LoadFont(string filePath)
     {
+        // Return existing instance if reloading same asset.
+        if (loadedFonts.TryGetValue(filePath, out Font value))
+            return value;
+
+        // Else, try and load from disk
         bool success = File.Exists(filePath);
         if (success)
         {
+            // Load asset from disk. Assign it file path and file name.
             Font font = new()
             {
                 RaylibFont = Raylib.LoadFont(filePath),
                 FilePath = filePath,
                 FileName = Path.GetFileNameWithoutExtension(filePath),
             };
+
+            // Add to reference dictionary for data reused on duplicate load calls.
+            loadedFonts.Add(filePath, font);
+
+            // Return newly loaded value.
             return font;
         }
         else
@@ -165,10 +176,10 @@ public static class Text
     ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
     public static Font LoadFont(string filename, string extension)
-    {
-        string fontPath = GetOsFontPath(filename, extension);
-        Font font = LoadFont(fontPath);
-        loadedFonts.Add(font);
+    {   
+        // Get path to font.
+        string filePath = GetOsFontPath(filename, extension);
+        Font font = LoadFont(filePath);
         return font;
     }
 
@@ -178,7 +189,7 @@ public static class Text
     /// <param name="font">The font to unload.</param>
     public static void UnloadFont(Font font)
     {
-        loadedFonts.Remove(font);
+        loadedFonts.Remove(font.FilePath);
         Raylib.UnloadFont(font);
     }
 

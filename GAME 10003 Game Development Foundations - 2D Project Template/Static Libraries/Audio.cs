@@ -18,19 +18,20 @@ namespace Game10003;
 /// </remarks>
 public static class Audio
 {
-    // Keep list of music to auto-update in background
-    private static readonly List<Music> loadedMusic = [];
-    // Internally track sounds to properly unload when game is quit
-    private static readonly List<Sound> loadedSounds = [];
+    // Keep list of music to auto-update in background, and also
+    // speed up duplicate load, and properly unload on quit
+    private static readonly Dictionary<string, Music> loadedMusic = [];
+    // Internally track sounds to speed up duplicate loads and properly unload when game is quit
+    private static readonly Dictionary<string, Sound> loadedSounds = [];
 
     /// <summary>
     ///     Get an array of all loaded music.
     /// </summary>
-    public static Music[] LoadedMusic => [.. loadedMusic];
+    public static Music[] LoadedMusic => [.. loadedMusic.Values];
     /// <summary>
     ///     Get an array of all loaded sounds.
     /// </summary>
-    public static Sound[] LoadedSounds => [.. loadedSounds];
+    public static Sound[] LoadedSounds => [.. loadedSounds.Values];
 
 
     /// <summary>
@@ -46,13 +47,22 @@ public static class Audio
     /// </returns>
     public static Music LoadMusic(string filePath)
     {
+        // Return existing instance if reloading same asset.
+        if (loadedMusic.TryGetValue(filePath, out Music value))
+            return value;
+
+        // Load asset from disk. Assign it file path and file name.
         Music music = new()
         {
             RaylibMusic = Raylib.LoadMusicStream(filePath),
             FilePath = filePath,
             FileName = Path.GetFileNameWithoutExtension(filePath)
         };
-        loadedMusic.Add(music);
+
+        // Add to reference dictionary for data reused on duplicate load calls.
+        loadedMusic.Add(filePath, music);
+
+        // Return newly loaded value.
         return music;
     }
 
@@ -62,7 +72,7 @@ public static class Audio
     /// <param name="music">The music to unload.</param>
     public static void UnloadMusic(Music music)
     {
-        loadedMusic.Remove(music);
+        loadedMusic.Remove(music.FilePath);
         Raylib.UnloadMusicStream(music);
     }
 
@@ -79,13 +89,22 @@ public static class Audio
     /// </returns>
     public static Sound LoadSound(string filePath)
     {
+        // Return existing instance if releading same asset.
+        if (loadedSounds.TryGetValue(filePath, out Sound value))
+            return value;
+
+        // Load asset from disk. Assign it file path and file name.
         Sound sound = new()
         {
             RaylibSound = Raylib.LoadSound(filePath),
             FilePath = filePath,
             FileName = Path.GetFileNameWithoutExtension(filePath)
         };
-        loadedSounds.Add(sound);
+
+        // Add to reference dictionary for data reused on duplicate load calls.
+        loadedSounds.Add(filePath, sound);
+
+        // Return newly loaded value.
         return sound;
     }
 
@@ -95,7 +114,7 @@ public static class Audio
     /// <param name="sound">The sound to unload.</param>
     public static void UnloadSound(Sound sound)
     {
-        loadedSounds.Remove(sound);
+        loadedSounds.Remove(sound.FilePath);
         Raylib.UnloadSound(sound);
     }
 
