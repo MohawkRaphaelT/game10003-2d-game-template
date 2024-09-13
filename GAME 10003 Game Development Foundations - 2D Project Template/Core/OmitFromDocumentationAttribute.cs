@@ -3,7 +3,7 @@
 namespace GeneratorTools;
 
 /// <summary>
-///     Attribute to signify to documentation generator to not item include in output.
+///     Attribute signaling the documentation generator not to include item in output.
 /// </summary>
 [OmitFromDocumentation]
 [AttributeUsage(AttributeTargets.All)]
