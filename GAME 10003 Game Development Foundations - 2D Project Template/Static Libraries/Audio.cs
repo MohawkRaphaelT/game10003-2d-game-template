@@ -18,21 +18,59 @@ namespace Game10003;
 /// </remarks>
 public static class Audio
 {
-    // Keep list of music to auto-update in background, and also
-    // speed up duplicate load, and properly unload on quit
+    #region Fields and Properties
+
+    /// <summary>
+    ///     Keep list of music to auto-update in background, and also
+    ///     speed up duplicate load, and properly unload on quit.
+    /// </summary>
     private static readonly Dictionary<string, Music> loadedMusic = [];
-    // Internally track sounds to speed up duplicate loads and properly unload when game is quit
+
+    /// <summary>
+    ///     Internally track sounds to speed up duplicate loads and properly unload when game is quit
+    /// </summary>
     private static readonly Dictionary<string, Sound> loadedSounds = [];
 
     /// <summary>
     ///     Get an array of all loaded music.
     /// </summary>
     public static Music[] LoadedMusic => [.. loadedMusic.Values];
+
     /// <summary>
     ///     Get an array of all loaded sounds.
     /// </summary>
     public static Sound[] LoadedSounds => [.. loadedSounds.Values];
 
+    #endregion
+
+    #region Methods
+
+    /// <summary>
+    ///     Get the length of <paramref name="music"/> in seconds.
+    /// </summary>
+    /// <param name="music">The music data to check.</param>
+    /// <returns>
+    ///     Returns the length of audio file <paramref name="music"/> in seconds.
+    /// </returns>
+    public static float GetMusicLength(Music music) => Raylib.GetMusicTimeLength(music);
+
+    /// <summary>
+    ///     Checks if <paramref name="music"/> is playing.
+    /// </summary>
+    /// <param name="music">The music to check.</param>
+    /// <returns>
+    ///     Returns true if playing, false otherwise.
+    /// </returns>
+    public static bool IsPlaying(Music music) => Raylib.IsMusicStreamPlaying(music);
+
+    /// <summary>
+    ///     Checks if <paramref name="sound"/> is playing.
+    /// </summary>
+    /// <param name="sound">The sound to check.</param>
+    /// <returns>
+    ///     Returns true if playing, false otherwise.
+    /// </returns>
+    public static bool IsPlaying(Sound sound) => Raylib.IsSoundPlaying(sound);
 
     /// <summary>
     ///     Loads a music file at <paramref name="filePath"/>.
@@ -64,16 +102,6 @@ public static class Audio
 
         // Return newly loaded value.
         return music;
-    }
-
-    /// <summary>
-    ///     Unloads <paramref name="music"/> from memory.
-    /// </summary>
-    /// <param name="music">The music to unload.</param>
-    public static void UnloadMusic(Music music)
-    {
-        loadedMusic.Remove(music.FilePath);
-        Raylib.UnloadMusicStream(music);
     }
 
     /// <summary>
@@ -109,6 +137,106 @@ public static class Audio
     }
 
     /// <summary>
+    ///     Pause a playing <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to pause.</param>
+    public static void Pause(Music music) => Raylib.PauseMusicStream(music);
+
+    /// <summary>
+    ///     Pause a playing <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to pause.</param>
+    public static void Pause(Sound sound) => Raylib.PauseSound(sound);
+
+    /// <summary>
+    ///     Plays <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to play.</param>
+    public static void Play(Music music) => Raylib.PlayMusicStream(music);
+
+    /// <summary>
+    ///     Plays <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to play.</param>
+    public static void Play(Sound sound) => Raylib.PlaySound(sound);
+
+    /// <summary>
+    ///     Resumes a paused <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to resume.</param>
+    public static void Resume(Music music) => Raylib.ResumeMusicStream(music);
+
+    /// <summary>
+    ///     Resumes a paused <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to resume.</param>
+    public static void Resume(Sound sound) => Raylib.ResumeSound(sound);
+
+    /// <summary>
+    ///     Sets the <paramref name="pan"/> for <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to pan.</param>
+    /// <param name="pan">The pan value. 0.5 is center, 0 left, and 1 right.</param>
+    public static void SetPan(Music music, float pan) => Raylib.SetMusicPan(music, pan);
+
+    /// <summary>
+    ///     Sets the <paramref name="pan"/> for <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to pan.</param>
+    /// <param name="pan">The pan value. 0.5 is center, 0 left, and 1 right.</param>
+    public static void SetPan(Sound sound, float pan) => Raylib.SetSoundPan(sound, pan);
+
+    /// <summary>
+    ///     Sets the <paramref name="pitch"/> for <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to pitch.</param>
+    /// <param name="pitch">The pitch value. 1.0 is the base pitch level.</param>
+    public static void SetPitch(Music music, float pitch) => Raylib.SetMusicPitch(music, pitch);
+
+    /// <summary>
+    ///     Sets the <paramref name="pitch"/> for <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to pitch.</param>
+    /// <param name="pitch">The pitch value. 1.0 is the base pitch level.</param>
+    public static void SetPitch(Sound sound, float pitch) => Raylib.SetSoundPitch(sound, pitch);
+
+    /// <summary>
+    ///     Sets the <paramref name="volume"/> for <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to set.</param>
+    /// <param name="volume">The volume amount. 0 is silent, 1 is max volume.</param>
+    public static void SetVolume(Music music, float volume) => Raylib.SetMusicVolume(music, volume);
+
+    /// <summary>
+    ///     Sets the <paramref name="volume"/> for <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to set.</param>
+    /// <param name="volume">The volume amount. 0 is silent, 1 is max volume.</param>
+    public static void SetVolume(Sound sound, float volume) => Raylib.SetSoundVolume(sound, volume);
+
+    /// <summary>
+    ///     Stop a playing or paused <paramref name="music"/>.
+    /// </summary>
+    /// <param name="music">The music to stop.</param>
+    public static void Stop(Music music) => Raylib.StopMusicStream(music);
+
+    /// <summary>
+    ///     Stop a playing or paused <paramref name="sound"/>.
+    /// </summary>
+    /// <param name="sound">The sound to stop.</param>
+    public static void Stop(Sound sound) => Raylib.StopSound(sound);
+
+    /// <summary>
+    ///     Unloads <paramref name="music"/> from memory.
+    /// </summary>
+    /// <param name="music">The music to unload.</param>
+    public static void UnloadMusic(Music music)
+    {
+        loadedMusic.Remove(music.FilePath);
+        Raylib.UnloadMusicStream(music);
+    }
+
+    /// <summary>
     ///     Unloads a <paramref name="sound"/> from memory.
     /// </summary>
     /// <param name="sound">The sound to unload.</param>
@@ -118,107 +246,5 @@ public static class Audio
         Raylib.UnloadSound(sound);
     }
 
-    /// <summary>
-    ///     Plays <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to play.</param>
-    public static void Play(Sound sound) => Raylib.PlaySound(sound);
-    /// <summary>
-    ///     Pause a playing <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to pause.</param>
-    public static void Pause(Sound sound) => Raylib.PauseSound(sound);
-    /// <summary>
-    ///     Resumes a paused <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to resume.</param>
-    public static void Resume(Sound sound) => Raylib.ResumeSound(sound);
-    /// <summary>
-    ///     Stop a playing or paused <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to stop.</param>
-    public static void Stop(Sound sound) => Raylib.StopSound(sound);
-    /// <summary>
-    ///     Checks if <paramref name="sound"/> is playing.
-    /// </summary>
-    /// <param name="sound">The sound to check.</param>
-    /// <returns>
-    ///     Returns true if playing, false otherwise.
-    /// </returns>
-    public static bool IsPlaying(Sound sound) => Raylib.IsSoundPlaying(sound);
-    /// <summary>
-    ///     Sets the <paramref name="pan"/> for <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to pan.</param>
-    /// <param name="pan">The pan value. 0.5 is center, 0 left, and 1 right.</param>
-    public static void SetPan(Sound sound, float pan) => Raylib.SetSoundPan(sound, pan);
-    /// <summary>
-    ///     Sets the <paramref name="pitch"/> for <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to pitch.</param>
-    /// <param name="pitch">The pitch value. 1.0 is the base pitch level.</param>
-    public static void SetPitch(Sound sound, float pitch) => Raylib.SetSoundPitch(sound, pitch);
-    /// <summary>
-    ///     Sets the <paramref name="volume"/> for <paramref name="sound"/>.
-    /// </summary>
-    /// <param name="sound">The sound to set.</param>
-    /// <param name="volume">The volume amount. 0 is silent, 1 is max volume.</param>
-    public static void SetVolume(Sound sound, float volume) => Raylib.SetSoundVolume(sound, volume);
-
-
-    /// <summary>
-    ///     Plays <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to play.</param>
-    public static void Play(Music music) => Raylib.PlayMusicStream(music);
-    /// <summary>
-    ///     Pause a playing <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to pause.</param>
-    public static void Pause(Music music) => Raylib.PauseMusicStream(music);
-    /// <summary>
-    ///     Resumes a paused <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to resume.</param>
-    public static void Resume(Music music) => Raylib.ResumeMusicStream(music);
-    /// <summary>
-    ///     Stop a playing or paused <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to stop.</param>
-    public static void Stop(Music music) => Raylib.StopMusicStream(music);
-    /// <summary>
-    ///     Checks if <paramref name="music"/> is playing.
-    /// </summary>
-    /// <param name="music">The music to check.</param>
-    /// <returns>
-    ///     Returns true if playing, false otherwise.
-    /// </returns>
-    public static bool IsPlaying(Music music) => Raylib.IsMusicStreamPlaying(music);
-    /// <summary>
-    ///     Sets the <paramref name="pan"/> for <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to pan.</param>
-    /// <param name="pan">The pan value. 0.5 is center, 0 left, and 1 right.</param>
-    public static void SetPan(Music music, float pan) => Raylib.SetMusicPan(music, pan);
-    /// <summary>
-    ///     Sets the <paramref name="pitch"/> for <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to pitch.</param>
-    /// <param name="pitch">The pitch value. 1.0 is the base pitch level.</param>
-    public static void SetPitch(Music music, float pitch) => Raylib.SetMusicPitch(music, pitch);
-    /// <summary>
-    ///     Sets the <paramref name="volume"/> for <paramref name="music"/>.
-    /// </summary>
-    /// <param name="music">The music to set.</param>
-    /// <param name="volume">The volume amount. 0 is silent, 1 is max volume.</param>
-    public static void SetVolume(Music music, float volume) => Raylib.SetMusicVolume(music, volume);
-    /// <summary>
-    ///     Get the length of <paramref name="music"/> in seconds.
-    /// </summary>
-    /// <param name="music">The music data to check.</param>
-    /// <returns>
-    ///     Returns the length of audio file <paramref name="music"/> in seconds.
-    /// </returns>
-    public static float GetMusicLength(Music music) => Raylib.GetMusicTimeLength(music);
-
+    #endregion
 }
