@@ -19,26 +19,98 @@ namespace Game10003;
 /// </remarks>
 public static class Graphics
 {
-    // Internally track textures to speed up duplicate loads and properly unload when game is quit
+    #region Fields and Properties
+
+    /// <summary>
+    ///     Internally track textures to speed up duplicate loads and properly unload when game is quit
+    /// </summary>
     private static readonly Dictionary<string, Texture2D> loadedTextures = [];
+
     /// <summary>
     ///     Get an array of all loaded music.
     /// </summary>
     public static Texture2D[] LoadedTextures => [.. loadedTextures.Values];
 
-
     /// <summary>
     ///     Angle rotation of graphics in degrees.
     /// </summary>
     public static float Rotation { get; set; } = 0;
+
     /// <summary>
     ///     Scale of graphics. Default is 1.
     /// </summary>
     public static float Scale { get; set; } = 1;
+
     /// <summary>
     ///     Color tint of graphics. DEfault is white.
     /// </summary>
     public static Color Tint { get; set; } = Color.White;
+
+    #endregion
+
+    #region Public Methods
+
+    /// <summary>
+    ///     Draw a <paramref name="texture"/> graphic to the screen at
+    ///     position (<paramref name="x"/>, <paramref name="y"/>).
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="x">The X position to draw at.</param>
+    /// <param name="y">The Y position to draw at.</param>
+    public static void Draw(Texture2D texture, float x, float y)
+        => Draw(texture, new Vector2(x, y));
+
+    /// <summary>
+    ///     Draw a <paramref name="texture"/> graphic to the screen at
+    ///     <paramref name="position"/>.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="position">The position to draw at.</param>
+    public static void Draw(Texture2D texture, Vector2 position)
+    {
+        Raylib.DrawTextureEx(texture, position, Rotation, Scale, Tint);
+    }
+
+    /// <summary>
+    ///     Draw a subset of <paramref name="texture"/> graphic at screen
+    ///     <paramref name="position"/>. Subset begins at upper-left corner
+    ///     <paramref name="subsetOrigin"/> and size of <paramref name="subsetSize"/>.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="position">The position to draw at.</param>
+    /// <param name="subsetOrigin">Subset origin within the texture.</param>
+    /// <param name="subsetSize">Subset size within the texture.</param>
+    public static void DrawSubset(Texture2D texture, Vector2 position, Vector2 subsetOrigin, Vector2 subsetSize)
+        => DrawSubset(texture, position, subsetOrigin, subsetSize, Vector2.Zero);
+
+    /// <summary>
+    ///     Draw a subset of <paramref name="texture"/> graphic at screen
+    ///     <paramref name="position"/>. Subset begins at upper-left corner
+    ///     <paramref name="subsetOrigin"/> and size of <paramref name="subsetSize"/>.
+    ///     <paramref name="rotationOrigin"/> is the point around which the
+    ///     subset is rotated; default is upper-left corner.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="position">The position to draw at.</param>
+    /// <param name="subsetOrigin">Subset origin within the texture.</param>
+    /// <param name="subsetSize">Subset size within the texture.</param>
+    /// <param name="rotationOrigin">Rotation origin of the texture subset.</param>
+    public static void DrawSubset(Texture2D texture, Vector2 position, Vector2 subsetOrigin, Vector2 subsetSize, Vector2 rotationOrigin)
+    {
+        // Source in texture/spritesheet/atlas
+        var source = new Rectangle()
+        {
+            Position = subsetOrigin,
+            Size = subsetSize,
+        };
+        // destination on screen
+        var destination = new Rectangle()
+        {
+            Position = position,
+            Size = subsetSize * Scale,
+        };
+        Raylib.DrawTexturePro(texture, source, destination, rotationOrigin, Rotation, Tint);
+    }
 
     /// <summary>
     ///     Loads texture at <paramref name="filePath"/> into GPU memory.
@@ -82,65 +154,5 @@ public static class Graphics
         Raylib.UnloadTexture(texture);
     }
 
-    /// <summary>
-    ///     Draw a <paramref name="texture"/> graphic to the screen at
-    ///     <paramref name="position"/>.
-    /// </summary>
-    /// <param name="texture">The texture to draw.</param>
-    /// <param name="position">The position to draw at.</param>
-    public static void Draw(Texture2D texture, Vector2 position)
-    {
-        Raylib.DrawTextureEx(texture, position, Rotation, Scale, Tint);
-    }
-
-    /// <summary>
-    ///     Draw a <paramref name="texture"/> graphic to the screen at
-    ///     position (<paramref name="x"/>, <paramref name="y"/>).
-    /// </summary>
-    /// <param name="texture">The texture to draw.</param>
-    /// <param name="x">The X position to draw at.</param>
-    /// <param name="y">The Y position to draw at.</param>
-    public static void Draw(Texture2D texture, float x, float y)
-        => Draw(texture, new Vector2(x, y));
-
-    /// <summary>
-    ///     Draw a subset of <paramref name="texture"/> graphic at screen
-    ///     <paramref name="position"/>. Subset begins at upper-left corner
-    ///     <paramref name="subsetOrigin"/> and size of <paramref name="subsetSize"/>.
-    ///     <paramref name="rotationOrigin"/> is the point around which the
-    ///     subset is rotated; default is upper-left corner.
-    /// </summary>
-    /// <param name="texture">The texture to draw.</param>
-    /// <param name="position">The position to draw at.</param>
-    /// <param name="subsetOrigin">Subset origin within the texture.</param>
-    /// <param name="subsetSize">Subset size within the texture.</param>
-    /// <param name="rotationOrigin">Rotation origin of the texture subset.</param>
-    public static void DrawSubset(Texture2D texture, Vector2 position, Vector2 subsetOrigin, Vector2 subsetSize, Vector2 rotationOrigin)
-    {
-        // Source in texture/spritesheet/atlas
-        var source = new Rectangle()
-        {
-            Position = subsetOrigin,
-            Size = subsetSize,
-        };
-        // destination on screen
-        var destination = new Rectangle()
-        {
-            Position = position,
-            Size = subsetSize * Scale,
-        };
-        Raylib.DrawTexturePro(texture, source, destination, rotationOrigin, Rotation, Tint);
-    }
-
-    /// <summary>
-    ///     Draw a subset of <paramref name="texture"/> graphic at screen
-    ///     <paramref name="position"/>. Subset begins at upper-left corner
-    ///     <paramref name="subsetOrigin"/> and size of <paramref name="subsetSize"/>.
-    /// </summary>
-    /// <param name="texture">The texture to draw.</param>
-    /// <param name="position">The position to draw at.</param>
-    /// <param name="subsetOrigin">Subset origin within the texture.</param>
-    /// <param name="subsetSize">Subset size within the texture.</param>
-    public static void DrawSubset(Texture2D texture, Vector2 position, Vector2 subsetOrigin, Vector2 subsetSize)
-        => DrawSubset(texture, position, subsetOrigin, subsetSize, Vector2.Zero);
+    #endregion
 }
