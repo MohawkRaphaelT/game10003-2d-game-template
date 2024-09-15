@@ -15,21 +15,32 @@ namespace Game10003;
 /// </summary>
 public static class Window
 {
-    // FIELDS
-    private static int width = 256;
+    #region Fields and Properties
+
+    /// <summary>
+    ///     Screen height in pixels.
+    /// </summary>
     private static int height = 256;
-    private static string title = "2D Game Template";
+
+    /// <summary>
+    ///     Screen width in pixels.
+    /// </summary>
+    private static int width = 256;
+
+    /// <summary>
+    ///     Program window target FPS.
+    /// </summary>
     private static int targetFPS = 60;
 
-    //PROPERTIES
     /// <summary>
-    ///     Width of screen in pixels.
+    ///     Program window title.
     /// </summary>
-    public static int Width
-    {
-        get => width;
-        set => SetHeight(value);
-    }
+    private static string title = "2D Game Template";
+
+    /// <summary>
+    ///     How many frames-per-second the window is running at.
+    /// </summary>
+    public static float CurrentFPS => Raylib.GetFPS();
 
     /// <summary>
     ///     Height of screen in pixels.
@@ -50,15 +61,6 @@ public static class Window
     }
 
     /// <summary>
-    ///     Title displayed on top of window.
-    /// </summary>
-    public static string Title
-    {
-        get => title;
-        set => title = value;
-    }
-
-    /// <summary>
     ///     How many frames-per-second (FPS) the game tries to output every second.
     /// </summary>
     public static int TargetFPS
@@ -68,11 +70,27 @@ public static class Window
     }
 
     /// <summary>
-    ///     How many frames-per-second the window is running at.
+    ///     Title displayed on top of window.
     /// </summary>
-    public static float CurrentFPS => Raylib.GetFPS();
+    public static string Title
+    {
+        get => title;
+        set => title = value;
+    }
 
-    // METHODS
+    /// <summary>
+    ///     Width of screen in pixels.
+    /// </summary>
+    public static int Width
+    {
+        get => width;
+        set => SetHeight(value);
+    }
+
+    #endregion
+
+    #region Public Methods
+
     /// <summary>
     ///     Clears the screen to the specified <paramref name="color"/>.
     /// </summary>
@@ -103,22 +121,23 @@ public static class Window
         Raylib.SetWindowTitle(value);
     }
 
-    private static void SetWidth(int width)
-    {
-        Window.width = width;
-        Raylib.SetWindowSize(width, height);
-    }
+    #endregion
+
+    #region Private Methods
+
     private static void SetHeight(int height)
     {
         Window.height = height;
         Raylib.SetWindowSize(width, height);
     }
+
     private static void SetSize(Vector2 size)
     {
         int width = (int)size.X;
         int height = (int)size.Y;
         Raylib.SetWindowSize(width, height);
     }
+
     private static void SetTargetFpsOrWarn(int targetFPS)
     {
         if (targetFPS <= 0)
@@ -129,5 +148,13 @@ public static class Window
 
         Window.targetFPS = targetFPS;
     }
+
+    private static void SetWidth(int width)
+    {
+        Window.width = width;
+        Raylib.SetWindowSize(width, height);
+    }
+
+    #endregion
 
 }
