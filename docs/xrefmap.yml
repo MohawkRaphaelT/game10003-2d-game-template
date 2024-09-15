@@ -627,6 +627,31 @@ references:
   commentId: T:Game10003.Draw
   fullName: Game10003.Draw
   nameWithType: Draw
+- uid: Game10003.Draw.Capsule(System.Numerics.Vector2,System.Numerics.Vector2,System.Single)
+  name: Capsule(Vector2, Vector2, float)
+  href: api/Game10003.Draw.html#Game10003_Draw_Capsule_System_Numerics_Vector2_System_Numerics_Vector2_System_Single_
+  commentId: M:Game10003.Draw.Capsule(System.Numerics.Vector2,System.Numerics.Vector2,System.Single)
+  name.vb: Capsule(Vector2, Vector2, Single)
+  fullName: Game10003.Draw.Capsule(System.Numerics.Vector2, System.Numerics.Vector2, float)
+  fullName.vb: Game10003.Draw.Capsule(System.Numerics.Vector2, System.Numerics.Vector2, Single)
+  nameWithType: Draw.Capsule(Vector2, Vector2, float)
+  nameWithType.vb: Draw.Capsule(Vector2, Vector2, Single)
+- uid: Game10003.Draw.Capsule(System.Single,System.Single,System.Single,System.Single,System.Single)
+  name: Capsule(float, float, float, float, float)
+  href: api/Game10003.Draw.html#Game10003_Draw_Capsule_System_Single_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:Game10003.Draw.Capsule(System.Single,System.Single,System.Single,System.Single,System.Single)
+  name.vb: Capsule(Single, Single, Single, Single, Single)
+  fullName: Game10003.Draw.Capsule(float, float, float, float, float)
+  fullName.vb: Game10003.Draw.Capsule(Single, Single, Single, Single, Single)
+  nameWithType: Draw.Capsule(float, float, float, float, float)
+  nameWithType.vb: Draw.Capsule(Single, Single, Single, Single, Single)
+- uid: Game10003.Draw.Capsule*
+  name: Capsule
+  href: api/Game10003.Draw.html#Game10003_Draw_Capsule_
+  commentId: Overload:Game10003.Draw.Capsule
+  isSpec: "True"
+  fullName: Game10003.Draw.Capsule
+  nameWithType: Draw.Capsule
 - uid: Game10003.Draw.Circle(System.Numerics.Vector2,System.Single)
   name: Circle(Vector2, float)
   href: api/Game10003.Draw.html#Game10003_Draw_Circle_System_Numerics_Vector2_System_Single_
