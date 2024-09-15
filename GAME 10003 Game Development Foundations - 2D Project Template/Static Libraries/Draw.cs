@@ -7,6 +7,7 @@
 using Raylib_cs;
 using System;
 using System.Numerics;
+using System.Threading;
 
 namespace Game10003;
 
@@ -39,6 +40,34 @@ public static class Draw
     #endregion
 
     #region Public Methods
+
+    /// <summary>
+    ///     Draw a filled and outlined capsule with endpoints at (<paramref name="x1"/>, <paramref name="y1"/>)
+    ///     and (<paramref name="x2"/>, <paramref name="y2"/>) expanding outward to <paramref name="radius"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the circle's fill color.
+    /// </summary>
+    /// <param name="x1">The first capsule endpoint center's X coordinate.</param>
+    /// <param name="y1">The first capsule endpoint center's Y coordinate</param>
+    /// <param name="x2">The second capsule endpoint center's X coordinate.</param>
+    /// <param name="y2">The second capsule endpoint center's Y coordinate</param>
+    /// <param name="radius"></param>
+    public static void Capsule(float x1, float y1, float x2, float y2, float radius)
+        => Capsule(new(x1, y1), new(x2, y2), radius, FillColor, LineSize, LineColor);
+
+    /// <summary>
+    ///     Draw a filled and outlined capsule with endpoints at <paramref name="position1"/> 
+    ///     and <paramref name="position2"/> expanding outward to <paramref name="radius"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the circle's fill color.
+    /// </summary>
+    /// <param name="position1">The first capsule endpoint center.</param>
+    /// <param name="position2">The second capsule endpoint center.</param>
+    /// <param name="radius">The capsule radius.</param>
+    public static void Capsule(Vector2 position1, Vector2 position2, float radius)
+        => Capsule(position1, position2, radius, FillColor, LineSize, LineColor);
 
     /// <summary>
     ///     Draw a filled and outlined circle at position (<paramref name="x"/>, 
@@ -90,16 +119,16 @@ public static class Draw
         => Ellipse(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
 
     /// <summary>
-    ///     Draw a line with rounded ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
-    ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/> and
+    ///     Draw a line with rounded ends from (<paramref name="x1"/>, <paramref name="y1"/>) to
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>) using <see cref="Draw.LineSize"/> and
     ///     <see cref="Draw.LineColor"/>.
     /// </summary>
-    /// <param name="x0">Line start position X.</param>
-    /// <param name="y0">Line start position Y.</param>
-    /// <param name="x1">Line end position X.</param>
-    /// <param name="y1">Line end position Y.</param>
-    public static void Line(float x0, float y0, float x1, float y1)
-        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    /// <param name="x1">Line start position X.</param>
+    /// <param name="y1">Line start position Y.</param>
+    /// <param name="x2">Line end position X.</param>
+    /// <param name="y2">Line end position Y.</param>
+    public static void Line(float x1, float y1, float x2, float y2)
+        => Line(new(x1, y1), new(x2, y2), LineSize, LineColor);
 
     /// <summary>
     ///     Draw a line with rounded ends from <paramref name="start"/> to <paramref name="end"/> 
@@ -111,16 +140,16 @@ public static class Draw
         => Line(start, end, LineSize, LineColor);
 
     /// <summary>
-    ///     Draw a line with sharp ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
-    ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/>
+    ///     Draw a line with sharp ends from (<paramref name="x1"/>, <paramref name="y1"/>) to
+    ///     (<paramref name="x2"/>, <paramref name="y2"/>) using <see cref="Draw.LineSize"/>
     ///     and <see cref="Draw.LineColor"/>.
     /// </summary>
-    /// <param name="x0">Line start position X.</param>
-    /// <param name="y0">Line start position Y.</param>
-    /// <param name="x1">Line end position X.</param>
-    /// <param name="y1">Line end position Y.</param>
-    public static void LineSharp(float x0, float y0, float x1, float y1)
-        => LineSharp(new(x0, y0), new(x1, y1), LineSize, LineColor);
+    /// <param name="x1">Line start position X.</param>
+    /// <param name="y1">Line start position Y.</param>
+    /// <param name="x2">Line end position X.</param>
+    /// <param name="y2">Line end position Y.</param>
+    public static void LineSharp(float x1, float y1, float x2, float y2)
+        => LineSharp(new(x1, y1), new(x2, y2), LineSize, LineColor);
 
     /// <summary>
     ///     Draw a line with sharp ends from <paramref name="start"/> to <paramref name="end"/> 
@@ -282,6 +311,32 @@ public static class Draw
 
     #region Private Methods
 
+    private static void Capsule(Vector2 a, Vector2 b, float radius, Color fillColor, float lineSize, Color lineColor)
+    {
+        // Get direction from capsule endpoints
+        Vector2 aToB = b - a;
+        // Get angle of capsule, then rotate by 90 degrees (half pi)
+        float theta = MathF.Atan2(aToB.Y, aToB.X) + MathF.PI / 2;
+        // Create tangent vector and extent by radius
+        Vector2 tangent = new Vector2(MathF.Cos(theta), MathF.Sin(theta)) * radius;
+        // Compute quad vertices
+        Vector2 p0 = a + tangent;
+        Vector2 p1 = a - tangent;
+        Vector2 p2 = b - tangent;
+        Vector2 p3 = b + tangent;
+        // Draw circles
+        Circle(a, radius, fillColor, 0, Color.Clear);
+        Circle(b, radius, fillColor, 0, Color.Clear);
+        // Draw quad without outlines
+        Quad(p0, p1, p2, p3, fillColor, 0, Color.Clear);
+        // Draw endcaps
+        PolyLine(ComputeArcPoints(a, radius, theta, theta + MathF.PI), lineSize, lineColor);
+        PolyLine(ComputeArcPoints(b, radius, theta, theta - MathF.PI), lineSize, lineColor);
+        // Draw lines on edges that need outline
+        LineSharp(p0, p3, lineSize, lineColor);
+        LineSharp(p1, p2, lineSize, lineColor);
+    }
+
     private static void Circle(Vector2 position, float radius, Color fillColor, float lineSize, Color lineColor)
     {
         CircleFill(position, radius, fillColor);
@@ -295,10 +350,23 @@ public static class Draw
 
     private static void CircleOutline(Vector2 position, float radius, float lineSize, Color lineColor)
     {
-        float innerRadius = radius - lineSize;
-        float outerRadius = radius;
+        float innerRadius = radius - lineSize / 2;
+        float outerRadius = radius + lineSize / 2;
         int segments = (int)(radius * 4);
         Raylib.DrawRing(position, innerRadius, outerRadius, 0, 360, segments, lineColor);
+    }
+
+    private static Vector2[] ComputeArcPoints(Vector2 center, float radius, float angle0Radians, float angle1Radians)
+    {
+        int numberOfPoints = ((int)radius / 2) + 1;
+        Vector2[] points = new Vector2[numberOfPoints + 1];
+        for (int i = 0; i <= numberOfPoints; i++)
+        {
+            float percent = i / (float)numberOfPoints;
+            float theta = Single.Lerp(angle0Radians, angle1Radians, percent);
+            points[i] = center + new Vector2(MathF.Cos(theta), MathF.Sin(theta)) * radius;
+        }
+        return points;
     }
 
     private static void Ellipse(float x, float y, float w, float h, Color fillColor, float lineSize, Color lineColor)
