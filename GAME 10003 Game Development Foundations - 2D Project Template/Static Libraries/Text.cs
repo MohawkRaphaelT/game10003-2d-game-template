@@ -20,21 +20,34 @@ namespace Game10003;
 /// </remarks>
 public static class Text
 {
-    // Internally track fonts to speed up duplicate loads and properly unload when game is quit
-    private static readonly Dictionary<string, Font> loadedFonts = [];
+
+    #region Fields and Properties
+
     /// <summary>
-    ///     Get an array of all loaded music.
+    ///     Records whether or not default fonts have been loaded.
     /// </summary>
-    public static Font[] LoadedFonts => [.. loadedFonts.Values];
+    private static bool hasInitialized = false;
+
+    /// <summary>
+    ///     Internally track fonts to speed up duplicate loads and properly unload when game is quit.
+    /// </summary>
+    private static readonly Dictionary<string, Font> loadedFonts = [];
 
     /// <summary>
     ///     Text color.
     /// </summary>
     public static Color Color { get; set; } = Color.Black;
+
     /// <summary>
-    ///     Text size in pixels.
+    ///     Text font.
     /// </summary>
-    public static int Size { get; set; } = 32;
+    public static Font Font { get; set; }
+
+    /// <summary>
+    ///     Name of <see cref="Font"/>.
+    /// </summary>
+    public static string FontName { get; private set; } = string.Empty;
+
     /// <summary>
     ///     Text kerning (space between letters) in pixels.
     /// </summary>
@@ -42,56 +55,36 @@ public static class Text
     ///     Default is 0px.
     /// </remarks>
     public static int Kerning { get; set; } = 0;
+
     /// <summary>
-    ///     Text rotation in degrees (0-360), clockwise.
+    ///     Get an array of all loaded music.
     /// </summary>
-    public static float Rotation { get; set; } = 0;
-    /// <summary>
-    ///     Text font.
-    /// </summary>
-    public static Font Font { get; set; }
+    public static Font[] LoadedFonts => [.. loadedFonts.Values];
+
     /// <summary>
     ///     Default monospace font.
     /// </summary>
     public static Font MonospaceFont { get; private set; }
-    /// <summary>
-    ///     Name of <see cref="Font"/>.
-    /// </summary>
-    public static string FontName { get; private set; } = string.Empty;
+
     /// <summary>
     ///     Name of <see cref="MonospaceFont"/>.
     /// </summary>
     public static string MonospaceFontName { get; private set; } = string.Empty;
 
     /// <summary>
-    ///     Loads the inital fonts.
+    ///     Text rotation in degrees (0-360), clockwise.
     /// </summary>
-    public static void Initialize()
-    {
-        // Load platform-dependant monospace font
-        string monospaceFontPath = GetOsDefaultMonospaceFontPath();
-        MonospaceFontName = Path.GetFileName(monospaceFontPath);
-        MonospaceFont = Raylib.LoadFont(monospaceFontPath);
-        ResetFont();
-    }
+    public static float Rotation { get; set; } = 0;
 
     /// <summary>
-    ///     Resets <see cref="Font"/> to the default font.
+    ///     Text size in pixels.
     /// </summary>
-    public static void ResetFont()
-    {
-        // Set main as the monospace font
-        FontName = MonospaceFontName;
-        Font = MonospaceFont;
-    }
+    public static int Size { get; set; } = 32;
 
-    /// <summary>
-    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen.
-    /// </summary>
-    /// <param name="text">The text to draw.</param>
-    /// <param name="position">The position to draw text at.</param>
-    public static void Draw(string text, Vector2 position)
-        => Draw(text, position, Font);
+    #endregion
+
+    #region Public Methods
+
     /// <summary>
     ///     Draws <paramref name="text"/> at position (<paramref name="x"/>,
     ///     <paramref name="y"/>) on screen.
@@ -102,6 +95,24 @@ public static class Text
     public static void Draw(string text, float x, float y)
         => Draw(text, new(x, y));
 
+    /// <summary>
+    ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen.
+    /// </summary>
+    /// <param name="text">The text to draw.</param>
+    /// <param name="position">The position to draw text at.</param>
+    public static void Draw(string text, Vector2 position)
+        => Draw(text, position, Font);
+
+    /// <summary>
+    ///     Draws <paramref name="text"/> at position (<paramref name="x"/>,
+    ///     <paramref name="y"/>) on screen using <paramref name="font"/>.
+    /// </summary>
+    /// <param name="text">The text to draw.</param>
+    /// <param name="x">The X position to draw text at.</param>
+    /// <param name="y">The Y position to draw text at.</param>
+    /// <param name="font">The font to draw with.</param>
+    public static void Draw(string text, float x, float y, Font font)
+        => Draw(text, new(x, y), font);
 
     /// <summary>
     ///     Draws <paramref name="text"/> at <paramref name="position"/> on screen
@@ -114,16 +125,23 @@ public static class Text
     {
         Raylib.DrawTextPro(font.RaylibFont, text, position, Vector2.Zero, Rotation, Size, Kerning, Color);
     }
+
     /// <summary>
-    ///     Draws <paramref name="text"/> at position (<paramref name="x"/>,
-    ///     <paramref name="y"/>) on screen using <paramref name="font"/>.
+    ///     Loads the inital fonts.
     /// </summary>
-    /// <param name="text">The text to draw.</param>
-    /// <param name="x">The X position to draw text at.</param>
-    /// <param name="y">The Y position to draw text at.</param>
-    /// <param name="font">The font to draw with.</param>
-    public static void Draw(string text, float x, float y, Font font)
-        => Draw(text, new(x, y), font);
+    public static void Initialize()
+    {
+        // Prevent calls after the first
+        if (hasInitialized)
+            return;
+
+        // Load platform-dependant monospace font
+        string monospaceFontPath = GetOsDefaultMonospaceFontPath();
+        MonospaceFontName = Path.GetFileName(monospaceFontPath);
+        MonospaceFont = Raylib.LoadFont(monospaceFontPath);
+        ResetFont();
+        hasInitialized = true;
+    }
 
     /// <summary>
     ///     Loads the typeface specified at <paramref name="filePath"/>.
@@ -184,6 +202,16 @@ public static class Text
     }
 
     /// <summary>
+    ///     Resets <see cref="Font"/> to the default font.
+    /// </summary>
+    public static void ResetFont()
+    {
+        // Set main as the monospace font
+        FontName = MonospaceFontName;
+        Font = MonospaceFont;
+    }
+
+    /// <summary>
     ///     Unloads a <paramref name="font"/> from memory.
     /// </summary>
     /// <param name="font">The font to unload.</param>
@@ -193,11 +221,14 @@ public static class Text
         Raylib.UnloadFont(font);
     }
 
-    // PRIVATE METHODS
+    #endregion
+
+    #region Private Methods
+
     private static string GetOsDefaultMonospaceFontPath()
     {
         string[] fontFileNames = GetOsDefaultMonospaceFontNames();
-        string[] extensions = [ "ttf", "otf" ];
+        string[] extensions = ["ttf", "otf"];
 
         foreach (string fileName in fontFileNames)
         {
@@ -238,7 +269,7 @@ public static class Text
                 break;
             // Assume Linux
             case PlatformID.Unix:
-                fontFileName = ["DejaVu Sans Mono" ];
+                fontFileName = ["DejaVu Sans Mono"];
                 break;
             default:
                 string msg =
@@ -256,4 +287,6 @@ public static class Text
         string fontPath = $"{fontsDir}/{fontName}.{type}";
         return fontPath;
     }
+
+    #endregion
 }
