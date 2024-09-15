@@ -1071,19 +1071,6 @@ references:
   commentId: T:Game10003.Input
   fullName: Game10003.Input
   nameWithType: Input
-- uid: Game10003.Input.ConnectedControllerCount
-  name: ConnectedControllerCount()
-  href: api/Game10003.Input.html#Game10003_Input_ConnectedControllerCount
-  commentId: M:Game10003.Input.ConnectedControllerCount
-  fullName: Game10003.Input.ConnectedControllerCount()
-  nameWithType: Input.ConnectedControllerCount()
-- uid: Game10003.Input.ConnectedControllerCount*
-  name: ConnectedControllerCount
-  href: api/Game10003.Input.html#Game10003_Input_ConnectedControllerCount_
-  commentId: Overload:Game10003.Input.ConnectedControllerCount
-  isSpec: "True"
-  fullName: Game10003.Input.ConnectedControllerCount
-  nameWithType: Input.ConnectedControllerCount
 - uid: Game10003.Input.DisableMouseCursor
   name: DisableMouseCursor()
   href: api/Game10003.Input.html#Game10003_Input_DisableMouseCursor
@@ -1126,6 +1113,19 @@ references:
   isSpec: "True"
   fullName: Game10003.Input.GetAnyControllerAxis
   nameWithType: Input.GetAnyControllerAxis
+- uid: Game10003.Input.GetConnectedControllerCount
+  name: GetConnectedControllerCount()
+  href: api/Game10003.Input.html#Game10003_Input_GetConnectedControllerCount
+  commentId: M:Game10003.Input.GetConnectedControllerCount
+  fullName: Game10003.Input.GetConnectedControllerCount()
+  nameWithType: Input.GetConnectedControllerCount()
+- uid: Game10003.Input.GetConnectedControllerCount*
+  name: GetConnectedControllerCount
+  href: api/Game10003.Input.html#Game10003_Input_GetConnectedControllerCount_
+  commentId: Overload:Game10003.Input.GetConnectedControllerCount
+  isSpec: "True"
+  fullName: Game10003.Input.GetConnectedControllerCount
+  nameWithType: Input.GetConnectedControllerCount
 - uid: Game10003.Input.GetControllerAxis(System.Int32,Game10003.ControllerAxis)
   name: GetControllerAxis(int, ControllerAxis)
   href: api/Game10003.Input.html#Game10003_Input_GetControllerAxis_System_Int32_Game10003_ControllerAxis_

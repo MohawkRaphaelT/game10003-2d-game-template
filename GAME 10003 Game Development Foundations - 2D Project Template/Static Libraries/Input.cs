@@ -22,21 +22,6 @@ public static class Input
     #region Public Methods
 
     /// <summary>
-    ///     Checks how many controllers are connected to the host device.
-    /// </summary>
-    /// <returns>
-    ///     Returns the number of controllers connected to this device.
-    /// </returns>
-    public static int ConnectedControllerCount()
-    {
-        int controllerCount = 0;
-        int index = 0;
-        while (Raylib.IsGamepadAvailable(index++))
-            controllerCount++;
-        return controllerCount;
-    }
-
-    /// <summary>
     ///     Disables mouse cursor while in window.
     /// </summary>
     public static void DisableMouseCursor() => Raylib.DisableCursor();
@@ -61,7 +46,7 @@ public static class Input
         float finalValue = 0f;
         int activeControllers = 0;
 
-        int controllerCount = ConnectedControllerCount();
+        int controllerCount = GetConnectedControllerCount();
         for (int i = 0; i < controllerCount; i++)
         {
             float value = Raylib.GetGamepadAxisMovement(i, axis);
@@ -75,6 +60,21 @@ public static class Input
 
         finalValue /= controllerCount;
         return finalValue;
+    }
+
+    /// <summary>
+    ///     Checks how many controllers are connected to the host device.
+    /// </summary>
+    /// <returns>
+    ///     Returns the number of controllers connected to this device.
+    /// </returns>
+    public static int GetConnectedControllerCount()
+    {
+        int controllerCount = 0;
+        int index = 0;
+        while (Raylib.IsGamepadAvailable(index++))
+            controllerCount++;
+        return controllerCount;
     }
 
     /// <summary>
@@ -276,14 +276,14 @@ public static class Input
     ///     Returns true if key is down this frame, false otherwise.
     /// </returns>
     public static bool IsKeyboardKeyDown(KeyboardInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
-    
+
     /// <summary>
-                                                                                                                ///     Checks if keyboard key was pressed this frame.
-                                                                                                                /// </summary>
-                                                                                                                /// <param name="key">The keyboard key to check.</param>
-                                                                                                                /// <returns>
-                                                                                                                ///     Returns true if key was pressed this frame, false otherwise.
-                                                                                                                /// </returns>
+    ///     Checks if keyboard key was pressed this frame.
+    /// </summary>
+    /// <param name="key">The keyboard key to check.</param>
+    /// <returns>
+    ///     Returns true if key was pressed this frame, false otherwise.
+    /// </returns>
     public static bool IsKeyboardKeyPressed(KeyboardInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
@@ -293,7 +293,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key was released this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyReleased(KeyboardInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyReleased(KeyboardInput key) => Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if keyboard key is up this frame.
@@ -302,7 +302,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key is up this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyUp(KeyboardInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyUp(KeyboardInput key) => Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if mouse button is down this frame.
@@ -369,7 +369,7 @@ public static class Input
 
     private static bool IsAnyControllerButtonXXX(ControllerButton controllerButton, RaylibGamepadButtonFunc gamepadFunc)
     {
-        int controllerCount = ConnectedControllerCount();
+        int controllerCount = GetConnectedControllerCount();
         for (int i = 0; i < controllerCount; i++)
         {
             GamepadButton button = (GamepadButton)controllerButton;
