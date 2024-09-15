@@ -11,6 +11,8 @@ namespace Game10003;
 /// </summary>
 public struct Color
 {
+    #region Fields and Properties
+
     private byte r;
     private byte g;
     private byte b;
@@ -49,8 +51,10 @@ public struct Color
         set => a = ConstrainAsByte(value);
     }
 
+    #endregion
 
-    // OPERATORS
+    #region Operators
+
     [GeneratorTools.OmitFromDocumentation]
     public static implicit operator Raylib_cs.Color(Color color)
     {
@@ -65,8 +69,10 @@ public struct Color
         return color;
     }
 
+    #endregion
 
-    // CONSTRUCTORS
+    #region Constructors
+
     /// <summary>
     ///     Create a new color. Black.
     /// </summary>
@@ -75,6 +81,7 @@ public struct Color
         r = g = b = 0;
         a = 255;
     }
+
     /// <summary>
     ///     Create a new grayscale color using the <paramref name="intensity"/> value.
     /// </summary>
@@ -84,6 +91,7 @@ public struct Color
         r = g = b = ConstrainAsByte(intensity);
         a = 255;
     }
+
     /// <summary>
     ///     Create a new grayscale color using the <paramref name="intensity"/> value
     ///     with <paramref name="opacity"/>.
@@ -95,6 +103,7 @@ public struct Color
         r = g = b = ConstrainAsByte(intensity);
         A = opacity;
     }
+
     /// <summary>
     ///     Creates a new RGB color.
     /// </summary>
@@ -108,6 +117,7 @@ public struct Color
         B = b;
         a = 255;
     }
+
     /// <summary>
     ///     Creates a new RGBA color.
     /// </summary>
@@ -123,7 +133,10 @@ public struct Color
         A = a;
     }
 
-    // Shades
+    #endregion
+
+    #region Pre-defined Colors and Shades
+
     /// <summary>
     ///     RGB(0, 0, 0)
     /// </summary>
@@ -148,11 +161,12 @@ public struct Color
     ///     RGB(255, 255, 255)
     /// </summary>
     public static readonly Color White = new(255);
+
     /// <summary>
-    ///     RGBA(0, 0, 0, 0)
+    ///     Fully transparent. RGBA(0, 0, 0, 0)
     /// </summary>
     public static readonly Color Clear = new(0, 0);
-    // Colors
+
     /// <summary>
     ///     RGB(255, 0, 0)
     /// </summary>
@@ -178,10 +192,16 @@ public struct Color
     /// </summary>
     public static readonly Color Magenta = new(255, 0, 255);
 
+    #endregion
+
+    #region Private Methods
 
     private static byte ConstrainAsByte(int value)
     {
         byte byteValue = (byte)System.Math.Clamp(value, 0, 255);
         return byteValue;
     }
+
+    #endregion
+
 }
