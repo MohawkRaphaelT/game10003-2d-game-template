@@ -30,7 +30,7 @@ public static class Random
     ///     Get a random angle in degrees as a floating-point number.
     /// </summary>
     /// <returns>
-    ///     Returns a random value from 0.0f (inclusize) to 360 (exclusive).
+    ///     Returns a random value from 0.0f (inclusize) to 360.0f (exclusive).
     /// </returns>
     public static float AngleDegrees()
     {
