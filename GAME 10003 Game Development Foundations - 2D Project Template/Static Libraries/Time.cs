@@ -31,12 +31,12 @@ public static class Time
     public static float DeltaTime => GetDeltaTime();
 
     /// <summary>
-    ///     How many frames have elapsed.
+    ///     How many frames have elapsed since the program started.
     /// </summary>
     public static int FramesElapsed { get; set; }
 
     /// <summary>
-    ///     How much time in seconds has elapsed.
+    ///     How much time in seconds has elapsed since the program started.
     /// </summary>
     public static float SecondsElapsed
     {

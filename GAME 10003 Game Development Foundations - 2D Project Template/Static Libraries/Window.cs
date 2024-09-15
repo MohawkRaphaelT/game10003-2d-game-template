@@ -19,12 +19,12 @@ public static class Window
     #region Fields and Properties
 
     /// <summary>
-    ///     Screen height in pixels.
+    ///     Window height in pixels.
     /// </summary>
     private static int height = 256;
 
     /// <summary>
-    ///     Screen width in pixels.
+    ///     Window width in pixels.
     /// </summary>
     private static int width = 256;
 
@@ -44,7 +44,7 @@ public static class Window
     public static float CurrentFPS => Raylib.GetFPS();
 
     /// <summary>
-    ///     Height of screen in pixels.
+    ///     Height of window in pixels.
     /// </summary>
     public static int Height
     {
@@ -53,7 +53,7 @@ public static class Window
     }
 
     /// <summary>
-    ///     Size of screen in pixels.
+    ///     Size of window in pixels.
     /// </summary>
     public static Vector2 Size
     {
@@ -71,7 +71,7 @@ public static class Window
     }
 
     /// <summary>
-    ///     Title displayed on top of window.
+    ///     Title displayed on top of program window.
     /// </summary>
     public static string Title
     {
@@ -80,7 +80,7 @@ public static class Window
     }
 
     /// <summary>
-    ///     Width of screen in pixels.
+    ///     Width of window in pixels.
     /// </summary>
     public static int Width
     {
@@ -93,7 +93,7 @@ public static class Window
     #region Public Methods
 
     /// <summary>
-    ///     Clears the screen to the specified <paramref name="color"/>.
+    ///     Clears the window canvas to the specified <paramref name="color"/>.
     /// </summary>
     /// <param name="color">The background color to paint.</param>
     public static void ClearBackground(Color color)
@@ -104,8 +104,8 @@ public static class Window
     /// <summary>
     ///     Set the window size in pixels.
     /// </summary>
-    /// <param name="width">Width of screen in pixels.</param>
-    /// <param name="height">Height of screen in pixels.</param>
+    /// <param name="width">Width of window in pixels.</param>
+    /// <param name="height">Height of window in pixels.</param>
     public static void SetSize(int width, int height)
     {
         Window.width = width;
@@ -114,7 +114,7 @@ public static class Window
     }
 
     /// <summary>
-    ///     Set the window title.
+    ///     Set the program window title.
     /// </summary>
     /// <param name="value">The new title to display.</param>
     public static void SetTitle(string value)
