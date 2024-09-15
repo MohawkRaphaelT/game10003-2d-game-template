@@ -19,6 +19,7 @@ namespace Game10003;
 /// </remarks>
 public static class Graphics
 {
+
     #region Fields and Properties
 
     /// <summary>
@@ -155,4 +156,5 @@ public static class Graphics
     }
 
     #endregion
+
 }

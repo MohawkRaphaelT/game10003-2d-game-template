@@ -18,6 +18,7 @@ namespace Game10003;
 /// </remarks>
 public static class Draw
 {
+
     #region Properties
 
     /// <summary>
@@ -435,4 +436,5 @@ public static class Draw
     }
 
     #endregion
+
 }

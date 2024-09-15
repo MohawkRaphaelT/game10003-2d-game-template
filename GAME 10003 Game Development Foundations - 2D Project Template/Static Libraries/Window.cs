@@ -15,6 +15,7 @@ namespace Game10003;
 /// </summary>
 public static class Window
 {
+
     #region Fields and Properties
 
     /// <summary>

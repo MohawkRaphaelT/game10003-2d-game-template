@@ -18,6 +18,7 @@ namespace Game10003;
 /// </remarks>
 public static class Audio
 {
+
     #region Fields and Properties
 
     /// <summary>
@@ -247,4 +248,5 @@ public static class Audio
     }
 
     #endregion
+
 }
