@@ -18,282 +18,34 @@ namespace Game10003;
 /// </remarks>
 public static class Input
 {
-    // Keyboard
-    /// <summary>
-    ///     Checks if keyboard key was pressed this frame.
-    /// </summary>
-    /// <param name="key">The keyboard key to check.</param>
-    /// <returns>
-    ///     Returns true if key was pressed this frame, false otherwise.
-    /// </returns>
-    public static bool IsKeyboardKeyPressed(KeyboardInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
-    /// <summary>
-    ///     Checks if keyboard key was released this frame.
-    /// </summary>
-    /// <param name="key">The keyboard key to check.</param>
-    /// <returns>
-    ///     Returns true if key was released this frame, false otherwise.
-    /// </returns>
-    public static bool IsKeyboardKeyReleased(KeyboardInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
-    /// <summary>
-    ///     Checks if keyboard key is up this frame.
-    /// </summary>
-    /// <param name="key">The keyboard key to check.</param>
-    /// <returns>
-    ///     Returns true if key is up this frame, false otherwise.
-    /// </returns>
-    public static bool IsKeyboardKeyUp(KeyboardInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
-    /// <summary>
-    ///     Checks if keyboard key is down this frame.
-    /// </summary>
-    /// <param name="key">The keyboard key to check.</param>
-    /// <returns>
-    ///     Returns true if key is down this frame, false otherwise.
-    /// </returns>
-    public static bool IsKeyboardKeyDown(KeyboardInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
 
-    // Mouse
-    /// <summary>
-    ///     Checks if mouse button was pressed this frame.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>
-    ///     Returns true if mouse button was pressed this frame, false otherwise.
-    /// </returns>
-    public static bool IsMouseButtonPressed(MouseInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
-    /// <summary>
-    ///     Checks if mouse button was released this frame.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>
-    ///     Returns true if mouse button was released this frame, false otherwise.
-    /// </returns>
-    public static bool IsMouseButtonReleased(MouseInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
-    /// <summary>
-    ///     Checks if mouse button is up this frame.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>
-    ///     Returns true if mouse button is up this frame, false otherwise.
-    /// </returns>
-    public static bool IsMouseButtonUp(MouseInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
-    /// <summary>
-    ///     Checks if mouse button is down this frame.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>
-    ///     Returns true if mouse button is down this frame, false otherwise.
-    /// </returns>
-    public static bool IsMouseButtonDown(MouseInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
-    /// <summary>
-    ///     Gets the movement of mouse between last frame and this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the pixel delta position between frames.
-    /// </returns>
-    public static Vector2 GetMouseDeltaPosition() => Raylib.GetMouseDelta();
-    /// <summary>
-    ///     Gets the mouse position on screen this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the Vector2 mouse position on screen in pixel coordinates.
-    /// </returns>
-    public static Vector2 GetMousePosition() => Raylib.GetMousePosition();
-    /// <summary>
-    ///     Gets the mouse X position on screen this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the X mouse position on screen in pixel coordinates.
-    /// </returns>
-    public static float GetMouseX() => Raylib.GetMouseX();
-    /// <summary>
-    ///     Gets the mouse Y position on screen this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the mouse Y position on screen in pixel coordinates.
-    /// </returns>
-    public static float GetMouseY() => Raylib.GetMouseY();
-    /// <summary>
-    ///     Gets the mouse wheel movement this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the Vector2 mouse wheel movement.
-    /// </returns>
-    public static Vector2 GetMouseWheel() => Raylib.GetMouseWheelMoveV();
-    /// <summary>
-    ///     Gets the mouse wheel's X movement this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the mouse wheel X movement.
-    /// </returns>
-    public static float GetMouseWheelX() => Raylib.GetMouseWheelMoveV().X;
-    /// <summary>
-    ///     Gets the mouse wheel's Y movement this frame.
-    /// </summary>
-    /// <returns>
-    ///     Returns the mouse wheel Y movement.
-    /// </returns>
-    public static float GetMouseWheelY() => Raylib.GetMouseWheelMoveV().Y;
+    #region Public Methods
 
-    // Mouse Cursor
+    /// <summary>
+    ///     Checks how many controllers are connected to the host device.
+    /// </summary>
+    /// <returns>
+    ///     Returns the number of controllers connected to this device.
+    /// </returns>
+    public static int ConnectedControllerCount()
+    {
+        int controllerCount = 0;
+        int index = 0;
+        while (Raylib.IsGamepadAvailable(index++))
+            controllerCount++;
+        return controllerCount;
+    }
+
     /// <summary>
     ///     Disables mouse cursor while in window.
     /// </summary>
     public static void DisableMouseCursor() => Raylib.DisableCursor();
+
     /// <summary>
     ///     Enables mouse cursor while in window.
     /// </summary>
     public static void EnableMouseCursor() => Raylib.EnableCursor();
-    /// <summary>
-    ///     Shows mouse cursor in window.
-    /// </summary>
-    public static void ShowMouseCursor() => Raylib.ShowCursor();
-    /// <summary>
-    ///     Hides mouse cursor in window.
-    /// </summary>
-    public static void HideMouseCursor() => Raylib.HideCursor();
-    /// <summary>
-    ///     Check if the mouse is hidden.
-    /// </summary>
-    /// <returns>
-    ///     Returns true if mouse is hidden, false otherwise.
-    /// </returns>
-    public static bool IsMouseCursorHidden() => Raylib.IsCursorHidden();
-    /// <summary>
-    ///     Checks if the mouse is inside the window.
-    /// </summary>
-    /// <returns>
-    ///     Returns true if mouse is inside the window, false otherwise.
-    /// </returns>
-    public static bool IsMouseCursorOnScreen() => Raylib.IsCursorOnScreen();
 
-    // Controller Button
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
-    ///     <paramref name="controllerButton"/> was pressed this frame.
-    /// </summary>
-    /// <param name="controllerIndex">Which controller to check.</param>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of
-    ///     <paramref name="controllerIndex"/> was pressed this frame, false otherwise.
-    /// </returns>
-    public static bool IsControllerButtonPressed(int controllerIndex, ControllerButton controllerButton)
-        => Raylib.IsGamepadButtonPressed(controllerIndex, (GamepadButton)controllerButton);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
-    ///     <paramref name="controllerButton"/> was released this frame.
-    /// </summary>
-    /// <param name="controllerIndex">Which controller to check.</param>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of
-    ///     <paramref name="controllerIndex"/> was released this frame, false otherwise.
-    /// </returns>
-    public static bool IsControllerButtonReleased(int controllerIndex, ControllerButton controllerButton)
-        => Raylib.IsGamepadButtonReleased(controllerIndex, (GamepadButton)controllerButton);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
-    ///     <paramref name="controllerButton"/> is up this frame.
-    /// </summary>
-    /// <param name="controllerIndex">Which controller to check.</param>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of
-    ///     <paramref name="controllerIndex"/> is up this frame, false otherwise.
-    /// </returns>
-    public static bool IsControllerButtonUp(int controllerIndex, ControllerButton controllerButton)
-        => Raylib.IsGamepadButtonUp(controllerIndex, (GamepadButton)controllerButton);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
-    ///     <paramref name="controllerButton"/> is down this frame.
-    /// </summary>
-    /// <param name="controllerIndex">Which controller to check.</param>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of
-    ///     <paramref name="controllerIndex"/> is down this frame, false otherwise.
-    /// </returns>
-    public static bool IsControllerButtonDown(int controllerIndex, ControllerButton controllerButton)
-        => Raylib.IsGamepadButtonDown(controllerIndex, (GamepadButton)controllerButton);
-
-
-    private delegate CBool RaylibGamepadButtonFunc(int controllerIndex, GamepadButton controllerButton);
-    private static bool IsAnyControllerButtonXXX(ControllerButton controllerButton, RaylibGamepadButtonFunc gamepadFunc)
-    {
-        int controllerCount = ConnectedControllerCount();
-        for (int i = 0; i < controllerCount; i++)
-        {
-            GamepadButton button = (GamepadButton)controllerButton;
-            bool isTriggered = gamepadFunc(i, button);
-            if (isTriggered)
-                return true;
-        }
-        return false;
-    }
-
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
-    ///     was pressed on any controller this frame.
-    /// </summary>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of any controller 
-    ///     was pressed this frame, false otherwise.
-    /// </returns>
-    public static bool IsAnyControllerButtonPressed(ControllerButton controllerButton)
-        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonPressed);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
-    ///     was released on any controller this frame.
-    /// </summary>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of any controller 
-    ///     was releaed this frame, false otherwise.
-    /// </returns>
-    public static bool IsAnyControllerButtonReleased(ControllerButton controllerButton)
-        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonReleased);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
-    ///     is up on any controller this frame.
-    /// </summary>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of any controller 
-    ///     is up this frame, false otherwise.
-    /// </returns>
-    public static bool IsAnyControllerButtonUp(ControllerButton controllerButton)
-        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonUp);
-    /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
-    ///     is down on any controller this frame.
-    /// </summary>
-    /// <param name="controllerButton">The controller button to check.</param>
-    /// <returns>
-    ///     Returns true if <paramref name="controllerButton"/> of any controller 
-    ///     is down this frame, false otherwise.
-    /// </returns>
-    public static bool IsAnyControllerButtonDown(ControllerButton controllerButton)
-        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonDown);
-
-
-    // Controller Axis
-    /// <summary>
-    ///     Get the <paramref name="controllerAxis"/> value of
-    ///     <paramref name="controllerIndex"/>.
-    /// </summary>
-    /// <param name="controllerIndex">Which controller to check.</param>
-    /// <param name="controllerAxis">The controller axis to check.</param>
-    /// <returns>
-    ///     Returns a value 0-1 of specified controller.
-    /// </returns>
-    public static float GetControllerAxis(int controllerIndex, ControllerAxis controllerAxis)
-    {
-        GamepadAxis axis = (GamepadAxis)controllerAxis;
-        float value = Raylib.GetGamepadAxisMovement(controllerIndex, axis);
-        return value;
-    }
     /// <summary>
     ///     Get the <paramref name="controllerAxis"/> value of any controller.
     ///     Minimum value to register activity is defined by <paramref name="deadzone"/>.
@@ -324,6 +76,132 @@ public static class Input
         finalValue /= controllerCount;
         return finalValue;
     }
+
+    /// <summary>
+    ///     Get the <paramref name="controllerAxis"/> value of
+    ///     <paramref name="controllerIndex"/>.
+    /// </summary>
+    /// <param name="controllerIndex">Which controller to check.</param>
+    /// <param name="controllerAxis">The controller axis to check.</param>
+    /// <returns>
+    ///     Returns a value 0-1 of specified controller.
+    /// </returns>
+    public static float GetControllerAxis(int controllerIndex, ControllerAxis controllerAxis)
+    {
+        GamepadAxis axis = (GamepadAxis)controllerAxis;
+        float value = Raylib.GetGamepadAxisMovement(controllerIndex, axis);
+        return value;
+    }
+
+    /// <summary>
+    ///     Gets the movement of mouse between last frame and this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the pixel delta position between frames.
+    /// </returns>
+    public static Vector2 GetMouseDeltaPosition() => Raylib.GetMouseDelta();
+
+    /// <summary>
+    ///     Gets the mouse position on screen this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the Vector2 mouse position on screen in pixel coordinates.
+    /// </returns>
+    public static Vector2 GetMousePosition() => Raylib.GetMousePosition();
+
+    /// <summary>
+    ///     Gets the mouse X position on screen this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the X mouse position on screen in pixel coordinates.
+    /// </returns>
+    public static float GetMouseX() => Raylib.GetMouseX();
+
+    /// <summary>
+    ///     Gets the mouse Y position on screen this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the mouse Y position on screen in pixel coordinates.
+    /// </returns>
+    public static float GetMouseY() => Raylib.GetMouseY();
+
+    /// <summary>
+    ///     Gets the mouse wheel movement this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the Vector2 mouse wheel movement.
+    /// </returns>
+    public static Vector2 GetMouseWheel() => Raylib.GetMouseWheelMoveV();
+
+    /// <summary>
+    ///     Gets the mouse wheel's X movement this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the mouse wheel X movement.
+    /// </returns>
+    public static float GetMouseWheelX() => Raylib.GetMouseWheelMoveV().X;
+
+    /// <summary>
+    ///     Gets the mouse wheel's Y movement this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the mouse wheel Y movement.
+    /// </returns>
+    public static float GetMouseWheelY() => Raylib.GetMouseWheelMoveV().Y;
+
+    /// <summary>
+    ///     Hides mouse cursor in window.
+    /// </summary>
+    public static void HideMouseCursor() => Raylib.HideCursor();
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     is down on any controller this frame.
+    /// </summary>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of any controller 
+    ///     is down this frame, false otherwise.
+    /// </returns>
+    public static bool IsAnyControllerButtonDown(ControllerButton controllerButton)
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonDown);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     was pressed on any controller this frame.
+    /// </summary>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of any controller 
+    ///     was pressed this frame, false otherwise.
+    /// </returns>
+    public static bool IsAnyControllerButtonPressed(ControllerButton controllerButton)
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonPressed);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     was released on any controller this frame.
+    /// </summary>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of any controller 
+    ///     was releaed this frame, false otherwise.
+    /// </returns>
+    public static bool IsAnyControllerButtonReleased(ControllerButton controllerButton)
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonReleased);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     is up on any controller this frame.
+    /// </summary>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of any controller 
+    ///     is up this frame, false otherwise.
+    /// </returns>
+    public static bool IsAnyControllerButtonUp(ControllerButton controllerButton)
+        => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonUp);
+
     /// <summary>
     ///     Checks to see if controller number <paramref name="controllerIndex"/>
     ///     is connected to the host device.
@@ -337,18 +215,171 @@ public static class Input
         bool isAvailable = Raylib.IsGamepadAvailable(controllerIndex);
         return isAvailable;
     }
+
     /// <summary>
-    ///     Checks how many controllers are connected to the host device.
+    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
+    ///     <paramref name="controllerButton"/> is down this frame.
+    /// </summary>
+    /// <param name="controllerIndex">Which controller to check.</param>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of
+    ///     <paramref name="controllerIndex"/> is down this frame, false otherwise.
+    /// </returns>
+    public static bool IsControllerButtonDown(int controllerIndex, ControllerButton controllerButton)
+        => Raylib.IsGamepadButtonDown(controllerIndex, (GamepadButton)controllerButton);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
+    ///     <paramref name="controllerButton"/> was pressed this frame.
+    /// </summary>
+    /// <param name="controllerIndex">Which controller to check.</param>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of
+    ///     <paramref name="controllerIndex"/> was pressed this frame, false otherwise.
+    /// </returns>
+    public static bool IsControllerButtonPressed(int controllerIndex, ControllerButton controllerButton)
+        => Raylib.IsGamepadButtonPressed(controllerIndex, (GamepadButton)controllerButton);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
+    ///     <paramref name="controllerButton"/> was released this frame.
+    /// </summary>
+    /// <param name="controllerIndex">Which controller to check.</param>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of
+    ///     <paramref name="controllerIndex"/> was released this frame, false otherwise.
+    /// </returns>
+    public static bool IsControllerButtonReleased(int controllerIndex, ControllerButton controllerButton)
+        => Raylib.IsGamepadButtonReleased(controllerIndex, (GamepadButton)controllerButton);
+
+    /// <summary>
+    ///     Checks if controller number <paramref name="controllerIndex"/>'s 
+    ///     <paramref name="controllerButton"/> is up this frame.
+    /// </summary>
+    /// <param name="controllerIndex">Which controller to check.</param>
+    /// <param name="controllerButton">The controller button to check.</param>
+    /// <returns>
+    ///     Returns true if <paramref name="controllerButton"/> of
+    ///     <paramref name="controllerIndex"/> is up this frame, false otherwise.
+    /// </returns>
+    public static bool IsControllerButtonUp(int controllerIndex, ControllerButton controllerButton)
+        => Raylib.IsGamepadButtonUp(controllerIndex, (GamepadButton)controllerButton);
+
+    /// <summary>
+    ///     Checks if keyboard key is down this frame.
+    /// </summary>
+    /// <param name="key">The keyboard key to check.</param>
+    /// <returns>
+    ///     Returns true if key is down this frame, false otherwise.
+    /// </returns>
+    public static bool IsKeyboardKeyDown(KeyboardInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
+    
+    /// <summary>
+                                                                                                                ///     Checks if keyboard key was pressed this frame.
+                                                                                                                /// </summary>
+                                                                                                                /// <param name="key">The keyboard key to check.</param>
+                                                                                                                /// <returns>
+                                                                                                                ///     Returns true if key was pressed this frame, false otherwise.
+                                                                                                                /// </returns>
+    public static bool IsKeyboardKeyPressed(KeyboardInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
+
+    /// <summary>
+    ///     Checks if keyboard key was released this frame.
+    /// </summary>
+    /// <param name="key">The keyboard key to check.</param>
+    /// <returns>
+    ///     Returns true if key was released this frame, false otherwise.
+    /// </returns>
+    public static bool IsKeyboardKeyReleased(KeyboardInput key) =>  Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
+
+    /// <summary>
+    ///     Checks if keyboard key is up this frame.
+    /// </summary>
+    /// <param name="key">The keyboard key to check.</param>
+    /// <returns>
+    ///     Returns true if key is up this frame, false otherwise.
+    /// </returns>
+    public static bool IsKeyboardKeyUp(KeyboardInput key) =>  Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
+
+    /// <summary>
+    ///     Checks if mouse button is down this frame.
+    /// </summary>
+    /// <param name="button">The mouse button to check.</param>
+    /// <returns>
+    ///     Returns true if mouse button is down this frame, false otherwise.
+    /// </returns>
+    public static bool IsMouseButtonDown(MouseInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
+
+    /// <summary>
+    ///     Checks if mouse button was pressed this frame.
+    /// </summary>
+    /// <param name="button">The mouse button to check.</param>
+    /// <returns>
+    ///     Returns true if mouse button was pressed this frame, false otherwise.
+    /// </returns>
+    public static bool IsMouseButtonPressed(MouseInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
+
+    /// <summary>
+    ///     Checks if mouse button was released this frame.
+    /// </summary>
+    /// <param name="button">The mouse button to check.</param>
+    /// <returns>
+    ///     Returns true if mouse button was released this frame, false otherwise.
+    /// </returns>
+    public static bool IsMouseButtonReleased(MouseInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
+
+    /// <summary>
+    ///     Checks if mouse button is up this frame.
+    /// </summary>
+    /// <param name="button">The mouse button to check.</param>
+    /// <returns>
+    ///     Returns true if mouse button is up this frame, false otherwise.
+    /// </returns>
+    public static bool IsMouseButtonUp(MouseInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
+
+    /// <summary>
+    ///     Check if the mouse is hidden.
     /// </summary>
     /// <returns>
-    ///     Returns the number of controllers connected to this device.
+    ///     Returns true if mouse is hidden, false otherwise.
     /// </returns>
-    public static int ConnectedControllerCount()
+    public static bool IsMouseCursorHidden() => Raylib.IsCursorHidden();
+
+    /// <summary>
+    ///     Checks if the mouse is inside the window.
+    /// </summary>
+    /// <returns>
+    ///     Returns true if mouse is inside the window, false otherwise.
+    /// </returns>
+    public static bool IsMouseCursorOnScreen() => Raylib.IsCursorOnScreen();
+
+    /// <summary>
+    ///     Shows mouse cursor in window.
+    /// </summary>
+    public static void ShowMouseCursor() => Raylib.ShowCursor();
+
+    #endregion
+
+    #region Private Methods
+
+    private delegate CBool RaylibGamepadButtonFunc(int controllerIndex, GamepadButton controllerButton);
+
+    private static bool IsAnyControllerButtonXXX(ControllerButton controllerButton, RaylibGamepadButtonFunc gamepadFunc)
     {
-        int controllerCount = 0;
-        int index = 0;
-        while (Raylib.IsGamepadAvailable(index++))
-            controllerCount++;
-        return controllerCount;
+        int controllerCount = ConnectedControllerCount();
+        for (int i = 0; i < controllerCount; i++)
+        {
+            GamepadButton button = (GamepadButton)controllerButton;
+            bool isTriggered = gamepadFunc(i, button);
+            if (isTriggered)
+                return true;
+        }
+        return false;
     }
+
+    #endregion
+
 }
