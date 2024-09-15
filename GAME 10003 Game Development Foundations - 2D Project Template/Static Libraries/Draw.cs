@@ -89,6 +89,27 @@ public static class Draw
         => Ellipse(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
 
     /// <summary>
+    ///     Draw a line with rounded ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
+    ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/> and
+    ///     <see cref="Draw.LineColor"/>.
+    /// </summary>
+    /// <param name="x0">Line start position X.</param>
+    /// <param name="y0">Line start position Y.</param>
+    /// <param name="x1">Line end position X.</param>
+    /// <param name="y1">Line end position Y.</param>
+    public static void Line(float x0, float y0, float x1, float y1)
+        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
+
+    /// <summary>
+    ///     Draw a line with rounded ends from <paramref name="start"/> to <paramref name="end"/> 
+    ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
+    /// </summary>
+    /// <param name="start">Line start position.</param>
+    /// <param name="end">Line end position.</param>
+    public static void Line(Vector2 start, Vector2 end)
+        => Line(start, end, LineSize, LineColor);
+
+    /// <summary>
     ///     Draw a line with sharp ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
     ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/>
     ///     and <see cref="Draw.LineColor"/>.
@@ -139,27 +160,6 @@ public static class Draw
     /// <param name="points">The points to draw between.</param>
     public static void PolyLine(params Vector2[] points)
         => PolyLine(points, LineSize, LineColor);
-
-    /// <summary>
-    ///     Draw a line with rounded ends from (<paramref name="x0"/>, <paramref name="y0"/>) to
-    ///     (<paramref name="x1"/>, <paramref name="y1"/>) using <see cref="Draw.LineSize"/> and
-    ///     <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="x0">Line start position X.</param>
-    /// <param name="y0">Line start position Y.</param>
-    /// <param name="x1">Line end position X.</param>
-    /// <param name="y1">Line end position Y.</param>
-    public static void Line(float x0, float y0, float x1, float y1)
-        => Line(new(x0, y0), new(x1, y1), LineSize, LineColor);
-
-    /// <summary>
-    ///     Draw a line with rounded ends from <paramref name="start"/> to <paramref name="end"/> 
-    ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
-    /// </summary>
-    /// <param name="start">Line start position.</param>
-    /// <param name="end">Line end position.</param>
-    public static void Line(Vector2 start, Vector2 end)
-        => Line(start, end, LineSize, LineColor);
 
     /// <summary>
     ///     Draw a filled and outlined quad with corners at positions
