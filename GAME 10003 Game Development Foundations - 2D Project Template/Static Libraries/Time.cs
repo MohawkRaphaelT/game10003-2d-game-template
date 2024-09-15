@@ -17,8 +17,23 @@ namespace Game10003;
 /// </remarks>
 public static class Time
 {
-    // When manually setting time, this stores the offset relative to start time.
+
+    #region Fields and Properties
+
+    /// <summary>
+    ///     When manually setting time, this stores the offset relative to start time.
+    /// </summary>
     private static double timeOffset = 0;
+
+    /// <summary>
+    ///     The time between the last frame and this frame in seconds.
+    /// </summary>
+    public static float DeltaTime => GetDeltaTime();
+
+    /// <summary>
+    ///     How many frames have elapsed.
+    /// </summary>
+    public static int FramesElapsed { get; set; }
 
     /// <summary>
     ///     How much time in seconds has elapsed.
@@ -29,18 +44,9 @@ public static class Time
         set => SecondsElapsedPrecise = value;
     }
 
-    /// <summary>
-    ///     How many frames have elapsed.
-    /// </summary>
-    public static int FramesElapsed { get; set; }
+    #endregion
 
-    /// <summary>
-    ///     The time between the last frame and this frame in seconds.
-    /// </summary>
-    public static float DeltaTime => GetDeltaTime();
-
-
-    // METHODS
+    #region Private Methods (and private properties)
 
     /// <summary>
     ///     How much time in seconds has elapsed (as a <see cref="double"/>).
@@ -50,20 +56,26 @@ public static class Time
         get => Raylib.GetTime() - timeOffset;
         set => timeOffset = Raylib.GetTime() - value;
     }
-    private static float GetFixedDeltaTime()
-    {
-        float fixedDeltaTime = 1f / Window.TargetFPS;
-        return fixedDeltaTime;
-    }
-    private static float GetDynamicDeltaTime()
-    {
-        float dynamicDeltaTime = Raylib.GetFrameTime();
-        return dynamicDeltaTime;
-    }
+
     private static float GetDeltaTime()
     {
         bool isDebugging = Debugger.IsAttached;
         float deltaTime = isDebugging ? GetFixedDeltaTime() : GetDynamicDeltaTime();
         return deltaTime;
     }
+
+    private static float GetDynamicDeltaTime()
+    {
+        float dynamicDeltaTime = Raylib.GetFrameTime();
+        return dynamicDeltaTime;
+    }
+
+    private static float GetFixedDeltaTime()
+    {
+        float fixedDeltaTime = 1f / Window.TargetFPS;
+        return fixedDeltaTime;
+    }
+
+    #endregion
+
 }
