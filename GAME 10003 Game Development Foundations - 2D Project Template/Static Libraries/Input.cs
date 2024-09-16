@@ -99,7 +99,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position X between frames.
     /// </returns>
-    public static float GetMouseDeltaX() => Raylib.GetMouseDelta().X;
+    public static float GetMouseDeltaX() => ClampedMousePosition().X;
 
     /// <summary>
     ///     Gets the movement of mouse Y between last frame and this frame.
@@ -107,7 +107,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position Y between frames.
     /// </returns>
-    public static float GetMouseDeltaY() => Raylib.GetMouseDelta().Y;
+    public static float GetMouseDeltaY() => ClampedMousePosition().Y;
 
     /// <summary>
     ///     Gets the movement of mouse between last frame and this frame.
@@ -123,7 +123,7 @@ public static class Input
     /// <returns>
     ///     Returns the Vector2 mouse position on screen in pixel coordinates.
     /// </returns>
-    public static Vector2 GetMousePosition() => Raylib.GetMousePosition();
+    public static Vector2 GetMousePosition() => ClampedMousePosition();
 
     /// <summary>
     ///     Gets the mouse X position on screen this frame.
@@ -394,6 +394,14 @@ public static class Input
                 return true;
         }
         return false;
+    }
+
+    private static Vector2 ClampedMousePosition()
+    {
+        Vector2 min = Vector2.Zero;
+        Vector2 max = Window.Size;
+        Vector2 mousePosition = Vector2.Clamp(Raylib.GetMousePosition(), min, max);
+        return mousePosition;
     }
 
     #endregion
