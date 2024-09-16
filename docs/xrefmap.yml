@@ -1180,6 +1180,32 @@ references:
   isSpec: "True"
   fullName: Game10003.Input.GetMouseDeltaPosition
   nameWithType: Input.GetMouseDeltaPosition
+- uid: Game10003.Input.GetMouseDeltaX
+  name: GetMouseDeltaX()
+  href: api/Game10003.Input.html#Game10003_Input_GetMouseDeltaX
+  commentId: M:Game10003.Input.GetMouseDeltaX
+  fullName: Game10003.Input.GetMouseDeltaX()
+  nameWithType: Input.GetMouseDeltaX()
+- uid: Game10003.Input.GetMouseDeltaX*
+  name: GetMouseDeltaX
+  href: api/Game10003.Input.html#Game10003_Input_GetMouseDeltaX_
+  commentId: Overload:Game10003.Input.GetMouseDeltaX
+  isSpec: "True"
+  fullName: Game10003.Input.GetMouseDeltaX
+  nameWithType: Input.GetMouseDeltaX
+- uid: Game10003.Input.GetMouseDeltaY
+  name: GetMouseDeltaY()
+  href: api/Game10003.Input.html#Game10003_Input_GetMouseDeltaY
+  commentId: M:Game10003.Input.GetMouseDeltaY
+  fullName: Game10003.Input.GetMouseDeltaY()
+  nameWithType: Input.GetMouseDeltaY()
+- uid: Game10003.Input.GetMouseDeltaY*
+  name: GetMouseDeltaY
+  href: api/Game10003.Input.html#Game10003_Input_GetMouseDeltaY_
+  commentId: Overload:Game10003.Input.GetMouseDeltaY
+  isSpec: "True"
+  fullName: Game10003.Input.GetMouseDeltaY
+  nameWithType: Input.GetMouseDeltaY
 - uid: Game10003.Input.GetMousePosition
   name: GetMousePosition()
   href: api/Game10003.Input.html#Game10003_Input_GetMousePosition
