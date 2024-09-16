@@ -63,10 +63,10 @@ public static class Input
     }
 
     /// <summary>
-    ///     Checks how many controllers are connected to the host device.
+    ///     Get number of controllers connected to the host device.
     /// </summary>
     /// <returns>
-    ///     Returns the number of controllers connected to this device.
+    ///     Returns number of controllers connected to this device.
     /// </returns>
     public static int GetConnectedControllerCount()
     {
@@ -92,6 +92,22 @@ public static class Input
         float value = Raylib.GetGamepadAxisMovement(controllerIndex, axis);
         return value;
     }
+
+    /// <summary>
+    ///     Gets the movement of mouse X between last frame and this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the pixel delta position X between frames.
+    /// </returns>
+    public static float GetMouseDeltaX() => Raylib.GetMouseDelta().X;
+
+    /// <summary>
+    ///     Gets the movement of mouse Y between last frame and this frame.
+    /// </summary>
+    /// <returns>
+    ///     Returns the pixel delta position Y between frames.
+    /// </returns>
+    public static float GetMouseDeltaY() => Raylib.GetMouseDelta().Y;
 
     /// <summary>
     ///     Gets the movement of mouse between last frame and this frame.
