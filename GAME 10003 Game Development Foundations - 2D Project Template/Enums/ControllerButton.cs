@@ -7,7 +7,7 @@
 namespace Game10003;
 
 /// <summary>
-///     Defines the various controller buttons (gitial inputs) on a generic way.
+///     Defines the various controller buttons (digital inputs) on a generic way.
 /// </summary>
 /// <remarks>
 ///     Wrapper around Raylib's GamepadButton
