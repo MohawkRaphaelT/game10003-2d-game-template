@@ -1,8 +1,8 @@
-﻿// Include code libraries you need here:
+﻿// Include code libraries you need below (use the namespace).
 using System;
 using System.Numerics;
 
-// Where your code is placed.
+// The namespace your code is in.
 namespace Game10003;
 
 /// <summary>
