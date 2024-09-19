@@ -148,6 +148,7 @@ public static class Window
         }
 
         Window.targetFPS = targetFPS;
+        Raylib.SetTargetFPS(targetFPS);
     }
 
     private static void SetWidth(int width)
