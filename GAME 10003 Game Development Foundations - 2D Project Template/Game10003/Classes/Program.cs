@@ -20,9 +20,6 @@ public static class Program
 
     private static void Main()
     {
-        // Create game instance
-        Game game = new();
-
         // Raylib one-time setup
         Raylib.InitWindow(Window.Width, Window.Height, Window.Title);
         Raylib.SetTargetFPS(Window.TargetFPS);
@@ -30,6 +27,8 @@ public static class Program
 
         // Wrapper setup
         Text.Initialize();
+        // Create game instance
+        Game game = new();
 
         // Get 2 render textures through which to draw to screen
         buffers[0] = Raylib.LoadRenderTexture(MaxRenderSize, MaxRenderSize);
