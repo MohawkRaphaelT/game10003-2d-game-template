@@ -14,7 +14,9 @@ using System.Numerics;
 [GeneratorTools.OmitFromDocumentation]
 public static class Program
 {
-    const int MaxRenderSize = 800;
+    // Framebuffer information
+    private const int MaxRenderSize = 4096;
+    private static readonly RenderTexture2D[] buffers = new RenderTexture2D[2];
 
     private static void Main()
     {
@@ -29,24 +31,17 @@ public static class Program
         // Wrapper setup
         Text.Initialize();
 
-        // Get 2 render textures used to draw to screen
+        // Get 2 render textures through which to draw to screen
+        buffers[0] = Raylib.LoadRenderTexture(MaxRenderSize, MaxRenderSize);
+        buffers[1] = Raylib.LoadRenderTexture(MaxRenderSize, MaxRenderSize);
         bool drawBuffer0 = true;
-        RenderTexture2D[] buffers =
-        {
-            Raylib.LoadRenderTexture(MaxRenderSize, MaxRenderSize),
-            Raylib.LoadRenderTexture(MaxRenderSize, MaxRenderSize),
-        };
-        // Init: set window size and inital background draw
+        // Capture any initial rendering in Setup
         Raylib.BeginTextureMode(buffers[0]);
         game.Setup();
-        Draw.FillColor = Game10003.Color.Blue;
-        Draw.Square(0, 0, 100);
         Raylib.EndTextureMode();
-        // Copy contents to other buffer
+        // Copy frame contents to other buffer
         Raylib.BeginTextureMode(buffers[1]);
         Raylib.DrawTexture(buffers[0].Texture, 0, 0, Raylib_cs.Color.White);
-        Draw.FillColor = Game10003.Color.Green;
-        Draw.Square(0, 0, 100);
         Raylib.EndTextureMode();
 
         // Raylib & wrapper frame loop
@@ -59,8 +54,8 @@ public static class Program
             // Choose current buffer
             RenderTexture2D thisFrame = drawBuffer0 ? buffers[0] : buffers[1];
             RenderTexture2D lastFrame = drawBuffer0 ? buffers[1] : buffers[0];
-            Rectangle renderArea = new Rectangle(MaxRenderSize - Window.Width, MaxRenderSize - Window.Height, Window.Width, -Window.Height);
-            // Start frame with contens of previous frame
+            Rectangle renderArea = new(0, -Window.Height, Window.Width, -Window.Height);
+            // Start frame with contents of previous frame
             Raylib.BeginTextureMode(thisFrame);
             Raylib.DrawTextureRec(lastFrame.Texture, renderArea, Vector2.Zero, Raylib_cs.Color.White);
             game.Update();
@@ -85,7 +80,7 @@ public static class Program
             Text.UnloadFont(font);
         foreach (var texture in Graphics.LoadedTextures)
             Graphics.UnloadTexture(texture);
-        // Proper shutdown
+        // Other shutdown operations
         Raylib.CloseAudioDevice();
         Raylib.CloseWindow();
     }
