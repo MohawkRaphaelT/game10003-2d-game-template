@@ -160,24 +160,29 @@ public static class Draw
         => LineSharp(start, end, LineSize, LineColor);
 
     /// <summary>
-    ///     Draw lines with rounded ends between all <paramref name="xyCoordinates"/>
-    ///     (pairs) using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
+    ///     Draw lines with rounded ends between all <paramref name="xCoordinates"/>
+    ///     and <paramref name="yCoordinates"/> (pairs) using <see cref="Draw.LineSize"/>
+    ///     and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <remarks>
     ///     Order of coordinates is: X, Y, X, Y, etc. If the number of coordinates passed
     ///     is uneven (missing X or Y), the last coordinate will be dropped.
     /// </remarks>
-    /// <param name="xyCoordinates">The X and Y coordinates to draw between.</param>
-    public static void PolyLine(params float[] xyCoordinates)
+    /// <param name="xCoordinates">The X coordinates to draw between.</param>
+    /// <param name="yCoordinates">The Y coordinates to draw between.</param>
+    public static void PolyLine(float[] xCoordinates, float[] yCoordinates)
     {
-        // Concatenate every 2 cooridnates, x then y. Div by 2 truncates odd numbers.
-        Vector2[] points = new Vector2[xyCoordinates.Length / 2];
-        // Note: stride of +2
-        for (int pointIndex = 0; pointIndex < points.Length; pointIndex++)
+        if (xCoordinates is null || yCoordinates is null)
+            return;
+
+        // Create Vector2 array with x-y pairs
+        int minLength = Math.Min(xCoordinates.Length, yCoordinates.Length);
+        Vector2[] points = new Vector2[minLength];
+        for (int i = 0; i < points.Length; i++)
         {
-            int coordIndex = pointIndex * 2;
-            points[pointIndex] = new Vector2(xyCoordinates[coordIndex + 0], xyCoordinates[coordIndex + 1]);
+            points[i] = new Vector2(xCoordinates[i], yCoordinates[i]);
         }
+
         // Then call Vector2 version of function
         PolyLine(points, LineSize, LineColor);
     }
