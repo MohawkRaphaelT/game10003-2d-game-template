@@ -40,6 +40,12 @@ public static class Draw
 
     #region Public Methods
 
+    public static void Arc(float x, float y, float w, float h, float angleFrom, float angleTo)
+        => Arc(new(x, y), new(w, h), angleFrom, angleTo, FillColor, LineSize, LineColor);
+
+    public static void Arc(Vector2 position, Vector2 size, float angleFrom, float angleTo)
+        => Arc(position, size, angleFrom, angleTo, FillColor, LineSize, LineColor);
+
     /// <summary>
     ///     Draw a filled and outlined capsule with endpoints at (<paramref name="x1"/>, <paramref name="y1"/>)
     ///     and (<paramref name="x2"/>, <paramref name="y2"/>) expanding outward to <paramref name="radius"/>
@@ -349,6 +355,43 @@ public static class Draw
     #endregion
 
     #region Private Methods
+
+    private static void Arc(Vector2 position, Vector2 size, float angleFrom, float angleTo, Color fillColor, float lineSize, Color lineColor)
+    {
+        // Correct scale
+        size /= 2;
+        size -= Vector2.One * lineSize;
+
+        // Order angles
+        if (angleFrom < angleTo)
+        {
+            // Swap
+            (angleTo, angleFrom) = (angleFrom, angleTo);
+        }
+        // Convert degrees to radians
+        angleFrom = angleFrom / 360 * MathF.Tau;
+        angleTo = angleTo / 360 * MathF.Tau;
+
+        // TODO: heusitic
+        int count = 20;
+        // Points are 0:center, n+1 samples, ^1:center again
+        Vector2[] points = new Vector2[count + 3];
+        points[0] = position;  // first point, center (for 
+        points[^1] = position; // last point, center (for polyline)
+        for (int i = 1; i <= count + 1; i++)
+        {
+            float percentage = (float)(i-1) / count;
+            float angle = float.Lerp(angleFrom, angleTo, percentage);
+            float x = MathF.Cos(angle);
+            float y = MathF.Sin(angle);
+            points[i] = position + new Vector2(x * size.X, y * size.Y);
+        }
+
+        // FILL
+        Raylib.DrawTriangleFan(points, points.Length, fillColor);
+        // OUTLINE
+        PolyLine(points, lineSize, lineColor);
+    }
 
     private static void Capsule(Vector2 a, Vector2 b, float radius, Color fillColor, float lineSize, Color lineColor)
     {
