@@ -98,7 +98,11 @@ public static class Window
     /// <param name="color">The background color to paint.</param>
     public static void ClearBackground(Color color)
     {
-        Raylib.ClearBackground(color);
+        // Not sure what it does, but not working with double buffer
+        //Raylib.ClearBackground(color);
+
+        // Alternative
+        Raylib.DrawRectangle(0, 0, width, height, color);
     }
 
     /// <summary>
