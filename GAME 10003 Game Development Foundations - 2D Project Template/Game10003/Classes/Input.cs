@@ -6,6 +6,7 @@
 
 using Raylib_cs;
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace Game10003;
@@ -18,7 +19,6 @@ namespace Game10003;
 /// </remarks>
 public static class Input
 {
-
     #region Public Methods
 
     /// <summary>
@@ -283,6 +283,16 @@ public static class Input
     /// </returns>
     public static bool IsControllerButtonUp(int controllerIndex, ControllerButton controllerButton)
         => Raylib.IsGamepadButtonUp(controllerIndex, (GamepadButton)controllerButton);
+
+    /// <summary>
+    ///     Get keyboard <see cref="char"/> characters pressed.
+    ///     Call multiple times to get queued characters.
+    /// </summary>
+    /// <returns>
+    ///     The character pressed if present, otherwise <see cref="'\0'"/>
+    ///     (null character) when the queue is empty.
+    /// </returns>
+    public static char GetCharsPressed() => (char)Raylib.GetCharPressed();
 
     /// <summary>
     ///     Checks if keyboard key is down this frame.
