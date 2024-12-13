@@ -372,15 +372,22 @@ public static class Draw
         angleFrom = angleFrom / 360 * MathF.Tau;
         angleTo = angleTo / 360 * MathF.Tau;
 
-        // TODO: heusitic
-        int count = 20;
+        // Approximate samples needed to render arc, with lower limit
+        const int pixelsPerLineSegment = 16;
+        float fillPercentage = (angleFrom - angleTo) / MathF.Tau;
+        float approxCircumf = ApproximateEllipseCircumference(size.X, size.Y);
+        int approxSampleCount = (int)Math.Ceiling(approxCircumf * fillPercentage / pixelsPerLineSegment);
+        int min = (int)(32 * fillPercentage);
+        int sampleCount = int.Max(min, approxSampleCount);
+        //Console.WriteLine($"{fillPercentage:p}\taprx:{approxCircumf}\taprx-cnt:{approxSampleCount}\tcnt:{sampleCount}");
+
         // Points are 0:center, n+1 samples, ^1:center again
-        Vector2[] points = new Vector2[count + 3];
+        Vector2[] points = new Vector2[sampleCount + 3];
         points[0] = position;  // first point, center (for 
         points[^1] = position; // last point, center (for polyline)
-        for (int i = 1; i <= count + 1; i++)
+        for (int i = 1; i <= sampleCount + 1; i++)
         {
-            float percentage = (float)(i-1) / count;
+            float percentage = (float)(i - 1) / sampleCount;
             float angle = float.Lerp(angleFrom, angleTo, percentage);
             float x = MathF.Cos(angle);
             float y = MathF.Sin(angle);
@@ -391,6 +398,22 @@ public static class Draw
         Raylib.DrawTriangleFan(points, points.Length, fillColor);
         // OUTLINE
         PolyLine(points, lineSize, lineColor);
+    }
+
+    private static double ApproximateEllipseCircumference2(float w, float h)
+    {
+        // Thank you Ramanujan
+        // https://www.youtube.com/watch?v=5nW3nJhBHL0&ab_channel=Stand-upMaths
+        double value = Math.PI * Math.Abs(3*(w + h) - Math.Sqrt((3*w + h) * (w + 3*h)));
+        return value;
+    }
+
+    public static float ApproximateEllipseCircumference(float a, float b)
+    {
+        // Matt Parker's approximation formula
+        // https://www.youtube.com/watch?v=5nW3nJhBHL0&ab_channel=Stand-upMaths
+        float value = MathF.PI * ((6 * a / 5) + (3 * b / 4));
+        return value;
     }
 
     private static void Capsule(Vector2 a, Vector2 b, float radius, Color fillColor, float lineSize, Color lineColor)
