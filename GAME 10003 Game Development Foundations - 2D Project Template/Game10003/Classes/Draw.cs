@@ -191,6 +191,41 @@ public static class Draw
         => PolyLine(points, LineSize, LineColor);
 
     /// <summary>
+    ///     Draw a filled and outlined polygon at position (<paramref name="x"/>, 
+    ///     <paramref name="y"/>) expanding outward to <paramref name="radius"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the circle's fill color.
+    ///     <paramref name="mode"/> determines if the polygon resides inside
+    ///     or outside of the radius bounds.
+    /// </summary>
+    /// <param name="x">The polygon's X position, defines the horizontal centre.</param>
+    /// <param name="y">The polygon's Y position, defines the vertical centre.</param>
+    /// <param name="radius">The polygons radius, further specified as inside or outside radius with <paramref name="mode"/>.</param>
+    /// <param name="edgeCount">How many edges the polygon has. Values below 3 are clamped at 3.</param>
+    /// <param name="rotation">Angle rotation of graphics in degrees (0-360).</param>
+    /// <param name="mode">Mode for drawing polygons.</param>
+    public static void Polygon(float x, float y, float radius, int edgeCount, float rotation, PolygoneMode mode)
+        => Polygon(new Vector2(x, y), radius, LineSize, FillColor, LineColor, edgeCount, rotation, mode);
+
+    /// <summary>
+    ///     Draw a filled and outlined polygon at <paramref name="position"/>
+    ///     expanding outward to <paramref name="radius"/>
+    ///     using <see cref="Draw.LineSize"/> for the outline thickness,
+    ///     <see cref="Draw.LineColor"/> for the line's color, and
+    ///     <see cref="Draw.FillColor"/> for the circle's fill color.
+    ///     <paramref name="mode"/> determines if the polygon resides inside
+    ///     or outside of the radius bounds.
+    /// </summary>
+    /// <param name="position">The polygon's position, defines the horizontal centre.</param>
+    /// <param name="radius">The polygons radius, further specified as inside or outside radius with <paramref name="mode"/>.</param>
+    /// <param name="edgeCount">How many edges the polygon has. Values below 3 are clamped at 3.</param>
+    /// <param name="rotation">Angle rotation of graphics in degrees (0-360).</param>
+    /// <param name="mode">Mode for drawing polygons.</param>
+    public static void Polygon(Vector2 position, float radius, int edgeCount, float rotation, PolygoneMode mode)
+        => Polygon(position, radius, LineSize, FillColor, LineColor, edgeCount, rotation, mode);
+
+    /// <summary>
     ///     Draw a filled and outlined quad with corners at positions
     ///     (<paramref name="x1"/>, <paramref name="y1"/>),
     ///     (<paramref name="x2"/>, <paramref name="y2"/>),
@@ -434,6 +469,59 @@ public static class Draw
         }
         // Draw circle on last line end to smooth it, too
         Raylib.DrawCircleV(points[^1], circleRadius, lineColor);
+    }
+
+    private static void Polygon(Vector2 position, float radius, float lineSize, Color fillColor, Color lineColor, int edgeCount, float rotation, PolygoneMode mode)
+    {
+        // Sanity check
+        bool cannotBeDrawn = edgeCount < 3;
+        if (cannotBeDrawn)
+        {
+            edgeCount = 3;
+        }
+
+        // Get radius based on mode
+        switch (mode)
+        {
+            case PolygoneMode.OutsideRadius:
+                // This kind of thing: https://www.nagwa.com/en/videos/619187254310/
+                float angle = MathF.Tau / edgeCount / 2;
+                float adjacent = radius;
+                float hypoteneuse = adjacent / MathF.Cos(angle);
+                radius = hypoteneuse;
+                break;
+
+            case PolygoneMode.InsideRadius:
+                //radius = radius;
+                break;
+
+            default:
+                throw new NotImplementedException();
+        }
+
+        // Draw
+        PolygonFill(position, radius, fillColor, edgeCount, rotation);
+        PolygonLine(position, radius, lineSize, lineColor, edgeCount, rotation);
+    }
+
+    private static void PolygonFill(Vector2 position, float radius, Color fillColor, int edgeCount, float rotation)
+    {
+        Raylib.DrawPoly(position, edgeCount, radius, rotation, fillColor);
+    }
+
+    private static void PolygonLine(Vector2 position, float radius, float lineSize, Color lineColor, int edgeCount, float rotation)
+    {
+        float rotationRadians = rotation * MathF.Tau / 360;
+        Vector2[] vertices = new Vector2[edgeCount + 1];
+        for (int i = 0; i <= edgeCount; i++)
+        {
+            float percentage = (float)i / edgeCount;
+            float angleRadians = (percentage * MathF.Tau) + rotationRadians;
+            float x = MathF.Cos(angleRadians) * radius;
+            float y = MathF.Sin(angleRadians) * radius;
+            vertices[i] = position + new Vector2(x, y);
+        }
+        PolyLine(vertices, lineSize, lineColor);
     }
 
     private static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, Color fillColor, float lineSize, Color lineColor)
