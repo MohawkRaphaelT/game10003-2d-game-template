@@ -7,6 +7,7 @@
 using Raylib_cs;
 using System;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 
 namespace Game10003;
 
@@ -18,6 +19,10 @@ namespace Game10003;
 /// </remarks>
 public static class Draw
 {
+    // Overload Resolution Priority indexes
+    private const int FloatPriority = 1;
+    private const int Vector2Priority = 0;
+
 
     #region Properties
 
@@ -40,12 +45,15 @@ public static class Draw
 
     #region Public Methods
 
+    [OverloadResolutionPriority(FloatPriority)]
     public static void Arc(float x, float y, float w, float h, float angleFrom, float angleTo)
         => Arc(new(x, y), new(w, h), angleFrom, angleTo, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     public static void Arc(Vector2 position, Vector2 size, float angleFrom, float angleTo)
         => Arc(position, size, angleFrom, angleTo, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined capsule with endpoints at (<paramref name="x1"/>, <paramref name="y1"/>)
     ///     and (<paramref name="x2"/>, <paramref name="y2"/>) expanding outward to <paramref name="radius"/>
@@ -61,6 +69,7 @@ public static class Draw
     public static void Capsule(float x1, float y1, float x2, float y2, float radius)
         => Capsule(new(x1, y1), new(x2, y2), radius, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined capsule with endpoints at <paramref name="position1"/> 
     ///     and <paramref name="position2"/> expanding outward to <paramref name="radius"/>
@@ -74,6 +83,7 @@ public static class Draw
     public static void Capsule(Vector2 position1, Vector2 position2, float radius)
         => Capsule(position1, position2, radius, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined circle at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to <paramref name="radius"/>
@@ -87,6 +97,7 @@ public static class Draw
     public static void Circle(float x, float y, float radius)
         => Circle(new Vector2(x, y), radius, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined circle at <paramref name="position"/> expanding
     ///     outward to <paramref name="radius"/> using <see cref="Draw.LineSize"/> for
@@ -98,6 +109,7 @@ public static class Draw
     public static void Circle(Vector2 position, float radius)
         => Circle(position, radius, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined ellipse at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to size (<paramref name="w"/>, 
@@ -112,6 +124,7 @@ public static class Draw
     public static void Ellipse(float x, float y, float w, float h)
         => Ellipse(x, y, w, h, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined ellipse at <paramref name="position"/> expanding
     ///     outward to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
@@ -123,6 +136,7 @@ public static class Draw
     public static void Ellipse(Vector2 position, Vector2 size)
         => Ellipse(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a line with rounded ends from (<paramref name="x1"/>, <paramref name="y1"/>) to
     ///     (<paramref name="x2"/>, <paramref name="y2"/>) using <see cref="Draw.LineSize"/> and
@@ -135,6 +149,7 @@ public static class Draw
     public static void Line(float x1, float y1, float x2, float y2)
         => Line(new(x1, y1), new(x2, y2), LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a line with rounded ends from <paramref name="start"/> to <paramref name="end"/> 
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
@@ -144,6 +159,7 @@ public static class Draw
     public static void Line(Vector2 start, Vector2 end)
         => Line(start, end, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a line with sharp ends from (<paramref name="x1"/>, <paramref name="y1"/>) to
     ///     (<paramref name="x2"/>, <paramref name="y2"/>) using <see cref="Draw.LineSize"/>
@@ -156,6 +172,7 @@ public static class Draw
     public static void LineSharp(float x1, float y1, float x2, float y2)
         => LineSharp(new(x1, y1), new(x2, y2), LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a line with sharp ends from <paramref name="start"/> to <paramref name="end"/> 
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>.
@@ -165,6 +182,7 @@ public static class Draw
     public static void LineSharp(Vector2 start, Vector2 end)
         => LineSharp(start, end, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw lines with rounded ends between all <paramref name="xCoordinates"/>
     ///     and <paramref name="yCoordinates"/> (pairs) using <see cref="Draw.LineSize"/>
@@ -193,6 +211,7 @@ public static class Draw
         PolyLine(points, LineSize, LineColor);
     }
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw lines with rounded ends between all <paramref name="points"/>
     ///     using <see cref="Draw.LineSize"/> and <see cref="Draw.LineColor"/>
@@ -201,6 +220,7 @@ public static class Draw
     public static void PolyLine(params Vector2[] points)
         => PolyLine(points, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined polygon at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding outward to <paramref name="radius"/>
@@ -219,6 +239,7 @@ public static class Draw
     public static void Polygon(float x, float y, float radius, int edgeCount, float rotation, PolygoneMode mode)
         => Polygon(new Vector2(x, y), radius, LineSize, FillColor, LineColor, edgeCount, rotation, mode);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined polygon at <paramref name="position"/>
     ///     expanding outward to <paramref name="radius"/>
@@ -236,6 +257,7 @@ public static class Draw
     public static void Polygon(Vector2 position, float radius, int edgeCount, float rotation, PolygoneMode mode)
         => Polygon(position, radius, LineSize, FillColor, LineColor, edgeCount, rotation, mode);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined quad with corners at positions
     ///     (<paramref name="x1"/>, <paramref name="y1"/>),
@@ -257,6 +279,7 @@ public static class Draw
     public static void Quad(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4)
         => Quad(new(x1, y1), new(x2, y2), new(x3, y3), new(x4, y4), FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined quad with corners at positions
     ///     <paramref name="position1"/>, <paramref name="position2"/>,
@@ -272,6 +295,7 @@ public static class Draw
     public static void Quad(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4)
         => Quad(position1, position2, position3, position4, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined rectangle at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding right and down to size (<paramref name="w"/>, 
@@ -286,6 +310,7 @@ public static class Draw
     public static void Rectangle(float x, float y, float w, float h)
         => Rectangle(x, y, w, h, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined rectangle at <paramref name="position"/> expanding
     ///     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
@@ -297,6 +322,7 @@ public static class Draw
     public static void Rectangle(Vector2 position, Vector2 size)
         => Rectangle(position.X, position.Y, size.X, size.Y, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined square at position (<paramref name="x"/>, 
     ///     <paramref name="y"/>) expanding right and down to <paramref name="size"/>
@@ -310,6 +336,7 @@ public static class Draw
     public static void Square(float x, float y, float size)
         => Square(x, y, size, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined square at <paramref name="position"/> expanding
     ///     right and down to <paramref name="size"/> using <see cref="Draw.LineSize"/> for
@@ -321,6 +348,7 @@ public static class Draw
     public static void Square(Vector2 position, float size)
         => Square(position.X, position.Y, size, FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(FloatPriority)]
     /// <summary>
     ///     Draw a filled and outlined triangle with corners at positions
     ///     (<paramref name="x1"/>, <paramref name="y1"/>),
@@ -339,6 +367,7 @@ public static class Draw
     public static void Triangle(float x1, float y1, float x2, float y2, float x3, float y3)
         => Triangle(new(x1, y1), new(x2, y2), new(x3, y3), FillColor, LineSize, LineColor);
 
+    [OverloadResolutionPriority(Vector2Priority)]
     /// <summary>
     ///     Draw a filled and outlined triangle with corners at positions
     ///     <paramref name="position1"/>, <paramref name="position2"/>,
