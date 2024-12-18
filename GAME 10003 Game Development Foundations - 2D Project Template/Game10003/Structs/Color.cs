@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace Game10003;
@@ -147,6 +149,79 @@ public struct Color
         G = g;
         B = b;
         A = a;
+    }
+
+    /// <summary>
+    ///     Creates a new color from hex string.
+    /// </summary>
+    /// <param name="value">Color value as hex string.</param>
+    /// <remarks>
+    ///     Color components are ordered R, G, B, A.
+    ///     Valid inputs include hex color "rrggbb", "rrggbbaa",
+    ///     such as "ff00aa" and "00bb7780". Leading # is permitted,
+    ///     such as "#ffddaa".
+    /// </remarks>
+    public Color(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            raw = 0;
+
+        // Sanitive value
+        value.Replace("#", "");
+        value.Trim();
+        value = value.ToLower();
+
+        // Validate string characters
+        for (int i = 0; i < value.Length; i++)
+        {
+            char c = value[i];
+            bool isValidNumber = c >= '0' && c <= '9';
+            bool isValidLetter = c >= 'a' && c <= 'f';
+            bool isInvalid = isValidNumber ^ isValidLetter;
+            if (isInvalid)
+            {
+                string msg = $"Value contains non-hexadecimal character {c} ({value}).";
+                throw new ArgumentException(msg);
+            }
+        }
+
+        // Validate string length
+        bool validLength =
+            value.Length == 3 || // "rgb"
+            value.Length == 4 || // "rgba"
+            value.Length == 6 || // "rrggbb"
+            value.Length == 8;   // "rrggbbaa"
+        if (!validLength)
+        {
+            string msg = $"Color value {value} is of an unexpected length.";
+            throw new ArgumentException(msg);
+        }
+
+        // Parse
+        if (value.Length == 6 || value.Length == 8)
+        {
+            // Color
+            r = byte.Parse(value[0..2], NumberStyles.HexNumber);
+            g = byte.Parse(value[2..4], NumberStyles.HexNumber);
+            b = byte.Parse(value[4..6], NumberStyles.HexNumber);
+            // Alpha
+            if (value.Length == 8)
+                a = byte.Parse(value[6..8], NumberStyles.HexNumber);
+            else
+                a = byte.MaxValue;
+        }
+        else if (value.Length == 3 || value.Length == 4)
+        {
+            // Color
+            r = byte.Parse($"{value[0]}{value[0]}", NumberStyles.HexNumber);
+            g = byte.Parse($"{value[1]}{value[1]}", NumberStyles.HexNumber);
+            b = byte.Parse($"{value[2]}{value[2]}", NumberStyles.HexNumber);
+            // Alpha
+            if (value.Length == 4)
+                a = byte.Parse($"{value[3]}{value[3]}", NumberStyles.HexNumber);
+            else
+                a = byte.MaxValue;
+        }
     }
 
     #endregion
