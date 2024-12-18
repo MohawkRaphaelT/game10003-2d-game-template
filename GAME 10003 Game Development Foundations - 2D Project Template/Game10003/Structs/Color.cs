@@ -4,19 +4,23 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using System.Runtime.InteropServices;
+
 namespace Game10003;
 
 /// <summary>
 ///     Represents an RGBA color (32-bit) using 8-bit byte color components.
 /// </summary>
+[StructLayout(LayoutKind.Explicit)]
 public struct Color
 {
     #region Fields and Properties
 
-    private byte r;
-    private byte g;
-    private byte b;
-    private byte a;
+    [FieldOffset(0)] private uint raw;
+    [FieldOffset(0)] private byte r;
+    [FieldOffset(1)] private byte g;
+    [FieldOffset(2)] private byte b;
+    [FieldOffset(3)] private byte a;
 
     /// <summary>
     ///     Red colour channel.
@@ -67,6 +71,18 @@ public struct Color
     {
         Color color = new(raylibColor.R, raylibColor.G, raylibColor.B, raylibColor.A);
         return color;
+    }
+
+    public static bool operator ==(Color lhs, Color rhs)
+    {
+        bool areSame = lhs.raw == rhs.raw;
+        return areSame;
+    }
+
+    public static bool operator !=(Color lhs, Color rhs)
+    {
+        bool areDifferent = lhs.raw != rhs.raw;
+        return areDifferent;
     }
 
     #endregion
