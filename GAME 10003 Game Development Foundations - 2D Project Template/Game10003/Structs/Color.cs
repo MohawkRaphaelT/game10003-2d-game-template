@@ -7,7 +7,7 @@
 namespace Game10003;
 
 /// <summary>
-///     Represents an RGBA color (32-bit).
+///     Represents an RGBA color (32-bit) using 8-bit byte color components.
 /// </summary>
 public struct Color
 {
