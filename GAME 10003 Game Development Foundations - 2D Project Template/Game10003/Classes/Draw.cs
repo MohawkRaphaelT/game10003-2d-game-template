@@ -429,14 +429,6 @@ public static class Draw
         PolyLine(points, lineSize, lineColor);
     }
 
-    private static double ApproximateEllipseCircumference2(float w, float h)
-    {
-        // Thank you Ramanujan
-        // https://www.youtube.com/watch?v=5nW3nJhBHL0&ab_channel=Stand-upMaths
-        double value = Math.PI * Math.Abs(3*(w + h) - Math.Sqrt((3*w + h) * (w + 3*h)));
-        return value;
-    }
-
     public static float ApproximateEllipseCircumference(float a, float b)
     {
         // Matt Parker's approximation formula
