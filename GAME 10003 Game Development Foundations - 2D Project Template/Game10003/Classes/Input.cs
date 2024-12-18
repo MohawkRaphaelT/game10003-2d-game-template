@@ -6,7 +6,7 @@
 
 using Raylib_cs;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 
 namespace Game10003;
@@ -61,6 +61,55 @@ public static class Input
         finalValue /= controllerCount;
         return finalValue;
     }
+
+    /// <summary>
+    ///     Create an axis from specified inputs.
+    /// </summary>
+    /// <param name="negative">The negative input key.</param>
+    /// <param name="positive">The positive input key.</param>
+    /// <returns>
+    ///     Returns a float axis that combines both inputs,
+    ///     ranges from -1f to +1f.
+    /// </returns>
+    public static float GetAxis(KeyboardInput negative, KeyboardInput positive)
+    {
+        float value = 0;
+
+        if (IsKeyboardKeyDown(negative))
+            value -= 1f;
+
+        if (IsKeyboardKeyDown(positive))
+            value += 1f;
+
+        return value;
+    }
+
+    /// <summary>
+    ///     Create two axes from specified inputs.
+    /// </summary>
+    /// <param name="negativeX">The negative X input key.</param>
+    /// <param name="positiveX">The positive X input key.</param>
+    /// <param name="negativeY">The negative Y input key.</param>
+    /// <param name="positiveY">The positive Y input key.</param>
+    /// <returns>
+    ///     Returns a Vector2 axis that combines both X inputs,
+    ///     both Y inputs, each ranging from -1f to +1f. The
+    ///     input is clamped to a max length of 1f.
+    /// </returns>
+    public static Vector2 GetAxis2(KeyboardInput negativeX, KeyboardInput positiveX, KeyboardInput negativeY, KeyboardInput positiveY)
+    {
+        // Combine axes
+        float x = GetAxis(negativeX, positiveX);
+        float y = GetAxis(negativeY, positiveY);
+        Vector2 value = new(x, y);
+
+        // Clamp to unit circle
+        if (value.Length() > 1f)
+            value = Vector2.Normalize(value);
+
+        return value;
+    }
+
 
     /// <summary>
     ///     Get keyboard <see cref="char"/> characters pressed.
