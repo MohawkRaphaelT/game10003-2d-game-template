@@ -17,10 +17,12 @@ public static class Program
     // Framebuffer information
     private const int MaxRenderSize = 4096;
     private static readonly RenderTexture2D[] buffers = new RenderTexture2D[2];
+    private const ConfigFlags WindowConfigFlags = ConfigFlags.AlwaysRunWindow | ConfigFlags.VSyncHint;
 
     private static void Main()
     {
         // Raylib one-time setup
+        Raylib.SetConfigFlags(WindowConfigFlags);
         Raylib.InitWindow(Window.Width, Window.Height, Window.Title);
         Raylib.SetTargetFPS(Window.TargetFPS);
         Raylib.InitAudioDevice();

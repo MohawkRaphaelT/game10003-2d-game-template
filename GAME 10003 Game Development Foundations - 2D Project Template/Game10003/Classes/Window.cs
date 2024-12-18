@@ -126,6 +126,20 @@ public static class Window
         Raylib.SetWindowTitle(value);
     }
 
+    /// <summary>
+    ///     VSync. Sets the FPS target to the monitor's refresh rate.
+    /// </summary>
+    /// <remarks>
+    ///     The monitor selected is based on which monitor the
+    ///     window is currently in.
+    /// </remarks>
+    public static void SetFpsToMonitorRefreshRate()
+    {
+        int monitorIndex = Raylib.GetCurrentMonitor();
+        int hz = Raylib.GetMonitorRefreshRate(monitorIndex);
+        Raylib.SetTargetFPS(hz);
+    }
+
     #endregion
 
     #region Private Methods
