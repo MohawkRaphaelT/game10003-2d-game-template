@@ -139,22 +139,45 @@ public static class Text
         string monospaceFontPath = GetOsDefaultMonospaceFontPath();
         MonospaceFontName = Path.GetFileName(monospaceFontPath);
         MonospaceFont = Raylib.LoadFont(monospaceFontPath);
+        SetDefaultFontFilter(MonospaceFont);
         ResetFont();
         hasInitialized = true;
     }
 
     /// <summary>
-    ///     Loads the typeface specified at <paramref name="filePath"/>.
+    ///     Loads the typeface specified at <paramref name="filePath"/>
+    ///     with a raasterized pixel sive of <see cref="Text.Size"/>.
     /// </summary>
     /// <param name="filePath">The path to the font file.</param>
     /// <returns>
     ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
     public static Font LoadFont(string filePath)
+        => LoadFont(filePath, Size);
+
+    /// <summary>
+    ///     Loads the typeface specified at <paramref name="filePath"/>
+    ///     with a raasterized pixel sive of <paramref name="fontSize"/>.
+    /// </summary>
+    /// <param name="filePath">The path to the font file.</param>
+    /// <param name="fontSize">The font's pixel size. If drawn at a different scale, it may look blurry.</param>
+    /// <returns>
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    /// </returns>
+    public static Font LoadFont(string filePath, int fontSize)
     {
-        // Return existing instance if reloading same asset.
-        if (loadedFonts.TryGetValue(filePath, out Font value))
-            return value;
+        // Unique ID for this font at this size
+        string fontKey = $"{filePath}@{fontSize}px"; 
+
+        // Check if font exists
+        if (loadedFonts.TryGetValue(fontKey, out Font value))
+        {
+            // Return existing instance of same font and size.
+            if (value.RaylibFont.BaseSize == fontSize)
+                return value;
+            // else
+                // load font again at new size and store it
+        }
 
         // Else, try and load from disk
         bool success = File.Exists(filePath);
@@ -163,13 +186,18 @@ public static class Text
             // Load asset from disk. Assign it file path and file name.
             Font font = new()
             {
-                RaylibFont = Raylib.LoadFont(filePath),
+                RaylibFont = Raylib.LoadFontEx(filePath, fontSize, null, 0),
                 FilePath = filePath,
                 FileName = Path.GetFileNameWithoutExtension(filePath),
+                Key = fontKey,
+                Size = fontSize,
             };
 
+            // Set font filter mode
+            SetDefaultFontFilter(font);
+
             // Add to reference dictionary for data reused on duplicate load calls.
-            loadedFonts.Add(filePath, font);
+            loadedFonts.Add(fontKey, font);
 
             // Return newly loaded value.
             return font;
@@ -186,7 +214,8 @@ public static class Text
 
     /// <summary>
     ///     Loads the typeface with <paramref name="filename"/> and 
-    ///     <paramref name="extension"/> in the user's system font directory (folder).
+    ///     <paramref name="extension"/> in the user's system font directory (folder)
+    ///     with a raasterized pixel sive of <see cref="Text.Size"/>.
     /// </summary>
     /// <param name="filename">The font's file name.</param>
     /// <param name="extension">The font's extension.</param>
@@ -194,10 +223,24 @@ public static class Text
     ///     Returns the loaded <see cref="Game10003.Font"/>.
     /// </returns>
     public static Font LoadFont(string filename, string extension)
+        => LoadFont(filename, extension, Size);
+
+    /// <summary>
+    ///     Loads the typeface with <paramref name="filename"/> and 
+    ///     <paramref name="extension"/> in the user's system font directory (folder)
+    ///     with a raasterized pixel sive of <paramref name="fontSize"/>.
+    /// </summary>
+    /// <param name="filename">The font's file name.</param>
+    /// <param name="extension">The font's extension.</param>
+    /// <param name="fontSize">The font's pixel size. If drawn at a different scale, it may look blurry.</param>
+    /// <returns>
+    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    /// </returns>
+    public static Font LoadFont(string filename, string extension, int fontSize)
     {   
         // Get path to font.
         string filePath = GetOsFontPath(filename, extension);
-        Font font = LoadFont(filePath);
+        Font font = LoadFont(filePath, fontSize);
         return font;
     }
 
@@ -286,6 +329,13 @@ public static class Text
         string fontsDir = Environment.GetFolderPath(Environment.SpecialFolder.Fonts);
         string fontPath = $"{fontsDir}/{fontName}.{type}";
         return fontPath;
+    }
+    private static void SetDefaultFontFilter(Font font)
+    {
+        // Choose filter
+        TextureFilter filter = TextureFilter.Anisotropic16X;
+        // Set filter
+        Raylib.SetTextureFilter(font.RaylibFont.Texture, filter);
     }
 
     #endregion

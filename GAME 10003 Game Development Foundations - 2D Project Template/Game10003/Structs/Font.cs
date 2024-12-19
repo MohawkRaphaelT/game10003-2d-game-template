@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using System.IO;
+
 namespace Game10003;
 
 /// <summary>
@@ -24,6 +26,15 @@ public readonly record struct Font
     /// </summary>
     public string FileName { get; init; }
 
+    /// <summary>
+    ///     Unique key identifier for this font at this size.
+    /// </summary>
+    public string Key { get; init; }
+
+    /// <summary>
+    ///     Size of glyph raster in pixels.
+    /// </summary>
+    public int Size { get; init; }
 
     [GeneratorTools.OmitFromDocumentation]
     public Raylib_cs.Font RaylibFont { get; init; }
@@ -34,6 +45,8 @@ public readonly record struct Font
         var font = new Font()
         {
             RaylibFont = raylibFont,
+            Key = $"{Path.GetRandomFileName()}@{raylibFont.BaseSize}px",
+            Size = raylibFont.BaseSize,
         };
         return font;
     }
