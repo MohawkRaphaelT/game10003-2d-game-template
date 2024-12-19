@@ -1,4 +1,4 @@
-﻿// Include code libraries you need below (use the namespace).
+﻿// Include the namspaces (code libraries) you need below.
 using System;
 using System.Numerics;
 
