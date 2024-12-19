@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Time </title>
+      <title>Struct Sound </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Time ">
+      <meta name="title" content="Struct Sound ">
       
-      <meta name="description" content="Access time information.">
+      <meta name="description" content="Represents a sound file (audio 10s or less).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/main/apiSpec/new?filename=Game10003_Time.md&amp;value=---%0Auid%3A%20Game10003.Time%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/raphael/development/apiSpec/new?filename=MohawkGame2D_Sound.md&amp;value=---%0Auid%3A%20MohawkGame2D.Sound%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,71 +84,64 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Game10003.Time">
+        <article data-uid="MohawkGame2D.Sound">
 
 
 
-  <h1 id="Game10003_Time" data-uid="Game10003.Time" class="text-break">
-Class Time  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <h1 id="MohawkGame2D_Sound" data-uid="MohawkGame2D.Sound" class="text-break">
+Struct Sound  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Structs/Sound.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Game10003.html">Game10003</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="MohawkGame2D.html">MohawkGame2D</a></dd></dl>
   <dl><dt>Assembly</dt><dd>GAME 10003 Game Development Foundations - 2D Game Template.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Access time information.</p>
+  <div class="markdown summary"><p>Represents a sound file (audio 10s or less).</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class Time</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly record struct Sound : IEquatable&lt;Sound&gt;</code></pre>
   </div>
 
 
 
 
-  <dl class="typelist inheritance">
-    <dt>Inheritance</dt>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">Time</span></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="MohawkGame2D.Sound.html">Sound</a>&gt;</div>
     </dd>
   </dl>
-
 
 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.equals">ValueType.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetype.gethashcode">ValueType.GetHashCode()</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
   </dd></dl>
 
 
 
 
-  <h2 id="Game10003_Time_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>A static wrapper to standardize raylib's time API.</p>
+  <h2 id="MohawkGame2D_Sound_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Wrapper around Raylib.Sound</p>
 </div>
 
 
@@ -156,19 +149,19 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 </h2>
 
 
-  <a id="Game10003_Time_DeltaTime_" data-uid="Game10003.Time.DeltaTime*"></a>
+  <a id="MohawkGame2D_Sound_FileName_" data-uid="MohawkGame2D.Sound.FileName*"></a>
 
-  <h3 id="Game10003_Time_DeltaTime" data-uid="Game10003.Time.DeltaTime">
-  DeltaTime
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <h3 id="MohawkGame2D_Sound_FileName" data-uid="MohawkGame2D.Sound.FileName">
+  FileName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Structs/Sound.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The time between the last frame and this frame in seconds.</p>
+  <div class="markdown level1 summary"><p>Name of this sound file.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float DeltaTime { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string FileName { get; init; }</code></pre>
   </div>
 
 
@@ -177,7 +170,7 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -188,19 +181,19 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <a id="Game10003_Time_FramesElapsed_" data-uid="Game10003.Time.FramesElapsed*"></a>
+  <a id="MohawkGame2D_Sound_FilePath_" data-uid="MohawkGame2D.Sound.FilePath*"></a>
 
-  <h3 id="Game10003_Time_FramesElapsed" data-uid="Game10003.Time.FramesElapsed">
-  FramesElapsed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <h3 id="MohawkGame2D_Sound_FilePath" data-uid="MohawkGame2D.Sound.FilePath">
+  FilePath
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Structs/Sound.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How many frames have elapsed since the program started.</p>
+  <div class="markdown level1 summary"><p>File path of this sound.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int FramesElapsed { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string FilePath { get; init; }</code></pre>
   </div>
 
 
@@ -209,7 +202,7 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
     <dd></dd>
   </dl>
 
@@ -220,30 +213,35 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <a id="Game10003_Time_SecondsElapsed_" data-uid="Game10003.Time.SecondsElapsed*"></a>
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="Game10003_Time_SecondsElapsed" data-uid="Game10003.Time.SecondsElapsed">
-  SecondsElapsed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L41"><i class="bi bi-code-slash"></i></a>
+
+  <a id="MohawkGame2D_Sound_ToString_" data-uid="MohawkGame2D.Sound.ToString*"></a>
+
+  <h3 id="MohawkGame2D_Sound_ToString" data-uid="MohawkGame2D.Sound.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Structs/Sound.cs/#L48"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>How much time in seconds has elapsed since the program started.</p>
+  <div class="markdown level1 summary"><p>Returns the fully qualified type name of this instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static float SecondsElapsed { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
   </div>
 
 
-
-
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The fully qualified type name.</p>
+</dd>
   </dl>
+
+
+
 
 
 
@@ -256,7 +254,7 @@ Class Time  <a class="header-action link-secondary" title="View source" href="ht
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L18" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Structs/Sound.cs/#L15" class="edit-link">Edit this page</a>
         </div>
 
 

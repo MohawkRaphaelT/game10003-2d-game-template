@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Class Game </title>
+      <title>Class Time </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Class Game ">
+      <meta name="title" content="Class Time ">
       
-      <meta name="description" content="Your game code goes inside this class!">
+      <meta name="description" content="Access time information.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/main/apiSpec/new?filename=Game10003_Game.md&amp;value=---%0Auid%3A%20Game10003.Game%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-raylib-template/new/raphael/development/apiSpec/new?filename=MohawkGame2D_Time.md&amp;value=---%0Auid%3A%20MohawkGame2D.Time%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="Game10003.Game">
+        <article data-uid="MohawkGame2D.Time">
 
 
 
-  <h1 id="Game10003_Game" data-uid="Game10003.Game" class="text-break">
-Class Game  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <h1 id="MohawkGame2D_Time" data-uid="MohawkGame2D.Time" class="text-break">
+Class Time  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="Game10003.html">Game10003</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="MohawkGame2D.html">MohawkGame2D</a></dd></dl>
   <dl><dt>Assembly</dt><dd>GAME 10003 Game Development Foundations - 2D Game Template.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Your game code goes inside this class!</p>
+  <div class="markdown summary"><p>Access time information.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Game</code></pre>
+    <pre><code class="lang-csharp hljs">public static class Time</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Class Game  <a class="header-action link-secondary" title="View source" href="ht
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-      <div><span class="xref">Game</span></div>
+      <div><span class="xref">Time</span></div>
     </dd>
   </dl>
 
@@ -147,31 +147,39 @@ Class Game  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
+  <h2 id="MohawkGame2D_Time_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A static wrapper to standardize raylib's time API.</p>
+</div>
 
 
-  <h2 class="section" id="methods">Methods
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="Game10003_Game_Setup_" data-uid="Game10003.Game.Setup*"></a>
+  <a id="MohawkGame2D_Time_DeltaTime_" data-uid="MohawkGame2D.Time.DeltaTime*"></a>
 
-  <h3 id="Game10003_Game_Setup" data-uid="Game10003.Game.Setup">
-  Setup()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <h3 id="MohawkGame2D_Time_DeltaTime" data-uid="MohawkGame2D.Time.DeltaTime">
+  DeltaTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Setup runs once before the game loop begins.</p>
+  <div class="markdown level1 summary"><p>The time between the last frame and this frame in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Setup()</code></pre>
+    <pre><code class="lang-csharp hljs">public static float DeltaTime { get; }</code></pre>
   </div>
 
 
 
 
 
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -180,25 +188,62 @@ Class Game  <a class="header-action link-secondary" title="View source" href="ht
 
 
 
-  <a id="Game10003_Game_Update_" data-uid="Game10003.Game.Update*"></a>
+  <a id="MohawkGame2D_Time_FramesElapsed_" data-uid="MohawkGame2D.Time.FramesElapsed*"></a>
 
-  <h3 id="Game10003_Game_Update" data-uid="Game10003.Game.Update">
-  Update()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <h3 id="MohawkGame2D_Time_FramesElapsed" data-uid="MohawkGame2D.Time.FramesElapsed">
+  FramesElapsed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Update runs every frame.</p>
+  <div class="markdown level1 summary"><p>How many frames have elapsed since the program started.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Update()</code></pre>
+    <pre><code class="lang-csharp hljs">public static int FramesElapsed { get; set; }</code></pre>
   </div>
 
 
 
 
 
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Time_SecondsElapsed_" data-uid="MohawkGame2D.Time.SecondsElapsed*"></a>
+
+  <h3 id="MohawkGame2D_Time_SecondsElapsed" data-uid="MohawkGame2D.Time.SecondsElapsed">
+  SecondsElapsed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>How much time in seconds has elapsed since the program started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float SecondsElapsed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd></dd>
+  </dl>
 
 
 
@@ -211,7 +256,7 @@ Class Game  <a class="header-action link-secondary" title="View source" href="ht
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/main/GAME 10003 Game Development Foundations - 2D Project Template/Game.cs/#L11" class="edit-link">Edit this page</a>
+          <a href="https://github.com/MohawkRaphaelT/game10003-raylib-template/blob/raphael/development/GAME 10003 Game Development Foundations - 2D Project Template/Game10003/Classes/Time.cs/#L18" class="edit-link">Edit this page</a>
         </div>
 
 
