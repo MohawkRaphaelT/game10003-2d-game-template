@@ -116,7 +116,7 @@ public static class Input
     ///     Call multiple times to get queued characters.
     /// </summary>
     /// <returns>
-    ///     The character pressed if present, otherwise <see cref="'\0'"/>
+    ///     The character pressed if present, otherwise '\0'
     ///     (null character) when the queue is empty.
     /// </returns>
     public static char GetCharsPressed() => (char)Raylib.GetCharPressed();
