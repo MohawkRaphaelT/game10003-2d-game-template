@@ -5,6 +5,7 @@
  *////////////////////////////////////////////////////////////////////////
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
@@ -294,5 +295,25 @@ public struct Color
     }
 
     #endregion
+
+    public override readonly bool Equals([NotNullWhen(true)] object? obj)
+    {
+        if (obj is not Color)
+            return false;
+
+        bool equals = this == (Color)obj;
+        return equals;
+    }
+
+    public override readonly int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(Color)}({R},{G},{B},{A})";
+        return value;
+    }
 
 }

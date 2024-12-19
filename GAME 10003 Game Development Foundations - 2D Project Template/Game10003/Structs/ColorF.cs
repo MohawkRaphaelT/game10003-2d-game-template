@@ -187,4 +187,9 @@ public struct ColorF
 
     #endregion
 
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(ColorF)}({R:0.00},{G:0.00},{B:0.00},{A:0.00})";
+        return value;
+    }
 }
