@@ -96,7 +96,7 @@ public static class Window
     ///     Clears the window canvas to the specified <paramref name="color"/>.
     /// </summary>
     /// <param name="color">The background color to paint.</param>
-    public static void ClearBackground(Color color)
+    public static void ClearCanvas(Color color)
     {
         // Not sure what it does, but not working with double buffer
         //Raylib.ClearBackground(color);
