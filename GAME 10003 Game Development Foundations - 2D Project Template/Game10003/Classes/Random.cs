@@ -7,7 +7,7 @@
 using System;
 using System.Numerics;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Generate random values.

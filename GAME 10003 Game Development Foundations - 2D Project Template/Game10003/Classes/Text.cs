@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access text drawing functions.
@@ -150,7 +150,7 @@ public static class Text
     /// </summary>
     /// <param name="filePath">The path to the font file.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="MohawkGame2D.Font"/>.
     /// </returns>
     public static Font LoadFont(string filePath)
         => LoadFont(filePath, Size);
@@ -162,7 +162,7 @@ public static class Text
     /// <param name="filePath">The path to the font file.</param>
     /// <param name="fontSize">The font's pixel size. If drawn at a different scale, it may look blurry.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="MohawkGame2D.Font"/>.
     /// </returns>
     public static Font LoadFont(string filePath, int fontSize)
     {
@@ -220,7 +220,7 @@ public static class Text
     /// <param name="filename">The font's file name.</param>
     /// <param name="extension">The font's extension.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="MohawkGame2D.Font"/>.
     /// </returns>
     public static Font LoadFont(string filename, string extension)
         => LoadFont(filename, extension, Size);
@@ -234,7 +234,7 @@ public static class Text
     /// <param name="extension">The font's extension.</param>
     /// <param name="fontSize">The font's pixel size. If drawn at a different scale, it may look blurry.</param>
     /// <returns>
-    ///     Returns the loaded <see cref="Game10003.Font"/>.
+    ///     Returns the loaded <see cref="MohawkGame2D.Font"/>.
     /// </returns>
     public static Font LoadFont(string filename, string extension, int fontSize)
     {   

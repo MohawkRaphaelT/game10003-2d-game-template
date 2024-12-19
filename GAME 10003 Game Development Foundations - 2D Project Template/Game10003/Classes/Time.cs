@@ -7,7 +7,7 @@
 using Raylib_cs;
 using System.Diagnostics;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access time information.

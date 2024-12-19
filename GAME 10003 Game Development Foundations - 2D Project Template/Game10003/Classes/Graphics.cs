@@ -9,7 +9,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Numerics;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access texture drawing functions.

@@ -9,7 +9,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.Numerics;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access player input functions.

@@ -3,7 +3,7 @@ using System;
 using System.Numerics;
 
 // The namespace your code is in.
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Your game code goes inside this class!

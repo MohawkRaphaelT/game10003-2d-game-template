@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Defines the various controller axes (analog inputs) in a generic way.

@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Represents an RGBA color (128-bit) using 32-bit float color components.

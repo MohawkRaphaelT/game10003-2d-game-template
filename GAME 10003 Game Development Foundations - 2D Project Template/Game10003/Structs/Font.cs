@@ -6,7 +6,7 @@
 
 using System.IO;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Represents a font.

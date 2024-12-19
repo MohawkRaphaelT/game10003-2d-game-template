@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-using Game10003;
+using MohawkGame2D;
 using Raylib_cs;
 using System.Numerics;
 

@@ -8,7 +8,7 @@ using System;
 using System.Globalization;
 using System.Runtime.InteropServices;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Represents an RGBA color (32-bit) using 8-bit byte color components.

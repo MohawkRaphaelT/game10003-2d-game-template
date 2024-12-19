@@ -8,7 +8,7 @@ using Raylib_cs;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access audio functions.

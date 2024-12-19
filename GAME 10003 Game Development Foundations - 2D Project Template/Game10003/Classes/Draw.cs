@@ -9,7 +9,7 @@ using System;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Access shape drawing functions.

@@ -4,7 +4,7 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
-namespace Game10003;
+namespace MohawkGame2D;
 
 /// <summary>
 ///     Represents a sound file (audio 10s or less).
