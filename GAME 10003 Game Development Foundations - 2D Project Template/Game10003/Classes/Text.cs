@@ -260,7 +260,7 @@ public static class Text
     /// <param name="font">The font to unload.</param>
     public static void UnloadFont(Font font)
     {
-        loadedFonts.Remove(font.FilePath);
+        loadedFonts.Remove(font.Key);
         Raylib.UnloadFont(font);
     }
 
