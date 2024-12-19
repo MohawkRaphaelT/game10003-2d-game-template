@@ -44,4 +44,10 @@ public readonly record struct Music
         var raylibMusic = music.RaylibMusic;
         return raylibMusic;
     }
+
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(Music)}({FilePath})";
+        return value;
+    }
 }

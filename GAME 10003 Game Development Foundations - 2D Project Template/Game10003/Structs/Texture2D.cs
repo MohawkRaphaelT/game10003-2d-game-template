@@ -54,4 +54,10 @@ public readonly record struct Texture2D
         var raylibTexture2D = texture2D.RaylibTexture2D;
         return raylibTexture2D;
     }
+
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(Texture2D)}({FilePath})";
+        return value;
+    }
 }

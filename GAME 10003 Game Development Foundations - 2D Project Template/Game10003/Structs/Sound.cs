@@ -44,4 +44,10 @@ public readonly record struct Sound
         var raylibSound = sound.RaylibSound;
         return raylibSound;
     }
+
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(Sound)}({FilePath})";
+        return value;
+    }
 }

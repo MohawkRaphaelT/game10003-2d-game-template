@@ -57,4 +57,10 @@ public readonly record struct Font
         var raylibFont = font.RaylibFont;
         return raylibFont;
     }
+
+    public override readonly string ToString()
+    {
+        string value = $"{nameof(Font)}({Key})";
+        return value;
+    }
 }
