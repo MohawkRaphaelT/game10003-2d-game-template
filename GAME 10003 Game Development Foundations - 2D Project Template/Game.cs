@@ -1,4 +1,4 @@
-﻿// Include the namspaces (code libraries) you need below.
+﻿// Include the namespaces (code libraries) you need below.
 using System;
 using System.Numerics;
 
@@ -29,3 +29,4 @@ public class Game
 
     }
 }
+
