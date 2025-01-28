@@ -168,8 +168,8 @@ public struct Color
             raw = 0;
 
         // Sanitive value
-        value.Replace("#", "");
-        value.Trim();
+        value = value.Replace("#", "");
+        value = value.Trim();
         value = value.ToLower();
 
         // Validate string characters
@@ -178,7 +178,7 @@ public struct Color
             char c = value[i];
             bool isValidNumber = c >= '0' && c <= '9';
             bool isValidLetter = c >= 'a' && c <= 'f';
-            bool isInvalid = isValidNumber ^ isValidLetter;
+            bool isInvalid = !isValidNumber & !isValidLetter;
             if (isInvalid)
             {
                 string msg = $"Value contains non-hexadecimal character {c} ({value}).";
