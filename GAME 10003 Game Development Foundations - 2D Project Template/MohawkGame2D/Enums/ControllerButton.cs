@@ -22,7 +22,7 @@ public enum ControllerButton
     /// <summary>
     ///     Controller left directional-pad up button.
     /// </summary>
-    LeftFaceUp,
+    LeftFaceUp = 1,
 
     /// <summary>
     ///     Controller left directional-pad right button.
