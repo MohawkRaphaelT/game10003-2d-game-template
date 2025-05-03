@@ -40,6 +40,8 @@ public static class Program
         Raylib.BeginTextureMode(buffers[0]);
         game.Setup();
         Raylib.EndTextureMode();
+        // Place window in centre of monitor, if able
+        Window.CentreWindow();
         // Copy frame contents to other buffer
         Raylib.BeginTextureMode(buffers[1]);
         Raylib.DrawTexture(buffers[0].Texture, 0, 0, Raylib_cs.Color.White);
