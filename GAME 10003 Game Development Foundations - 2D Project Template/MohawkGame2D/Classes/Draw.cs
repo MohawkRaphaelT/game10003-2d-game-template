@@ -20,6 +20,7 @@ namespace MohawkGame2D;
 public static class Draw
 {
     // Overload Resolution Priority indexes
+    private const int IntPriority = 2;
     private const int FloatPriority = 1;
     private const int Vector2Priority = 0;
 
@@ -221,6 +222,35 @@ public static class Draw
     /// <param name="xCoordinates">The X coordinates to draw between.</param>
     /// <param name="yCoordinates">The Y coordinates to draw between.</param>
     public static void PolyLine(float[] xCoordinates, float[] yCoordinates)
+    {
+        if (xCoordinates is null || yCoordinates is null)
+            return;
+
+        // Create Vector2 array with x-y pairs
+        int minLength = Math.Min(xCoordinates.Length, yCoordinates.Length);
+        Vector2[] points = new Vector2[minLength];
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] = new Vector2(xCoordinates[i], yCoordinates[i]);
+        }
+
+        // Then call Vector2 version of function
+        PolyLine(points, LineSize, LineColor);
+    }
+
+    [OverloadResolutionPriority(IntPriority)]
+    /// <summary>
+    ///     Draw lines with rounded ends between all <paramref name="xCoordinates"/>
+    ///     and <paramref name="yCoordinates"/> (pairs) using <see cref="Draw.LineSize"/>
+    ///     and <see cref="Draw.LineColor"/>
+    /// </summary>
+    /// <remarks>
+    ///     Order of coordinates is: X, Y, X, Y, etc. If the number of coordinates passed
+    ///     is uneven (missing X or Y), the last coordinate will be dropped.
+    /// </remarks>
+    /// <param name="xCoordinates">The X coordinates to draw between.</param>
+    /// <param name="yCoordinates">The Y coordinates to draw between.</param>
+    public static void PolyLine(int[] xCoordinates, int[] yCoordinates)
     {
         if (xCoordinates is null || yCoordinates is null)
             return;
