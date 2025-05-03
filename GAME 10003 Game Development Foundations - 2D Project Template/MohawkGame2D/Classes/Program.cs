@@ -15,7 +15,7 @@ using System.Numerics;
 public static class Program
 {
     // Framebuffer information
-    private const int MaxRenderSize = 4096;
+    private const int MaxRenderSize = 1400;//4096;
     private static readonly RenderTexture2D[] buffers = new RenderTexture2D[2];
     private const ConfigFlags WindowConfigFlags = ConfigFlags.AlwaysRunWindow | ConfigFlags.VSyncHint;
 
@@ -44,7 +44,8 @@ public static class Program
         Window.CentreWindow();
         // Copy frame contents to other buffer
         Raylib.BeginTextureMode(buffers[1]);
-        Raylib.DrawTexture(buffers[0].Texture, 0, 0, Raylib_cs.Color.White);
+        Rectangle setupRenderArea = new(0, -MaxRenderSize, Window.Width, -Window.Height);
+        Raylib.DrawTextureRec(buffers[0].Texture, setupRenderArea, Vector2.Zero, Raylib_cs.Color.White);
         Raylib.EndTextureMode();
 
         // Raylib & wrapper frame loop
