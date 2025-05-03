@@ -23,12 +23,13 @@ public static class Graphics
     #region Fields and Properties
 
     /// <summary>
-    ///     Internally track textures to speed up duplicate loads and properly unload when game is quit
+    ///     Keep list of textures to auto-update in background, and also
+    ///     speed up duplicate load, and properly unload on quit.
     /// </summary>
     private static readonly Dictionary<string, Texture2D> loadedTextures = [];
 
     /// <summary>
-    ///     Get an array of all loaded music.
+    ///     Get an array of all loaded textures.
     /// </summary>
     public static Texture2D[] LoadedTextures => [.. loadedTextures.Values];
 

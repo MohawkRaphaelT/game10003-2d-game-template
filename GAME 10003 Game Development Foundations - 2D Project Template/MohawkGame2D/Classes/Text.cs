@@ -29,7 +29,8 @@ public static class Text
     private static bool hasInitialized = false;
 
     /// <summary>
-    ///     Internally track fonts to speed up duplicate loads and properly unload when game is quit.
+    ///     Keep list of fonts to auto-update in background, and also
+    ///     speed up duplicate load, and properly unload on quit.
     /// </summary>
     private static readonly Dictionary<string, Font> loadedFonts = [];
 
@@ -57,7 +58,7 @@ public static class Text
     public static int Kerning { get; set; } = 0;
 
     /// <summary>
-    ///     Get an array of all loaded music.
+    ///     Get an array of all loaded fonts.
     /// </summary>
     public static Font[] LoadedFonts => [.. loadedFonts.Values];
 

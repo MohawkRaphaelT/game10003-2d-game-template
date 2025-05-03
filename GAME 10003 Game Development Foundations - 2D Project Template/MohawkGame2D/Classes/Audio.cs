@@ -28,7 +28,8 @@ public static class Audio
     private static readonly Dictionary<string, Music> loadedMusic = [];
 
     /// <summary>
-    ///     Internally track sounds to speed up duplicate loads and properly unload when game is quit
+    ///     Keep list of sounds to auto-update in background, and also
+    ///     speed up duplicate load, and properly unload on quit.
     /// </summary>
     private static readonly Dictionary<string, Sound> loadedSounds = [];
 
