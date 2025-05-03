@@ -57,7 +57,9 @@ public static class Input
             }
         }
 
-        finalValue /= controllerCount;
+        if (controllerCount > 1)
+            finalValue /= controllerCount;
+
         return finalValue;
     }
 
