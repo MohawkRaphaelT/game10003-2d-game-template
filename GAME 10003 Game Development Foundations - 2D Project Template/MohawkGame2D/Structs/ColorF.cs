@@ -7,7 +7,7 @@
 namespace MohawkGame2D;
 
 /// <summary>
-///     Represents an RGBA color (128-bit) using 32-bit float color components.
+///     Represents an RGBA color (128-bit) using 32-bit float color components (numbers from 0.0f to 1.0f).
 /// </summary>
 public struct ColorF
 {
@@ -19,7 +19,7 @@ public struct ColorF
     private float a;
 
     /// <summary>
-    ///     Red colour channel.
+    ///     Red colour channel (0.0f-1.0f).
     /// </summary>
     public float R
     {
@@ -27,7 +27,7 @@ public struct ColorF
         set => r = ConstrainFloat0To1(value);
     }
     /// <summary>
-    ///     Green colour channel.
+    ///     Green colour channel (0.0f-1.0f).
     /// </summary>
     public float G
     {
@@ -35,7 +35,7 @@ public struct ColorF
         set => g = ConstrainFloat0To1(value);
     }
     /// <summary>
-    ///     Blue colour channel.
+    ///     Blue colour channel (0.0f-1.0f).
     /// </summary>
     public float B
     {
@@ -43,7 +43,7 @@ public struct ColorF
         set => b = ConstrainFloat0To1(value);
     }
     /// <summary>
-    ///     Alpha colour channel.
+    ///     Alpha colour channel (0.0f-1.0f).
     /// </summary>
     public float A
     {
@@ -115,7 +115,7 @@ public struct ColorF
     /// <summary>
     ///     Create a new grayscale color using the <paramref name="intensity"/> value.
     /// </summary>
-    /// <param name="intensity">The intesity (brightness).</param>
+    /// <param name="intensity">The intensity (brightness) value (0.0f-1.0f).</param>
     public ColorF(float intensity)
     {
         r = g = b = ConstrainFloat0To1(intensity);
@@ -126,8 +126,8 @@ public struct ColorF
     ///     Create a new grayscale color using the <paramref name="intensity"/> value
     ///     with <paramref name="opacity"/>.
     /// </summary>
-    /// <param name="intensity">The intesity (brightness).</param>
-    /// <param name="opacity">0f for fully translucid, 1f for fully opaque.</param>
+    /// <param name="intensity">The intensity (brightness) value (0.0f-1.0f).</param>
+    /// <param name="opacity">The opacity value, 0f for fully translucid, 1f for fully opaque.</param>
     public ColorF(float intensity, float opacity)
     {
         r = g = b = ConstrainFloat0To1(intensity);
@@ -137,9 +137,9 @@ public struct ColorF
     /// <summary>
     ///     Creates a new RGB color.
     /// </summary>
-    /// <param name="r">Red color channel.</param>
-    /// <param name="g">Green color channel.</param>
-    /// <param name="b">Blue color channel.</param>
+    /// <param name="r">Red color channel value (0.0f-1.0f).</param>
+    /// <param name="g">Green color channel value (0.0f-1.0f).</param>
+    /// <param name="b">Blue color channel value (0.0f-1.0f).</param>
     public ColorF(float r, float g, float b)
     {
         R = r;
@@ -151,10 +151,10 @@ public struct ColorF
     /// <summary>
     ///     Creates a new RGBA color.
     /// </summary>
-    /// <param name="r">Red color channel.</param>
-    /// <param name="g">Green color channel.</param>
-    /// <param name="b">Blue color channel.</param>
-    /// <param name="a">Alpha channel.</param>
+    /// <param name="r">Red color channel value (0.0f-1.0f).</param>
+    /// <param name="g">Green color channel value (0.0f-1.0f).</param>
+    /// <param name="b">Blue color channel value (0.0f-1.0f).</param>
+    /// <param name="a">Alpha channel value (0.0f-1.0f).</param>
     public ColorF(float r, float g, float b, float a)
     {
         R = r;

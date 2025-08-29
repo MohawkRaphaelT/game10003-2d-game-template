@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 namespace MohawkGame2D;
 
 /// <summary>
-///     Represents an RGBA color (32-bit) using 8-bit byte color components.
+///     Represents an RGBA color (32-bit) using 8-bit byte color components (numbers from 0 to 255).
 /// </summary>
 [StructLayout(LayoutKind.Explicit)]
 public struct Color
@@ -26,7 +26,7 @@ public struct Color
     [FieldOffset(3)] private byte a;
 
     /// <summary>
-    ///     Red colour channel.
+    ///     Red colour channel (0-255).
     /// </summary>
     public int R
     {
@@ -34,7 +34,7 @@ public struct Color
         set => r = ConstrainAsByte(value);
     }
     /// <summary>
-    ///     Green colour channel.
+    ///     Green colour channel (0-255).
     /// </summary>
     public int G
     {
@@ -42,7 +42,7 @@ public struct Color
         set => g = ConstrainAsByte(value);
     }
     /// <summary>
-    ///     Blue colour channel.
+    ///     Blue colour channel (0-255).
     /// </summary>
     public int B
     {
@@ -50,7 +50,7 @@ public struct Color
         set => b = ConstrainAsByte(value);
     }
     /// <summary>
-    ///     Alpha colour channel.
+    ///     Alpha colour channel (0-255).
     /// </summary>
     public int A
     {
@@ -104,7 +104,7 @@ public struct Color
     /// <summary>
     ///     Create a new grayscale color using the <paramref name="intensity"/> value.
     /// </summary>
-    /// <param name="intensity">The intesity (brightness).</param>
+    /// <param name="intensity">The intesity (brightness) value (0-255).</param>
     public Color(int intensity)
     {
         r = g = b = ConstrainAsByte(intensity);
@@ -115,8 +115,8 @@ public struct Color
     ///     Create a new grayscale color using the <paramref name="intensity"/> value
     ///     with <paramref name="opacity"/>.
     /// </summary>
-    /// <param name="intensity">The intesity (brightness).</param>
-    /// <param name="opacity">0 for fully translucid, 255 for fully opaque.</param>
+    /// <param name="intensity">The intesity (brightness) value (0-255).</param>
+    /// <param name="opacity">The opacity value, 0 for fully translucid, 255 for fully opaque.</param>
     public Color(int intensity, int opacity)
     {
         r = g = b = ConstrainAsByte(intensity);
@@ -126,9 +126,9 @@ public struct Color
     /// <summary>
     ///     Creates a new RGB color.
     /// </summary>
-    /// <param name="r">Red color channel.</param>
-    /// <param name="g">Green color channel.</param>
-    /// <param name="b">Blue color channel.</param>
+    /// <param name="r">Red color channel value (0-255).</param>
+    /// <param name="g">Green color channel value (0-255).</param>
+    /// <param name="b">Blue color channel value (0-255).</param>
     public Color(int r, int g, int b)
     {
         R = r;
@@ -140,10 +140,10 @@ public struct Color
     /// <summary>
     ///     Creates a new RGBA color.
     /// </summary>
-    /// <param name="r">Red color channel.</param>
-    /// <param name="g">Green color channel.</param>
-    /// <param name="b">Blue color channel.</param>
-    /// <param name="a">Alpha channel.</param>
+    /// <param name="r">Red color channel value (0-255).</param>
+    /// <param name="g">Green color channel value (0-255).</param>
+    /// <param name="b">Blue color channel value (0-255).</param>
+    /// <param name="a">Alpha channel value (0-255).</param>
     public Color(int r, int g, int b, int a)
     {
         R = r;
