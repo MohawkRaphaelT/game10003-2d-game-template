@@ -1038,6 +1038,15 @@ references:
   isSpec: "True"
   fullName: MohawkGame2D.Draw.LineSize
   nameWithType: Draw.LineSize
+- uid: MohawkGame2D.Draw.PolyLine(System.Int32[],System.Int32[])
+  name: PolyLine(int[], int[])
+  href: api/MohawkGame2D.Draw.html#MohawkGame2D_Draw_PolyLine_System_Int32___System_Int32___
+  commentId: M:MohawkGame2D.Draw.PolyLine(System.Int32[],System.Int32[])
+  name.vb: PolyLine(Integer(), Integer())
+  fullName: MohawkGame2D.Draw.PolyLine(int[], int[])
+  fullName.vb: MohawkGame2D.Draw.PolyLine(Integer(), Integer())
+  nameWithType: Draw.PolyLine(int[], int[])
+  nameWithType.vb: Draw.PolyLine(Integer(), Integer())
 - uid: MohawkGame2D.Draw.PolyLine(System.Numerics.Vector2[])
   name: PolyLine(params Vector2[])
   href: api/MohawkGame2D.Draw.html#MohawkGame2D_Draw_PolyLine_System_Numerics_Vector2___
@@ -3400,6 +3409,19 @@ references:
   commentId: T:MohawkGame2D.Window
   fullName: MohawkGame2D.Window
   nameWithType: Window
+- uid: MohawkGame2D.Window.CentreWindow
+  name: CentreWindow()
+  href: api/MohawkGame2D.Window.html#MohawkGame2D_Window_CentreWindow
+  commentId: M:MohawkGame2D.Window.CentreWindow
+  fullName: MohawkGame2D.Window.CentreWindow()
+  nameWithType: Window.CentreWindow()
+- uid: MohawkGame2D.Window.CentreWindow*
+  name: CentreWindow
+  href: api/MohawkGame2D.Window.html#MohawkGame2D_Window_CentreWindow_
+  commentId: Overload:MohawkGame2D.Window.CentreWindow
+  isSpec: "True"
+  fullName: MohawkGame2D.Window.CentreWindow
+  nameWithType: Window.CentreWindow
 - uid: MohawkGame2D.Window.ClearBackground(MohawkGame2D.Color)
   name: ClearBackground(Color)
   href: api/MohawkGame2D.Window.html#MohawkGame2D_Window_ClearBackground_MohawkGame2D_Color_
