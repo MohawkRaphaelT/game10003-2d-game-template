@@ -842,22 +842,6 @@ references:
   commentId: T:MohawkGame2D.Draw
   fullName: MohawkGame2D.Draw
   nameWithType: Draw
-- uid: MohawkGame2D.Draw.ApproximateEllipseCircumference(System.Single,System.Single)
-  name: ApproximateEllipseCircumference(float, float)
-  href: api/MohawkGame2D.Draw.html#MohawkGame2D_Draw_ApproximateEllipseCircumference_System_Single_System_Single_
-  commentId: M:MohawkGame2D.Draw.ApproximateEllipseCircumference(System.Single,System.Single)
-  name.vb: ApproximateEllipseCircumference(Single, Single)
-  fullName: MohawkGame2D.Draw.ApproximateEllipseCircumference(float, float)
-  fullName.vb: MohawkGame2D.Draw.ApproximateEllipseCircumference(Single, Single)
-  nameWithType: Draw.ApproximateEllipseCircumference(float, float)
-  nameWithType.vb: Draw.ApproximateEllipseCircumference(Single, Single)
-- uid: MohawkGame2D.Draw.ApproximateEllipseCircumference*
-  name: ApproximateEllipseCircumference
-  href: api/MohawkGame2D.Draw.html#MohawkGame2D_Draw_ApproximateEllipseCircumference_
-  commentId: Overload:MohawkGame2D.Draw.ApproximateEllipseCircumference
-  isSpec: "True"
-  fullName: MohawkGame2D.Draw.ApproximateEllipseCircumference
-  nameWithType: Draw.ApproximateEllipseCircumference
 - uid: MohawkGame2D.Draw.Arc(System.Numerics.Vector2,System.Numerics.Vector2,System.Single,System.Single)
   name: Arc(Vector2, Vector2, float, float)
   href: api/MohawkGame2D.Draw.html#MohawkGame2D_Draw_Arc_System_Numerics_Vector2_System_Numerics_Vector2_System_Single_System_Single_
