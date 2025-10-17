@@ -527,6 +527,7 @@ public static class Draw
 
     private static void CircleFill(Vector2 position, float radius, Color fillColor)
     {
+        radius = MathF.Abs(radius);
         Raylib.DrawCircleV(position, radius, fillColor);
     }
 
@@ -540,6 +541,7 @@ public static class Draw
 
     private static Vector2[] ComputeArcPoints(Vector2 center, float radius, float angle0Radians, float angle1Radians)
     {
+        radius = MathF.Abs(radius);
         int numberOfPoints = ((int)radius / 2) + 1;
         Vector2[] points = new Vector2[numberOfPoints + 1];
         for (int i = 0; i <= numberOfPoints; i++)
@@ -559,6 +561,8 @@ public static class Draw
 
     private static void EllipseFill(float x, float y, float w, float h, Color fillColor)
     {
+        w = MathF.Abs(w);
+        h = MathF.Abs(h);
         // Do gradeschool math rounding. Ex: 0.499f rounds down to 0, 0.500f rounds up to 1.
         int ix = (int)Math.Round(x, MidpointRounding.ToEven);
         int iy = (int)Math.Round(y, MidpointRounding.ToEven);
