@@ -2670,6 +2670,19 @@ references:
   isSpec: "True"
   fullName: MohawkGame2D.Music.FilePath
   nameWithType: Music.FilePath
+- uid: MohawkGame2D.Music.Looping
+  name: Looping
+  href: api/MohawkGame2D.Music.html#MohawkGame2D_Music_Looping
+  commentId: P:MohawkGame2D.Music.Looping
+  fullName: MohawkGame2D.Music.Looping
+  nameWithType: Music.Looping
+- uid: MohawkGame2D.Music.Looping*
+  name: Looping
+  href: api/MohawkGame2D.Music.html#MohawkGame2D_Music_Looping_
+  commentId: Overload:MohawkGame2D.Music.Looping
+  isSpec: "True"
+  fullName: MohawkGame2D.Music.Looping
+  nameWithType: Music.Looping
 - uid: MohawkGame2D.Music.ToString
   name: ToString()
   href: api/MohawkGame2D.Music.html#MohawkGame2D_Music_ToString
