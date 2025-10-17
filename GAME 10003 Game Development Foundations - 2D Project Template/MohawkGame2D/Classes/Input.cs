@@ -159,7 +159,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position X between frames.
     /// </returns>
-    public static float GetMouseDeltaX() => ClampedMousePosition().X;
+    public static float GetMouseDeltaX() => Raylib.GetMouseDelta().X;
 
     /// <summary>
     ///     Gets the movement of mouse Y between last frame and this frame.
@@ -167,7 +167,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position Y between frames.
     /// </returns>
-    public static float GetMouseDeltaY() => ClampedMousePosition().Y;
+    public static float GetMouseDeltaY() => Raylib.GetMouseDelta().Y;
 
     /// <summary>
     ///     Gets the movement of mouse between last frame and this frame.
@@ -183,7 +183,7 @@ public static class Input
     /// <returns>
     ///     Returns the Vector2 mouse position on screen in pixel coordinates.
     /// </returns>
-    public static Vector2 GetMousePosition() => ClampedMousePosition();
+    public static Vector2 GetMousePosition() => ClampedMousePositionV();
 
     /// <summary>
     ///     Gets the mouse X position on screen this frame.
@@ -191,7 +191,7 @@ public static class Input
     /// <returns>
     ///     Returns the X mouse position on screen in pixel coordinates.
     /// </returns>
-    public static float GetMouseX() => Raylib.GetMouseX();
+    public static float GetMouseX() => ClampedMousePositionX();
 
     /// <summary>
     ///     Gets the mouse Y position on screen this frame.
@@ -199,7 +199,7 @@ public static class Input
     /// <returns>
     ///     Returns the mouse Y position on screen in pixel coordinates.
     /// </returns>
-    public static float GetMouseY() => Raylib.GetMouseY();
+    public static float GetMouseY() => ClampedMousePositionY();
 
     /// <summary>
     ///     Gets the mouse wheel movement this frame.
@@ -456,11 +456,20 @@ public static class Input
         return false;
     }
 
-    private static Vector2 ClampedMousePosition()
+    private static float ClampedMousePosition(float position, float max)
     {
-        Vector2 min = Vector2.Zero;
-        Vector2 max = Window.Size;
-        Vector2 mousePosition = Vector2.Clamp(Raylib.GetMousePosition(), min, max);
+        position = Math.Clamp(position, 0, max);
+        return position;
+    }
+    private static float ClampedMousePositionX() => ClampedMousePosition(Raylib.GetMouseX(), Window.Width);
+    private static float ClampedMousePositionY() => ClampedMousePosition(Raylib.GetMouseY(), Window.Height);
+    private static Vector2 ClampedMousePositionV()
+    {
+        Vector2 mousePosition = new()
+        {
+            X = ClampedMousePositionX(),
+            Y = ClampedMousePositionY(),
+        };
         return mousePosition;
     }
 
