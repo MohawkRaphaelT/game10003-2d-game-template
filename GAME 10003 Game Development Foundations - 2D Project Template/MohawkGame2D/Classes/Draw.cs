@@ -215,8 +215,8 @@ public static class Draw
     ///     and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <remarks>
-    ///     Order of coordinates is: X, Y, X, Y, etc. If the number of coordinates passed
-    ///     is uneven (missing X or Y), the last coordinate will be dropped.
+    ///     If arrays have different amounts of elements in them, the lowest number
+    ///     of elements will be used to construct X-Y coordinate pairs.
     /// </remarks>
     /// <param name="xCoordinates">The X coordinates to draw between.</param>
     /// <param name="yCoordinates">The Y coordinates to draw between.</param>
@@ -244,8 +244,8 @@ public static class Draw
     ///     and <see cref="Draw.LineColor"/>
     /// </summary>
     /// <remarks>
-    ///     Order of coordinates is: X, Y, X, Y, etc. If the number of coordinates passed
-    ///     is uneven (missing X or Y), the last coordinate will be dropped.
+    ///     If arrays have different amounts of elements in them, the lowest number
+    ///     of elements will be used to construct X-Y coordinate pairs.
     /// </remarks>
     /// <param name="xCoordinates">The X coordinates to draw between.</param>
     /// <param name="yCoordinates">The Y coordinates to draw between.</param>
