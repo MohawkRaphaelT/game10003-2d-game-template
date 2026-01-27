@@ -152,7 +152,7 @@ public static class Window
     {
         int monitorIndex = Raylib.GetCurrentMonitor();
         int hz = Raylib.GetMonitorRefreshRate(monitorIndex);
-        Raylib.SetTargetFPS(hz);
+        SetTargetFpsOrWarn(hz);
     }
 
     #endregion
@@ -174,14 +174,18 @@ public static class Window
 
     private static void SetTargetFpsOrWarn(int targetFPS)
     {
+        // Warn when trying to set impossible FPS
         if (targetFPS <= 0)
         {
             string msg = "FPS must be greater than 0!";
             Console.WriteLine(msg);
         }
-
-        Window.targetFPS = targetFPS;
-        Raylib.SetTargetFPS(targetFPS);
+        // Only update FPS if not current FPS
+        else if (targetFPS != TargetFPS)
+        {
+            Window.targetFPS = targetFPS;
+            Raylib.SetTargetFPS(targetFPS);
+        }
     }
 
     private static void SetWidth(int width)
