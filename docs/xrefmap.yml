@@ -1287,6 +1287,12 @@ references:
   commentId: M:MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Numerics.Vector2)
   fullName: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D, System.Numerics.Vector2)
   nameWithType: Graphics.Draw(Texture2D, Vector2)
+- uid: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Numerics.Vector2,System.Numerics.Vector2)
+  name: Draw(Texture2D, Vector2, Vector2)
+  href: api/MohawkGame2D.Graphics.html#MohawkGame2D_Graphics_Draw_MohawkGame2D_Texture2D_System_Numerics_Vector2_System_Numerics_Vector2_
+  commentId: M:MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Numerics.Vector2,System.Numerics.Vector2)
+  fullName: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D, System.Numerics.Vector2, System.Numerics.Vector2)
+  nameWithType: Graphics.Draw(Texture2D, Vector2, Vector2)
 - uid: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Single,System.Single)
   name: Draw(Texture2D, float, float)
   href: api/MohawkGame2D.Graphics.html#MohawkGame2D_Graphics_Draw_MohawkGame2D_Texture2D_System_Single_System_Single_
@@ -1296,6 +1302,15 @@ references:
   fullName.vb: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D, Single, Single)
   nameWithType: Graphics.Draw(Texture2D, float, float)
   nameWithType.vb: Graphics.Draw(Texture2D, Single, Single)
+- uid: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Single,System.Single,System.Single,System.Single)
+  name: Draw(Texture2D, float, float, float, float)
+  href: api/MohawkGame2D.Graphics.html#MohawkGame2D_Graphics_Draw_MohawkGame2D_Texture2D_System_Single_System_Single_System_Single_System_Single_
+  commentId: M:MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D,System.Single,System.Single,System.Single,System.Single)
+  name.vb: Draw(Texture2D, Single, Single, Single, Single)
+  fullName: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D, float, float, float, float)
+  fullName.vb: MohawkGame2D.Graphics.Draw(MohawkGame2D.Texture2D, Single, Single, Single, Single)
+  nameWithType: Graphics.Draw(Texture2D, float, float, float, float)
+  nameWithType.vb: Graphics.Draw(Texture2D, Single, Single, Single, Single)
 - uid: MohawkGame2D.Graphics.Draw*
   name: Draw
   href: api/MohawkGame2D.Graphics.html#MohawkGame2D_Graphics_Draw_
@@ -3329,6 +3344,19 @@ references:
   isSpec: "True"
   fullName: MohawkGame2D.Texture2D.Height
   nameWithType: Texture2D.Height
+- uid: MohawkGame2D.Texture2D.Size
+  name: Size
+  href: api/MohawkGame2D.Texture2D.html#MohawkGame2D_Texture2D_Size
+  commentId: P:MohawkGame2D.Texture2D.Size
+  fullName: MohawkGame2D.Texture2D.Size
+  nameWithType: Texture2D.Size
+- uid: MohawkGame2D.Texture2D.Size*
+  name: Size
+  href: api/MohawkGame2D.Texture2D.html#MohawkGame2D_Texture2D_Size_
+  commentId: Overload:MohawkGame2D.Texture2D.Size
+  isSpec: "True"
+  fullName: MohawkGame2D.Texture2D.Size
+  nameWithType: Texture2D.Size
 - uid: MohawkGame2D.Texture2D.ToString
   name: ToString()
   href: api/MohawkGame2D.Texture2D.html#MohawkGame2D_Texture2D_ToString
