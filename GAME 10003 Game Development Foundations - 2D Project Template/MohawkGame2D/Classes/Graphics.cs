@@ -44,7 +44,7 @@ public static class Graphics
     public static float Scale { get; set; } = 1;
 
     /// <summary>
-    ///     Color tint of graphics. DEfault is white.
+    ///     Color tint of graphics. Default is white.
     /// </summary>
     public static Color Tint { get; set; } = Color.White;
 
