@@ -4,6 +4,8 @@
  * Game Design (374): GAME 10003 Game Development Foundations
  *////////////////////////////////////////////////////////////////////////
 
+using System.Numerics;
+
 namespace MohawkGame2D;
 
 /// <summary>
@@ -33,6 +35,11 @@ public readonly record struct Texture2D
     ///     Texture height in pixels.
     /// </summary>
     public int Height => RaylibTexture2D.Height;
+
+    /// <summary>
+    ///     Texture height in pixels.
+    /// </summary>
+    public Vector2 Size => new(Width, Height);
 
 
     [GeneratorTools.OmitFromDocumentation]
