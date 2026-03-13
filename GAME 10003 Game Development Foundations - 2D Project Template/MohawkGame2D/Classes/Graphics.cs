@@ -75,7 +75,8 @@ public static class Graphics
 
     /// <summary>
     ///     Draw a <paramref name="texture"/> graphic to the screen at
-    ///     position (<paramref name="positionX"/>, <paramref name="positionY"/>).
+    ///     position (<paramref name="positionX"/>, <paramref name="positionY"/>)
+    ///     rotating and scaling about (<paramref name="originX"/>, <paramref name="originY"/>).
     /// </summary>
     /// <param name="texture">The texture to draw.</param>
     /// <param name="positionX">The X position to draw at.</param>
@@ -86,8 +87,8 @@ public static class Graphics
         => Draw(texture, new Vector2(positionX, positionY), new Vector2(originX, originY));
 
     /// <summary>
-    ///     Draw a <paramref name="texture"/> graphic to the screen at
-    ///     <paramref name="position"/>.
+    ///     Draw a <paramref name="texture"/> graphic to the screen at <paramref name="position"/>
+    ///     rotating and scaling about <paramref name="origin"/>.
     /// </summary>
     /// <param name="texture">The texture to draw.</param>
     /// <param name="position">The position to draw at.</param>
