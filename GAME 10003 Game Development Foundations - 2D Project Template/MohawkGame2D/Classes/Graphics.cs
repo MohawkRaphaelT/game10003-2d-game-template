@@ -1,8 +1,9 @@
 ﻿/*////////////////////////////////////////////////////////////////////////
- * Copyright (c)
- * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
- * Game Design (374): GAME 10003 Game Development Foundations
- *////////////////////////////////////////////////////////////////////////
+/* Copyright (c)
+/* Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
+/* Game Design (374): GAME 10003 Game Development Foundations
+/* Source: https://github.com/MohawkRaphaelT/game10003-2d-game-template
+/*////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
 using System.IO;

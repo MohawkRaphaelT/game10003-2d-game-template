@@ -1,8 +1,9 @@
 ﻿/*////////////////////////////////////////////////////////////////////////
- * Copyright (c)
- * Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
- * Game Design (374): GAME 10003 Game Development Foundations
- *////////////////////////////////////////////////////////////////////////
+/* Copyright (c)
+/* Mohawk College, 135 Fennell Ave W, Hamilton, Ontario, Canada L9C 0E5
+/* Game Design (374): GAME 10003 Game Development Foundations
+/* Source: https://github.com/MohawkRaphaelT/game10003-2d-game-template
+/*////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
 using System;
@@ -21,12 +22,12 @@ public static class Input
     #region Public Methods
 
     /// <summary>
-    ///     Disables mouse cursor while in window.
+    ///     Disables mouse cursor while inside window.
     /// </summary>
     public static void DisableMouseCursor() => Raylib.DisableCursor();
 
     /// <summary>
-    ///     Enables mouse cursor while in window.
+    ///     Enables mouse cursor while inside window.
     /// </summary>
     public static void EnableMouseCursor() => Raylib.EnableCursor();
 
@@ -72,7 +73,7 @@ public static class Input
     ///     Returns a float axis that combines both inputs,
     ///     ranges from -1f to +1f.
     /// </returns>
-    public static float GetAxis(KeyboardInput negative, KeyboardInput positive)
+    public static float GetAxis(KeyboardKey negative, KeyboardKey positive)
     {
         float value = 0;
 
@@ -97,7 +98,7 @@ public static class Input
     ///     both Y inputs, each ranging from -1f to +1f. The
     ///     input is clamped to a max length of 1f.
     /// </returns>
-    public static Vector2 GetAxis2(KeyboardInput negativeX, KeyboardInput positiveX, KeyboardInput negativeY, KeyboardInput positiveY)
+    public static Vector2 GetAxis2(KeyboardKey negativeX, KeyboardKey positiveX, KeyboardKey negativeY, KeyboardKey positiveY)
     {
         // Combine axes
         float x = GetAxis(negativeX, positiveX);
@@ -351,7 +352,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key is down this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyDown(KeyboardInput key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyDown(KeyboardKey key) => Raylib.IsKeyDown((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if keyboard key was pressed this frame.
@@ -360,7 +361,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key was pressed this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyPressed(KeyboardInput key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyPressed(KeyboardKey key) => Raylib.IsKeyPressed((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if keyboard key was released this frame.
@@ -369,7 +370,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key was released this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyReleased(KeyboardInput key) => Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyReleased(KeyboardKey key) => Raylib.IsKeyReleased((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if keyboard key is up this frame.
@@ -378,7 +379,7 @@ public static class Input
     /// <returns>
     ///     Returns true if key is up this frame, false otherwise.
     /// </returns>
-    public static bool IsKeyboardKeyUp(KeyboardInput key) => Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
+    public static bool IsKeyboardKeyUp(KeyboardKey key) => Raylib.IsKeyUp((Raylib_cs.KeyboardKey)key);
 
     /// <summary>
     ///     Checks if mouse button is down this frame.
@@ -387,7 +388,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button is down this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonDown(MouseInput button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonDown(MouseButton button) => Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)button);
 
     /// <summary>
     ///     Checks if mouse button was pressed this frame.
@@ -396,7 +397,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button was pressed this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonPressed(MouseInput button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonPressed(MouseButton button) => Raylib.IsMouseButtonPressed((Raylib_cs.MouseButton)button);
 
     /// <summary>
     ///     Checks if mouse button was released this frame.
@@ -405,7 +406,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button was released this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonReleased(MouseInput button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonReleased(MouseButton button) => Raylib.IsMouseButtonReleased((Raylib_cs.MouseButton)button);
 
     /// <summary>
     ///     Checks if mouse button is up this frame.
@@ -414,7 +415,7 @@ public static class Input
     /// <returns>
     ///     Returns true if mouse button is up this frame, false otherwise.
     /// </returns>
-    public static bool IsMouseButtonUp(MouseInput button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
+    public static bool IsMouseButtonUp(MouseButton button) => Raylib.IsMouseButtonUp((Raylib_cs.MouseButton)button);
 
     /// <summary>
     ///     Check if the mouse is hidden.
