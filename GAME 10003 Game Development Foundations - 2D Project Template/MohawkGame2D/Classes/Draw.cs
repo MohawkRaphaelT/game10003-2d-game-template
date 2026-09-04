@@ -440,6 +440,12 @@ public static class Draw
 
 
     /// <summary>
+    ///     Set the <see cref="Draw.FillColor"/> to the specified <paramref name="hexColor"/> string.
+    /// </summary>
+    /// <param name="hexColor">The color represented in hex, eg. "#00FF00" (green) or "0080FF80" (blue-cyan, half transparent).
+    public static void SetFillColor(string hexColor) => FillColor = new Color(hexColor);
+
+    /// <summary>
     ///     Set the <see cref="Draw.FillColor"/> to a greyscale color of the specified <paramref name="intensity"/>.
     /// </summary>
     /// <param name="intensity">The greyscale color intensity. 0 is black, 255 is white, 128 is mid-tone grey.</param>
@@ -473,6 +479,19 @@ public static class Draw
     public static void SetFillColor(int red, int green, int blue, int alpha) => FillColor = new Color(red, green, blue, alpha);
 
     /// <summary>
+    ///     Set the <see cref="Draw.FillColor"/> to the specified <paramref name="color"/>.
+    /// </summary>
+    /// <param name="color">The red colour component. 0 means no red, 255 means max red.</param>
+    public static void SetFillColor(Color color) => FillColor = color;
+
+
+    /// <summary>
+    ///     Set the <see cref="Draw.LineColor"/> to the specified <paramref name="hexColor"/> string.
+    /// </summary>
+    /// <param name="hexColor">The color represented in hex, eg. "#00FF00" (green) or "0080FF80" (blue-cyan, half transparent).
+    public static void SetLineColor(string hexColor) => LineColor = new Color(hexColor);
+
+    /// <summary>
     ///     Set the <see cref="Draw.LineColor"/> to a greyscale color of the specified <paramref name="intensity"/>.
     /// </summary>
     /// <param name="intensity">The greyscale color intensity. 0 is black, 255 is white, 128 is mid-tone grey.</param>
@@ -503,6 +522,12 @@ public static class Draw
     /// <param name="blue">The blue colour component. 0 means no blue, 255 means max blue.</param>
     /// <param name="alpha">The color transparency. 0 means fully transparent, 255 means fully opaque.</param>
     public static void SetLineColor(int red, int green, int blue, int alpha) => LineColor = new Color(red, green, blue, alpha);
+
+    /// <summary>
+    ///     Set the <see cref="Draw.LineColor"/> to the specified <paramref name="color"/>.
+    /// </summary>
+    /// <param name="color">The red colour component. 0 means no red, 255 means max red.</param>
+    public static void SetLineColor(Color color) => LineColor = color;
 
     /// <summary>
     ///     Set the <see cref="Draw.LineSize"/> thickness to <paramref name="lineSize"/>.

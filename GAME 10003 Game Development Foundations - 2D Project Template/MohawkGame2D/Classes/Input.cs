@@ -232,7 +232,7 @@ public static class Input
     public static void HideMouseCursor() => Raylib.HideCursor();
 
     /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     Checks if <paramref name="controllerButton"/>
     ///     is down on any controller this frame.
     /// </summary>
     /// <param name="controllerButton">The controller button to check.</param>
@@ -244,7 +244,7 @@ public static class Input
         => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonDown);
 
     /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     Checks if <paramref name="controllerButton"/>
     ///     was pressed on any controller this frame.
     /// </summary>
     /// <param name="controllerButton">The controller button to check.</param>
@@ -256,7 +256,7 @@ public static class Input
         => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonPressed);
 
     /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     Checks if <paramref name="controllerButton"/>
     ///     was released on any controller this frame.
     /// </summary>
     /// <param name="controllerButton">The controller button to check.</param>
@@ -268,7 +268,7 @@ public static class Input
         => IsAnyControllerButtonXXX(controllerButton, Raylib.IsGamepadButtonReleased);
 
     /// <summary>
-    ///     Checks if controller number <paramref name="controllerButton"/>
+    ///     Checks if <paramref name="controllerButton"/>
     ///     is up on any controller this frame.
     /// </summary>
     /// <param name="controllerButton">The controller button to check.</param>

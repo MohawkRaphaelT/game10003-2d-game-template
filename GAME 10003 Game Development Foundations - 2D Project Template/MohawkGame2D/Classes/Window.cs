@@ -107,6 +107,29 @@ public static class Window
     }
 
     /// <summary>
+    ///     Clears the window canvas to the specified <paramref name="hexColor"/>.
+    /// </summary>
+    /// <param name="hexColor">The color represented in hex, eg. "#00FF00" (green) or "0080FF80" (blue-cyan, half transparent).
+    public static void ClearBackground(string hexColor) => ClearBackground(new Color(hexColor));
+
+    /// <summary>
+    ///     Clears the window canvas to the specified <paramref name="intensity"/> (greyscale value).
+    /// </summary>
+    /// <param name="intensity">The greyscale color intensity. 0 is black, 255 is white, 128 is mid-tone grey.</param>
+    public static void ClearBackground(int intensity) => ClearBackground(new Color(intensity));
+
+    /// <summary>
+    ///     Clears the window canvas to the color constructred from the specified <paramref name="red"/>, 
+    ///     <paramref name="green"/>, and <paramref name="blue"/> color components.
+    /// </summary>
+    /// <param name="red">The red colour component. 0 means no red, 255 means max red.</param>
+    /// <param name="green">The green colour component. 0 means no green, 255 means max green.</param>
+    /// <param name="blue">The blue colour component. 0 means no blue, 255 means max blue.</param>
+    public static void ClearBackground(int red, int green, int blue) => ClearBackground(new Color(red, green, blue));
+
+
+
+    /// <summary>
     ///     Centre window within the current monitor.
     /// </summary>
     public static void CentreWindow()
