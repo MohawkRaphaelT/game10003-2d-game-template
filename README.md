@@ -1,5 +1,5 @@
 # 2D Game Template
-A 2D game template for Visual Studio using for Mohawk College's <ins>*GAME 10033 Game Development Foundations*</ins> course.
+A 2D game template for Visual Studio built for Mohawk College's <ins>*GAME 10003 Game Development Foundations*</ins> course with the goal to a beginner-friendly 2D game programming environment.
 
 ## Template File
 
@@ -7,4 +7,6 @@ See the [Releases](https://github.com/MohawkRaphaelT/game10003-2d-game-template/
 
 ## API / Documentation
 
-Access the latest documentation on [GitHub pages](https://mohawkraphaelt.github.io/game10003-2d-game-template/).
+How do you code using the library? View the [GitHub pages MohawkGame2D API Reference](https://mohawkraphaelt.github.io/game10003-2d-game-template/).
+
+The content provided in MyCanvas discusses some of this code in more detail.
