@@ -1,6 +1,6 @@
 # 2D Game Template
 
-A 2D game template for Visual Studio built for Mohawk College's <ins>*GAME 10003 Game Development Foundations*</ins> course with the goal to a beginner-friendly 2D game programming environment.
+A 2D game template for Visual Studio built for Mohawk College's <ins>*GAME 10033 Game Development Foundations*</ins> course with the goal to a beginner-friendly 2D game programming environment.
 
 ## Template File
 
