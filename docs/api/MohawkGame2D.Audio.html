@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Audio </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Audio ">
+      
+      <meta name="description" content="Access audio functions.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/MohawkRaphaelT/game10003-2d-game-template/new/main/apiSpec/new?filename=MohawkGame2D_Audio.md&amp;value=---%0Auid%3A%20MohawkGame2D.Audio%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="Mohawk GAME 10033 Game Development Foundations - 2D Game Template">
+            Mohawk GAME 10033 Game Development Foundations - 2D Game Template
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="MohawkGame2D.Audio">
+
+
+
+  <h1 id="MohawkGame2D_Audio" data-uid="MohawkGame2D.Audio" class="text-break">
+Class Audio  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="MohawkGame2D.html">MohawkGame2D</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>GAME 10033 Game Development Foundations - 2D Game Template.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Access audio functions.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class Audio</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Audio</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="MohawkGame2D_Audio_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>A static wrapper to standardize raylib's audio API.</p>
+</div>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="MohawkGame2D_Audio_LoadedMusic_" data-uid="MohawkGame2D.Audio.LoadedMusic*"></a>
+
+  <h3 id="MohawkGame2D_Audio_LoadedMusic" data-uid="MohawkGame2D.Audio.LoadedMusic">
+  LoadedMusic
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get an array of all loaded music.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Music[] LoadedMusic { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="MohawkGame2D.Music.html">Music</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_LoadedSounds_" data-uid="MohawkGame2D.Audio.LoadedSounds*"></a>
+
+  <h3 id="MohawkGame2D_Audio_LoadedSounds" data-uid="MohawkGame2D.Audio.LoadedSounds">
+  LoadedSounds
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get an array of all loaded sounds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sound[] LoadedSounds { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="MohawkGame2D.Sound.html">Sound</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="MohawkGame2D_Audio_GetMusicLength_" data-uid="MohawkGame2D.Audio.GetMusicLength*"></a>
+
+  <h3 id="MohawkGame2D_Audio_GetMusicLength_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.GetMusicLength(MohawkGame2D.Music)">
+  GetMusicLength(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L58"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get the length of <code class="paramref">music</code> in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static float GetMusicLength(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music data to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>Returns the length of audio file <code class="paramref">music</code> in seconds.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_IsPlaying_" data-uid="MohawkGame2D.Audio.IsPlaying*"></a>
+
+  <h3 id="MohawkGame2D_Audio_IsPlaying_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.IsPlaying(MohawkGame2D.Music)">
+  IsPlaying(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if <code class="paramref">music</code> is playing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPlaying(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if playing, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_IsPlaying_" data-uid="MohawkGame2D.Audio.IsPlaying*"></a>
+
+  <h3 id="MohawkGame2D_Audio_IsPlaying_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.IsPlaying(MohawkGame2D.Sound)">
+  IsPlaying(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks if <code class="paramref">sound</code> is playing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsPlaying(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Returns true if playing, false otherwise.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_LoadMusic_" data-uid="MohawkGame2D.Audio.LoadMusic*"></a>
+
+  <h3 id="MohawkGame2D_Audio_LoadMusic_System_String_" data-uid="MohawkGame2D.Audio.LoadMusic(System.String)">
+  LoadMusic(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L89"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a music file at <code class="paramref">filePath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Music LoadMusic(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path to the audio file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>Returns the loaded music data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="MohawkGame2D_Audio_LoadMusic_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Music should be more than 10s long, otherwise use <a class="xref" href="MohawkGame2D.Sound.html">Sound</a>.
+Supported file types: FLAC, MOD, MP3, OGG, QOA, WAV, XM.</p>
+</div>
+
+
+
+
+  <a id="MohawkGame2D_Audio_LoadSound_" data-uid="MohawkGame2D.Audio.LoadSound*"></a>
+
+  <h3 id="MohawkGame2D_Audio_LoadSound_System_String_" data-uid="MohawkGame2D.Audio.LoadSound(System.String)">
+  LoadSound(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Loads a sound file at <code class="paramref">filePath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Sound LoadSound(string filePath)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>filePath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The file path to the audio file.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>Returns the loaded sound data.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="MohawkGame2D_Audio_LoadSound_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Sound should be 10s or less, otherwise use <a class="xref" href="MohawkGame2D.Music.html">Music</a>.
+Supported file types: FLAC, MOD, MP3, OGG, QOA, WAV, XM.</p>
+</div>
+
+
+
+
+  <a id="MohawkGame2D_Audio_Pause_" data-uid="MohawkGame2D.Audio.Pause*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Pause_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.Pause(MohawkGame2D.Music)">
+  Pause(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pause a playing <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Pause(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to pause.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Pause_" data-uid="MohawkGame2D.Audio.Pause*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Pause_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.Pause(MohawkGame2D.Sound)">
+  Pause(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Pause a playing <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Pause(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to pause.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Play_" data-uid="MohawkGame2D.Audio.Play*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Play_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.Play(MohawkGame2D.Music)">
+  Play(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Play(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to play.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Play_" data-uid="MohawkGame2D.Audio.Play*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Play_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.Play(MohawkGame2D.Sound)">
+  Play(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Plays <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Play(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to play.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Resume_" data-uid="MohawkGame2D.Audio.Resume*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Resume_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.Resume(MohawkGame2D.Music)">
+  Resume(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L170"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resumes a paused <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Resume(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to resume.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Resume_" data-uid="MohawkGame2D.Audio.Resume*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Resume_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.Resume(MohawkGame2D.Sound)">
+  Resume(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L176"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Resumes a paused <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Resume(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to resume.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetPan_" data-uid="MohawkGame2D.Audio.SetPan*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetPan_MohawkGame2D_Music_System_Single_" data-uid="MohawkGame2D.Audio.SetPan(MohawkGame2D.Music,System.Single)">
+  SetPan(Music, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">pan</code> for <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPan(Music music, float pan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to pan.</p>
+</dd>
+    <dt><code>pan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pan value. 0.5 is center, 0 left, and 1 right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetPan_" data-uid="MohawkGame2D.Audio.SetPan*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetPan_MohawkGame2D_Sound_System_Single_" data-uid="MohawkGame2D.Audio.SetPan(MohawkGame2D.Sound,System.Single)">
+  SetPan(Sound, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L190"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">pan</code> for <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPan(Sound sound, float pan)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to pan.</p>
+</dd>
+    <dt><code>pan</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pan value. 0.5 is center, 0 left, and 1 right.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetPitch_" data-uid="MohawkGame2D.Audio.SetPitch*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetPitch_MohawkGame2D_Music_System_Single_" data-uid="MohawkGame2D.Audio.SetPitch(MohawkGame2D.Music,System.Single)">
+  SetPitch(Music, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L197"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">pitch</code> for <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPitch(Music music, float pitch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to pitch.</p>
+</dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch value. 1.0 is the base pitch level.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetPitch_" data-uid="MohawkGame2D.Audio.SetPitch*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetPitch_MohawkGame2D_Sound_System_Single_" data-uid="MohawkGame2D.Audio.SetPitch(MohawkGame2D.Sound,System.Single)">
+  SetPitch(Sound, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L204"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">pitch</code> for <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPitch(Sound sound, float pitch)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to pitch.</p>
+</dd>
+    <dt><code>pitch</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The pitch value. 1.0 is the base pitch level.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetVolume_" data-uid="MohawkGame2D.Audio.SetVolume*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetVolume_MohawkGame2D_Music_System_Single_" data-uid="MohawkGame2D.Audio.SetVolume(MohawkGame2D.Music,System.Single)">
+  SetVolume(Music, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L211"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">volume</code> for <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetVolume(Music music, float volume)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to set.</p>
+</dd>
+    <dt><code>volume</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The volume amount. 0 is silent, 1 is max volume.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_SetVolume_" data-uid="MohawkGame2D.Audio.SetVolume*"></a>
+
+  <h3 id="MohawkGame2D_Audio_SetVolume_MohawkGame2D_Sound_System_Single_" data-uid="MohawkGame2D.Audio.SetVolume(MohawkGame2D.Sound,System.Single)">
+  SetVolume(Sound, float)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L218"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the <code class="paramref">volume</code> for <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetVolume(Sound sound, float volume)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to set.</p>
+</dd>
+    <dt><code>volume</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.single">float</a></dt>
+    <dd><p>The volume amount. 0 is silent, 1 is max volume.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Stop_" data-uid="MohawkGame2D.Audio.Stop*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Stop_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.Stop(MohawkGame2D.Music)">
+  Stop(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L224"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop a playing or paused <code class="paramref">music</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Stop(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to stop.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_Stop_" data-uid="MohawkGame2D.Audio.Stop*"></a>
+
+  <h3 id="MohawkGame2D_Audio_Stop_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.Stop(MohawkGame2D.Sound)">
+  Stop(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L230"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop a playing or paused <code class="paramref">sound</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Stop(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to stop.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_UnloadMusic_" data-uid="MohawkGame2D.Audio.UnloadMusic*"></a>
+
+  <h3 id="MohawkGame2D_Audio_UnloadMusic_MohawkGame2D_Music_" data-uid="MohawkGame2D.Audio.UnloadMusic(MohawkGame2D.Music)">
+  UnloadMusic(Music)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unloads <code class="paramref">music</code> from memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnloadMusic(Music music)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>music</code> <a class="xref" href="MohawkGame2D.Music.html">Music</a></dt>
+    <dd><p>The music to unload.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="MohawkGame2D_Audio_UnloadSound_" data-uid="MohawkGame2D.Audio.UnloadSound*"></a>
+
+  <h3 id="MohawkGame2D_Audio_UnloadSound_MohawkGame2D_Sound_" data-uid="MohawkGame2D.Audio.UnloadSound(MohawkGame2D.Sound)">
+  UnloadSound(Sound)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Unloads a <code class="paramref">sound</code> from memory.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnloadSound(Sound sound)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sound</code> <a class="xref" href="MohawkGame2D.Sound.html">Sound</a></dt>
+    <dd><p>The sound to unload.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/MohawkRaphaelT/game10003-2d-game-template/blob/main/GAME 10033 Game Development Foundations - 2D Project Template/MohawkGame2D/Classes/Audio.cs/#L20" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

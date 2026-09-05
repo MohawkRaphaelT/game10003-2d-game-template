@@ -11,6 +11,313 @@
       }
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Audio.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Audio.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Audio",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Audio.yml\" sourcestartlinenumber=\"1\">Access audio functions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Color.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Color.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Color",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Color.yml\" sourcestartlinenumber=\"1\">Represents an RGBA color (32-bit) using 8-bit byte color components (numbers from 0 to 255).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.ColorF.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.ColorF.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.ColorF",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.ColorF.yml\" sourcestartlinenumber=\"1\">Represents an RGBA color (128-bit) using 32-bit float color components (numbers from 0.0f to 1.0f).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.ControllerAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.ControllerAxis.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.ControllerAxis",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.ControllerAxis.yml\" sourcestartlinenumber=\"1\">Defines the various controller axes (analog inputs) in a generic way.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.ControllerButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.ControllerButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.ControllerButton",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.ControllerButton.yml\" sourcestartlinenumber=\"1\">Defines the various controller buttons (digital inputs) on a generic way.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Draw.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Draw.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Draw",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Draw.yml\" sourcestartlinenumber=\"1\">Access shape drawing functions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Font.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Font.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Font",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Font.yml\" sourcestartlinenumber=\"1\">Represents a font.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Game.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Game.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Game",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Game.yml\" sourcestartlinenumber=\"1\">Your game code goes inside this class!</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Graphics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Graphics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Graphics",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Graphics.yml\" sourcestartlinenumber=\"1\">Access texture drawing functions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Input.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Input.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Input",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Input.yml\" sourcestartlinenumber=\"1\">Access player input functions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.KeyboardKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.KeyboardKey.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.KeyboardKey",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.KeyboardKey.yml\" sourcestartlinenumber=\"1\">Defines keyboard keys.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.MouseButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.MouseButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.MouseButton",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.MouseButton.yml\" sourcestartlinenumber=\"1\">Defines mouse buttons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Music.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Music.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Music",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Music.yml\" sourcestartlinenumber=\"1\">Represents a music file (audio over 10s long).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.PolygoneMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.PolygoneMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.PolygoneMode",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.PolygoneMode.yml\" sourcestartlinenumber=\"1\">Mode for drawing polygons.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Random.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Random.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Random",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Random.yml\" sourcestartlinenumber=\"1\">Generate random values.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Sound.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Sound.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Sound",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Sound.yml\" sourcestartlinenumber=\"1\">Represents a sound file (audio 10s or less).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Text.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Text",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Text.yml\" sourcestartlinenumber=\"1\">Access text drawing functions.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Texture2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Texture2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Texture2D",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Texture2D.yml\" sourcestartlinenumber=\"1\">Represents a 2D texture.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Time.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Time.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Time",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Time.yml\" sourcestartlinenumber=\"1\">Access time information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.Window.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.Window.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D.Window",
+      "Summary": "<p sourcefile=\"api/MohawkGame2D.Window.yml\" sourcestartlinenumber=\"1\">Access window information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MohawkGame2D.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MohawkGame2D.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "MohawkGame2D",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {

@@ -5,7 +5,7 @@
         {
           "src": "../",
           "files": [
-            "GAME 10003 Game Development Foundations - 2D Project Template/*.csproj"
+            "GAME 10033 Game Development Foundations - 2D Project Template/*.csproj"
           ]
         }
       ],
@@ -37,7 +37,7 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "Mohawk GAME 10003 Game Development Foundations - 2D Game Template",
+      "_appName": "Mohawk GAME 10033 Game Development Foundations - 2D Game Template",
       "_appTitle": "",
       "_enableSearch": true,
       "pdf": false
