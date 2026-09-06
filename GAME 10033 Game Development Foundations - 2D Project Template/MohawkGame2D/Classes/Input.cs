@@ -160,7 +160,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position X between frames.
     /// </returns>
-    public static float GetMouseDeltaX() => Raylib.GetMouseDelta().X;
+    public static int GetMouseDeltaX() => (int)Raylib.GetMouseDelta().X;
 
     /// <summary>
     ///     Gets the movement of mouse Y between last frame and this frame.
@@ -168,7 +168,7 @@ public static class Input
     /// <returns>
     ///     Returns the pixel delta position Y between frames.
     /// </returns>
-    public static float GetMouseDeltaY() => Raylib.GetMouseDelta().Y;
+    public static int GetMouseDeltaY() => (int)Raylib.GetMouseDelta().Y;
 
     /// <summary>
     ///     Gets the movement of mouse between last frame and this frame.
@@ -192,7 +192,7 @@ public static class Input
     /// <returns>
     ///     Returns the X mouse position on screen in pixel coordinates.
     /// </returns>
-    public static float GetMouseX() => ClampedMousePositionX();
+    public static int GetMouseX() => (int)ClampedMousePositionX();
 
     /// <summary>
     ///     Gets the mouse Y position on screen this frame.
@@ -200,7 +200,7 @@ public static class Input
     /// <returns>
     ///     Returns the mouse Y position on screen in pixel coordinates.
     /// </returns>
-    public static float GetMouseY() => ClampedMousePositionY();
+    public static int GetMouseY() => (int)ClampedMousePositionY();
 
     /// <summary>
     ///     Gets the mouse wheel movement this frame.
@@ -216,7 +216,7 @@ public static class Input
     /// <returns>
     ///     Returns the mouse wheel X movement.
     /// </returns>
-    public static float GetMouseWheelX() => Raylib.GetMouseWheelMoveV().X;
+    public static int GetMouseWheelX() => (int)Raylib.GetMouseWheelMoveV().X;
 
     /// <summary>
     ///     Gets the mouse wheel's Y movement this frame.
@@ -224,7 +224,7 @@ public static class Input
     /// <returns>
     ///     Returns the mouse wheel Y movement.
     /// </returns>
-    public static float GetMouseWheelY() => Raylib.GetMouseWheelMoveV().Y;
+    public static int GetMouseWheelY() => (int)Raylib.GetMouseWheelMoveV().Y;
 
     /// <summary>
     ///     Hides mouse cursor in window.
