@@ -10,9 +10,6 @@ namespace MohawkGame2D;
 /// </summary>
 public class Game
 {
-    // Place your variables here:
-
-
     /// <summary>
     ///     Setup runs once before the game loop begins.
     /// </summary>
